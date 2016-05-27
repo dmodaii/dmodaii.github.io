@@ -1,0 +1,687 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="iOS,HybridApp," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="moexcept" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="&amp;#x9A9A;&amp;#x5E74;&amp;#xFF0C;&amp;#x4F60;&amp;#x597D;&amp;#x54E6;&amp;#x3002;&amp;#x54B1;&amp;#x4EEC;&amp;#x8FD9;&amp;#x7BC7;&amp;#x6587;&amp;#x7AE0;&amp;#x4E3B;&amp;#x8981;&amp;#x8BB2;&amp;#x89E3;&amp;#x4E00;&amp;#x4E0B;JavaScriptCore&amp;#x6846;&amp;#x67B6;&amp;#x7684;&amp;#x4F7F;&amp;#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS端网页中js与OC如何交互(JavaScriptCore)">
+<meta property="og:url" content="http://codertian.com/2016/04/22/iOS-javascriptcore-call-native/index.html">
+<meta property="og:site_name" content="moexcept">
+<meta property="og:description" content="&amp;#x9A9A;&amp;#x5E74;&amp;#xFF0C;&amp;#x4F60;&amp;#x597D;&amp;#x54E6;&amp;#x3002;&amp;#x54B1;&amp;#x4EEC;&amp;#x8FD9;&amp;#x7BC7;&amp;#x6587;&amp;#x7AE0;&amp;#x4E3B;&amp;#x8981;&amp;#x8BB2;&amp;#x89E3;&amp;#x4E00;&amp;#x4E0B;JavaScriptCore&amp;#x6846;&amp;#x67B6;&amp;#x7684;&amp;#x4F7F;&amp;#">
+<meta property="og:image" content="http://codertian.com/2016/04/22/iOS-javascriptcore-call-native/button.png">
+<meta property="og:image" content="http://codertian.com/2016/04/22/iOS-javascriptcore-call-native/testresult.png">
+<meta property="og:image" content="http://codertian.com/2016/04/22/iOS-javascriptcore-call-native/OC-JS.gif">
+<meta property="og:updated_time" content="2016-05-27T11:07:13.996Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS端网页中js与OC如何交互(JavaScriptCore)">
+<meta name="twitter:description" content="&amp;#x9A9A;&amp;#x5E74;&amp;#xFF0C;&amp;#x4F60;&amp;#x597D;&amp;#x54E6;&amp;#x3002;&amp;#x54B1;&amp;#x4EEC;&amp;#x8FD9;&amp;#x7BC7;&amp;#x6587;&amp;#x7AE0;&amp;#x4E3B;&amp;#x8981;&amp;#x8BB2;&amp;#x89E3;&amp;#x4E00;&amp;#x4E0B;JavaScriptCore&amp;#x6846;&amp;#x67B6;&amp;#x7684;&amp;#x4F7F;&amp;#">
+<meta name="twitter:image" content="http://codertian.com/2016/04/22/iOS-javascriptcore-call-native/button.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+  <title> iOS端网页中js与OC如何交互(JavaScriptCore) | moexcept </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">moexcept</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">唯有苦，方有甜。唯有累，方有闲</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                iOS端网页中js与OC如何交互(JavaScriptCore)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-04-22T20:53:19+08:00" content="2016-04-22">
+              2016-04-22
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS开发/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/22/iOS-javascriptcore-call-native/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/22/iOS-javascriptcore-call-native/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>&#x9A9A;&#x5E74;&#xFF0C;&#x4F60;&#x597D;&#x54E6;&#x3002;&#x54B1;&#x4EEC;&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#x4E3B;&#x8981;&#x8BB2;&#x89E3;&#x4E00;&#x4E0B;<code>JavaScriptCore</code>&#x6846;&#x67B6;&#x7684;&#x4F7F;&#x7528;&#xFF0C;&#x4E86;&#x89E3;&#x4E00;&#x4E0B;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;&#x6846;&#x67B6;&#x600E;&#x4E48;&#x8BA9;&#x7F51;&#x9875;&#x4E2D;&#x7684;js&#x4EE3;&#x7801;&#x6765;&#x8C03;&#x7528;&#x672C;&#x5730;&#x7684;&#x4EE3;&#x7801;&#x3002;&#x4EE5;&#x53CA;native&#x7AEF;&#x53C8;&#x600E;&#x4E48;&#x8DDF;&#x7F51;&#x9875;&#x7AEF;&#x4EA4;&#x4E92;&#x7684;&#xFF0C;&#x5176;&#x5B9E;&#x4E5F;&#x5C31;&#x662F;&#x522B;&#x4EBA;&#x53E3;&#x4E2D;&#x6240;&#x8BF4;&#x7684;<code>Hybrid App</code>&#x7684;&#x601D;&#x60F3;&#x1F643;&#xFF0C;&#x522B;&#x6025;&#x542C;&#x6211;&#x6162;&#x6162;&#x9053;&#x6765;&#xFF0C;&#x6211;&#x90FD;&#x662F;&#x4EE5;&#x6700;&#x7B80;&#x5355;&#x7684;&#x4F8B;&#x5B50;&#x6765;&#x8BF4;&#x660E;&#x95EE;&#x9898;&#x3002;&#x3002;&#x3002;</p>
+<a id="more"></a>
+<p>&#x5728;&#x4E86;&#x89E3;&#x672C;&#x7BC7;&#x6587;&#x7AE0;&#x4E4B;&#x524D;&#x4F60;&#x9700;&#x8981;&#x5148;&#x77E5;&#x9053;&#x4E00;&#x4E0B;<code>JavaScriptCore</code>&#x6846;&#x67B6;&#x662F;&#x4EC0;&#x4E48;&#xFF1F;&#x63A8;&#x8350;&#x5927;&#x5BB6;&#x770B;&#x770B;&#x4E0B;&#x5217;&#x6587;&#x7AE0;<br><a href="https://hjgitbook.gitbooks.io/ios/content/04-technical-research/04-javascriptcore-note.html" target="_blank" rel="external">JavaScriptCore&#x521D;&#x63A2;</a></p>
+<p>&#x5F88;&#x4E45;&#x4EE5;&#x524D;&#xFF0C;&#x6211;&#x4EEC;&#x6CA1;&#x6709;<code>JavaScriptCore</code>&#x662F;&#x600E;&#x4E48;&#x5B9E;&#x73B0;&#x7F51;&#x9875;&#x548C;native&#x4EA4;&#x4E92;&#x7684;&#x5462;&#xFF0C;&#x5F88;&#x9EBB;&#x70E6;&#xFF0C;&#x5F88;&#x82E6;&#x903C;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x4E00;&#x4E0B;&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;<br><a href="http://vonglo.me/2015/10/19/WebView%E4%B8%8E%20JS%20%E7%9A%84%E4%BA%A4%E4%BA%92/" target="_blank" rel="external">WebView &#x4E0E; JS &#x7684;&#x4EA4;&#x4E92;</a><br>&#x4F46;&#x662F;&#x4ECE;iOS7&#x4EE5;&#x540E;&#x6211;&#x4EEC;&#x5E78;&#x798F;&#x4E86;&#xFF0C;JSCore&#x6846;&#x67B6;&#x7684;&#x51FA;&#x751F;&#x8BA9;&#x6211;&#x4EEC;&#x6709;&#x4E86;&#x5F88;&#x68D2;&#x7684;&#x5DE5;&#x5177;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x5199;&#x5F88;&#x5C11;&#x7684;&#x4EE3;&#x7801;&#x5C31;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;JS&#x4E0E;Native&#x7AEF;&#x7684;&#x4EA4;&#x4E92;&#xFF08;Native&#x7AEF;&#x5C31;&#x662F;&#x8BF4;&#x7684;OC/Swift&#x4EE3;&#x7801;&#xFF09;,&#x76EE;&#x524D;&#x6211;&#x4EEC;&#x53EA;&#x9700;&#x8981;&#x4E86;&#x89E3;&#x4F7F;&#x7528;JavaScriptCore&#x7684;&#x8FD9;&#x79CD;&#x529E;&#x6CD5;&#x5C31;&#x884C;&#x4E86;&#xFF0C;&#x56E0;&#x4E3A;&#x8FD9;&#x662F;&#x672A;&#x6765;&#xFF01;</p>
+<h1 id="JavaScriptCore&#x7B80;&#x8FF0;"><a href="#JavaScriptCore&#x7B80;&#x8FF0;" class="headerlink" title="JavaScriptCore&#x7B80;&#x8FF0;"></a>JavaScriptCore&#x7B80;&#x8FF0;</h1><p>&#x5570;&#x55E6;&#x51E0;&#x4E2A;&#x6982;&#x5FF5;</p>
+<blockquote>
+<ol>
+<li>JSValue: &#x4EE3;&#x8868;&#x4E00;&#x4E2A;JavaScript&#x5B9E;&#x4F53;&#xFF0C;&#x4E00;&#x4E2A;JSValue&#x53EF;&#x4EE5;&#x8868;&#x793A;&#x5F88;&#x591A;JavaScript&#x539F;&#x59CB;&#x7C7B;&#x578B;&#x4F8B;&#x5982;boolean, integers, doubles&#xFF0C;&#x751A;&#x81F3;&#x5305;&#x62EC;&#x5BF9;&#x8C61;&#x548C;&#x51FD;&#x6570;&#x3002;</li>
+<li>JSContext: &#x4EE3;&#x8868;JavaScript&#x7684;&#x8FD0;&#x884C;&#x73AF;&#x5883;&#xFF0C;&#x4F60;&#x9700;&#x8981;&#x7528;JSContext&#x6765;&#x6267;&#x884C;JavaScript&#x4EE3;&#x7801;&#x3002;&#x6240;&#x6709;&#x7684;JSValue&#x90FD;&#x662F;&#x6346;&#x7ED1;&#x5728;&#x4E00;&#x4E2A;JSContext&#x4E0A;&#x7684;&#x3002;</li>
+<li>JSExport: &#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x534F;&#x8BAE;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x8FD9;&#x4E2A;&#x534F;&#x8BAE;&#x6765;&#x5C06;&#x539F;&#x751F;&#x5BF9;&#x8C61;&#x5BFC;&#x51FA;&#x7ED9;JavaScript&#xFF0C;&#x8FD9;&#x6837;&#x539F;&#x751F;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#x6216;&#x65B9;&#x6CD5;&#x5C31;&#x6210;&#x4E3A;&#x4E86;JavaScript&#x7684;&#x5C5E;&#x6027;&#x6216;&#x65B9;&#x6CD5;&#xFF0C;&#x975E;&#x5E38;&#x795E;&#x5947;&#x3002;</li>
+</ol>
+</blockquote>
+<p>&#x4E0B;&#x9762;&#x6211;&#x4EEC;&#x901A;&#x8FC7;&#x4E00;&#x4E2A;&#x6700;&#x7B80;&#x5355;&#x7684;&#x4F8B;&#x5B50;&#xFF0C;&#x6765;&#x8BF4;&#x660E;JS&#x4E0E;OC&#x7684;&#x4EA4;&#x4E92;&#xFF0C;&#x65E2;&#x7136;&#x8BF4;&#x5230;Hybrid App&#x80AF;&#x5B9A;&#x662F;&#x5C11;&#x4E0D;&#x4E86;&#x7F51;&#x9875;&#x3002;&#x6211;&#x4EEC;&#x5C31;&#x5148;&#x5B9E;&#x73B0;&#x8FD9;&#x4E2A;&#x7F51;&#x9875;&#x3002;</p>
+<h1 id="&#x7F51;&#x9875;"><a href="#&#x7F51;&#x9875;" class="headerlink" title="&#x7F51;&#x9875;"></a>&#x7F51;&#x9875;</h1><p>&#x7F51;&#x9875;&#x5185;&#x5BB9;&#x5982;&#x4E0B;&#xFF1A;</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>test javascript<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        		<span class="comment">&lt;!--&#x4E3A;&#x4EC0;&#x4E48;&#x4F7F;&#x7528;ttf.&#x8C03;&#x7528;&#xFF0C;&#x4E0B;&#x9762;&#x4F1A;&#x8BB2;&#x5230;--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">&quot;ttf.nslog(&apos;JS&#x4E0E;OC&#x4EA4;&#x4E92;&apos;);&quot;</span>&gt;</span>&#x70B9;&#x51FB;&#x6211;&#x7136;&#x540E;&#x770B;xcode&#x7684;log<span class="tag">&lt;/<span class="name">button</span>&gt;</span> </span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="/2016/04/22/iOS-javascriptcore-call-native/button.png" alt=""></p>
+<p>&#x5F88;&#x7B80;&#x5355;&#x7684;&#x4E00;&#x4E2A;HTML&#x7F51;&#x9875;&#xFF0C;&#x6211;&#x4EEC;&#x60F3;&#x8981;&#x505A;&#x7684;&#x5C31;&#x662F;&#x5728;&#x8FD9;&#x4E2A;&#x7F51;&#x9875;&#x663E;&#x793A;&#x7684;&#x65F6;&#x5019;&#x70B9;&#x51FB;&#x6309;&#x94AE;&#x4F1A;&#x8C03;&#x7528;OC&#x7684;NSLog&#x65B9;&#x6CD5;&#xFF0C;&#x6253;&#x5370;&#x51FA;&#x201C;<code>JS&#x4E0E;OC&#x4EA4;&#x4E92;</code>&#x201D;&#x4FE1;&#x606F;&#x3002;&#x8FD9;&#x4E2A;&#x7F51;&#x9875;&#x662F;&#x4F7F;&#x7528;UIWebView&#x663E;&#x793A;&#x7684;&#x3002;</p>
+<h1 id="&#x6CE8;&#x5165;&#x5BF9;&#x8C61;"><a href="#&#x6CE8;&#x5165;&#x5BF9;&#x8C61;" class="headerlink" title="&#x6CE8;&#x5165;&#x5BF9;&#x8C61;"></a>&#x6CE8;&#x5165;&#x5BF9;&#x8C61;</h1><p>&#x6211;&#x4EEC;&#x8981;&#x60F3;&#x8C03;&#x7528;OC&#x65B9;&#x6CD5;&#xFF0C;&#x80AF;&#x5B9A;&#x662F;&#x548C;OC&#x5BF9;&#x8C61;&#x626F;&#x4E0D;&#x5F00;&#x5173;&#x7CFB;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x81EA;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x7C7B;&#xFF0C;&#x8C03;&#x7528;&#x4E00;&#x4E2A;JS&#x65B9;&#x6CD5;&#x5C31;&#x4F1A;&#x53BB;&#x8C03;&#x7528;&#x8FD9;&#x4E2A;&#x7C7B;&#x4E2D;&#x7684;&#x5BF9;&#x8C61;&#x65B9;&#x6CD5;&#x3002;</p>
+<h3 id="&#x5173;&#x4E8E;&#x8981;&#x6CE8;&#x5165;&#x7684;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;"><a href="#&#x5173;&#x4E8E;&#x8981;&#x6CE8;&#x5165;&#x7684;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;" class="headerlink" title="&#x5173;&#x4E8E;&#x8981;&#x6CE8;&#x5165;&#x7684;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;"></a>&#x5173;&#x4E8E;&#x8981;&#x6CE8;&#x5165;&#x7684;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;</h3><p>JavaScriptCore&#x652F;&#x6301;&#x5C06;&#x5BF9;&#x8C61;&#x6CE8;&#x5165;JSContext&#x8FD0;&#x884C;&#x73AF;&#x5883;&#x4E2D;&#xFF0C;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x6CE8;&#x5165;&#x7684;&#x540D;&#x79F0;&#x8C03;&#x7528;JS&#x65B9;&#x6CD5;&#x5C31;&#x4F1A;&#x81EA;&#x52A8;&#x8C03;&#x7528;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x5BF9;&#x5E94;&#x7684;OC&#x65B9;&#x6CD5;&#x3002;&#x6211;&#x4EEC;&#x6CE8;&#x5165;&#x7684;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x662F;&#x6709;&#x4E00;&#x5B9A;&#x8981;&#x6C42;&#x7684;&#xFF0C;&#x4F60;&#x53EF;&#x80FD;&#x60F3;&#x5230;&#x4E86;&#xFF0C;&#x5C31;&#x662F;&#x8981;&#x7EE7;&#x627F;&#x67D0;&#x4E2A;&#x534F;&#x8BAE;&#xFF0C;&#x8FD9;&#x4E2A;&#x534F;&#x8BAE;&#x5C31;&#x662F;JSExport&#x3002;</p>
+<p>&#x56E0;&#x4E3A;OC&#x8BED;&#x8A00;&#x548C;JS&#x8BED;&#x8A00;&#x8BBE;&#x8BA1;&#x672C;&#x8EAB;&#x7684;&#x5DEE;&#x5F02;&#xFF0C;&#x56E0;&#x6B64;JSContext&#x4E0D;&#x80FD;&#x628A;OC&#x7684;&#x5BF9;&#x8C61;&#x76F4;&#x63A5;&#x8F6C;&#x6210;JS&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x56E0;&#x6B64;&#x5B98;&#x65B9;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;JSExport&#x7684;&#x534F;&#x8BAE;&#x6807;&#x8BC6;&#xFF0C;&#x6765;&#x5B9E;&#x73B0;&#x8FD9;&#x4E2A;&#x8F6C;&#x6362;&#xFF0C;&#x901A;&#x8FC7;&#x76F4;&#x63A5;&#x7EE7;&#x627F;JSExport&#x5B9A;&#x4E49;&#x81EA;&#x5DF1;&#x7684;protocol&#xFF0C;&#x53EF;&#x4EE5;&#x8BA9;&#x81EA;&#x5B9A;&#x4E49;&#x5BF9;&#x8C61;&#x5728;JavaScript&#x73AF;&#x5883;&#x4E2D;&#x4F7F;&#x7528;&#xFF0C;&#x4EFB;&#x4F55;&#x6CE8;&#x518C;&#x5230;JS&#x73AF;&#x5883;&#x4E2D;&#x7684;&#x5BF9;&#x8C61;&#x90FD;&#x9700;&#x8981;&#x6807;&#x8BB0;&#x4E3A;JSExport</p>
+<p>&#x4E07;&#x53E5;&#x8BDD;&#x4E0D;&#x5982;&#x4E00;&#x53E5;&#x4EE3;&#x7801;&#xFF0C;&#x6765;&#x770B;&#x4E00;&#x4E0B;&#x4EE3;&#x7801;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x534F;&#x8BAE;&#x7EE7;&#x627F;JSExport&#x534F;&#x8BAE;</span></span><br><span class="line"><span class="class"><span class="keyword">@protocol</span> <span class="title">PersonJSExport</span> &lt;<span class="title">JSExport</span>&gt;</span></span><br><span class="line">- (<span class="keyword">void</span>)nslog:(<span class="built_in">NSString</span> *)str; <span class="comment">//&#x534F;&#x8BAE;&#x91CC;&#x9762;&#x8981;&#x58F0;&#x660E;&#x8C03;&#x7528;&#x7684;&#x65B9;&#x6CD5;</span></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//&#x6211;&#x4EEC;&#x7684;&#x81EA;&#x5B9A;&#x4E49;&#x7C7B;&#x8981;&#x9075;&#x5FAA;&#x6211;&#x4EEC;&#x81EA;&#x5DF1;&#x5B9A;&#x4E49;&#x7684;&#x8FD9;&#x4E2A;&#x534F;&#x8BAE;</span></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">MyJSObject</span>() &lt;<span class="title">PersonJSExport</span>&gt;</span></span><br><span class="line">- (<span class="keyword">void</span>)nslog:(<span class="built_in">NSString</span> *)str;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">MyJSObject</span></span></span><br><span class="line">- (<span class="keyword">void</span>)nslog:(<span class="built_in">NSString</span> *)str {</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;%@&quot;</span>, str);</span><br><span class="line">}</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<p>&#x6211;&#x4EEC;&#x81EA;&#x5B9A;&#x7684;&#x5BF9;&#x8C61;&#x5FC5;&#x987B;&#x9700;&#x8981;&#x8FD9;&#x6837;&#x5199;&#xFF0C;&#x9996;&#x5148;&#x81EA;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x534F;&#x8BAE;&#x9075;&#x5FAA;<code>JSExport</code>&#xFF0C;&#x7136;&#x540E;&#x6211;&#x4EEC;&#x81EA;&#x5B9A;&#x4E49;&#x5BF9;&#x8C61;&#x518D;&#x9075;&#x5FAA;&#x6211;&#x4EEC;&#x7684;&#x81EA;&#x5B9A;&#x4E49;&#x534F;&#x8BAE;&#xFF0C;&#x5E76;&#x628A;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x4E0E;JS&#x4EA4;&#x4E92;&#x7684;&#x65B9;&#x6CD5;&#x5B9A;&#x4E49;&#x4E0E;&#x5B9E;&#x73B0;&#x597D;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x7684;&#x5BF9;&#x8C61;&#x5B9A;&#x4E49;&#x597D;&#x4E86;&#xFF0C;&#x63A5;&#x4E0B;&#x6765;&#x5C31;&#x662F;&#x628A;&#x5BF9;&#x8C61;&#x6CE8;&#x5165;&#x5230;JS&#x73AF;&#x5883;&#x4E2D;&#x3002;&#x6240;&#x8C13;&#x6CE8;&#x5165;&#x5230;JS&#x73AF;&#x5883;&#x5176;&#x5B9E;&#x5C31;&#x662F;&#x7ED9;JSContext&#x5BF9;&#x8C61;&#x8D4B;&#x503C;&#xFF0C;&#x5176;&#x5B9E;&#x53EF;&#x4EE5;&#x628A;JSContext&#x770B;&#x6210;&#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x5178;&#xFF0C;&#x91CC;&#x9762;&#x5B58;&#x50A8;&#x4E86;&#x5F88;&#x591A;JSValue&#x503C;&#x3002;&#x4EFB;&#x4F55;&#x88AB;&#x5B58;&#x8FDB;&#x53BB;&#x7684;&#x4E1C;&#x897F;&#x90FD;&#x4F1A;&#x88AB;&#x5305;&#x88C5;&#x6210;JSValue&#x3002;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">MyJSObject *jsObject = [MyJSObject new]; <span class="comment">//&#x521B;&#x9020;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;</span></span><br><span class="line">JSContext *context = [JSContext new];	<span class="comment">//&#x521B;&#x5EFA;JS&#x8FD0;&#x884C;&#x73AF;&#x5883;&#xFF0C;&#x8FD9;&#x4E2A;&#x53EA;&#x662F;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;JSContext&#x73AF;&#x5883;&#x7684;&#x4F8B;&#x5B50;&#xFF0C;&#x5E76;&#x4E0D;&#x662F;&#x6211;&#x4EEC;&#x6700;&#x7EC8;&#x4F7F;&#x7528;&#x7684;&#x90A3;&#x4E2A;&#x3002;</span></span><br><span class="line">context[<span class="string">@&quot;ttf&quot;</span>] = person;	<span class="comment">//&#x5C06;&#x5BF9;&#x8C61;&#x6CE8;&#x5165;JS&#x8FD0;&#x884C;&#x73AF;&#x5883;</span></span><br></pre></td></tr></table></figure>
+<p>&#x90A3;&#x4E48;&#x95EE;&#x9898;&#x53C8;&#x6765;&#x4E86;&#xFF0C;&#x6211;&#x4EEC;&#x600E;&#x4E48;&#x62FF;&#x5230;&#x8FD9;&#x4E2A;JSContext&#x73AF;&#x5883;&#x5462;&#xFF1F;&#x56E0;&#x4E3A;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x7684;&#x662F;UIWebView&#x663E;&#x793A;&#x7684;HTML&#x7F51;&#x9875;&#xFF0C;&#x90A3;&#x4E48;JS&#x4EE3;&#x7801;&#x4E5F;&#x662F;&#x5728;&#x8FD9;&#x4E2A;webView&#x4E2D;&#x8FD0;&#x884C;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x8981;&#x62FF;JSContext&#x73AF;&#x5883;&#x662F;&#x9700;&#x8981;&#x5411;&#x8FD9;&#x4E2A;webView&#x62FF;&#x7684;&#x3002;</p>
+<h1 id="&#x5411;UIWebView&#x5BF9;&#x8C61;&#x62FF;JSContext&#x73AF;&#x5883;&#x5BF9;&#x8C61;"><a href="#&#x5411;UIWebView&#x5BF9;&#x8C61;&#x62FF;JSContext&#x73AF;&#x5883;&#x5BF9;&#x8C61;" class="headerlink" title="&#x5411;UIWebView&#x5BF9;&#x8C61;&#x62FF;JSContext&#x73AF;&#x5883;&#x5BF9;&#x8C61;"></a>&#x5411;UIWebView&#x5BF9;&#x8C61;&#x62FF;JSContext&#x73AF;&#x5883;&#x5BF9;&#x8C61;</h1><p>&#x6211;&#x4EEC;&#x4ECE;UIWebView&#x4E2D;&#x62FF;JSContex&#x73AF;&#x5883;t&#x5BF9;&#x8C61;&#x6709;&#x4E24;&#x79CD;&#x65B9;&#x6CD5;&#xFF0C;&#x4F46;&#x662F;&#x8FD9;&#x4E24;&#x79CD;&#x65B9;&#x6CD5;&#x5B98;&#x65B9;&#x6587;&#x6863;&#x4E2D;&#x90FD;&#x6CA1;&#x6709;&#x8BB2;&#x8FF0;&#x3002;&#x53EF;&#x80FD;&#x82F9;&#x679C;&#x4E0D;&#x60F3;&#x8BA9;&#x6211;&#x4EEC;&#x4F7F;&#x7528;hybrid&#x65B9;&#x5F0F;&#x3002;&#x1F62A;</p>
+<h3 id="&#x4F7F;&#x7528;KVC"><a href="#&#x4F7F;&#x7528;KVC" class="headerlink" title="&#x4F7F;&#x7528;KVC"></a>&#x4F7F;&#x7528;KVC</h3><p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;KVC&#x65B9;&#x5F0F;&#x5411;webView&#x62FF;&#x8FD9;&#x4E2A;JSContext&#x5BF9;&#x8C61;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">JSContext *context = [<span class="keyword">self</span>.webView valueForKeyPath:<span class="string">@&quot;documentView.webView.mainFrame.javaScriptContext&quot;</span>];</span><br><span class="line"></span><br><span class="line">MyJSObject *jsObject = [MyJSObject new];</span><br><span class="line">_context[<span class="string">@&quot;ttf&quot;</span>] = jsObject;	<span class="comment">//&#x5C06;&#x5BF9;&#x8C61;&#x6CE8;&#x5165;&#x8FD9;&#x4E2A;context&#x4E2D;</span></span><br></pre></td></tr></table></figure>
+<p>&#x8FD9;&#x6837;&#x5B50;&#x4E00;&#x53E5;&#x4EE3;&#x7801;&#x5C31;&#x80FD;&#x62FF;&#x5230;&#x4E86;&#x8FD9;&#x4E2A;webView&#x7684;JS&#x73AF;&#x5883;&#x5BF9;&#x8C61;&#xFF0C;&#x662F;&#x4E0D;&#x662F;&#x5F88;&#x7B80;&#x5355;&#x3002;<br>&#x5F88;&#x4E0D;&#x5E78;&#xFF0C;&#x56E0;&#x4E3A;KVC&#x7684;&#x8FD9;&#x4E2A;&#x65B9;&#x5F0F;&#x6BD4;&#x8F83;&#x66B4;&#x529B;&#xFF0C;&#x8BF4;&#x4E0D;&#x4E00;&#x5B9A;&#x6211;&#x4EEC;&#x7684;&#x5E94;&#x7528;&#x5728;&#x4E0A;&#x67B6;&#x524D;&#x5915;&#x5C31;&#x88AB;Apple&#x62D2;&#x4E86;&#xFF0C;&#x771F;&#x5FC3;&#x662F;&#x592A;&#x53EF;&#x60DC;&#x4E86;&#x3002;&#x4F46;&#x662F;&#x6211;&#x4EEC;&#x8FD8;&#x6709;&#x53E6;&#x5916;&#x4E00;&#x4E2A;&#x4E0D;&#x66B4;&#x529B;&#x4F46;&#x662F;&#x5F88;hack&#x7684;&#x65B9;&#x5F0F;&#x3002;</p>
+<h3 id="&#x7ED9;NSObject&#x6DFB;&#x52A0;&#x5206;&#x7C7B;"><a href="#&#x7ED9;NSObject&#x6DFB;&#x52A0;&#x5206;&#x7C7B;" class="headerlink" title="&#x7ED9;NSObject&#x6DFB;&#x52A0;&#x5206;&#x7C7B;"></a>&#x7ED9;NSObject&#x6DFB;&#x52A0;&#x5206;&#x7C7B;</h3><p>&#x5728;OS X&#x4E2D;&#xFF0C;WebFrameLoadDelegate&#x8D1F;&#x8D23;WebKit&#x4E0E;NSWebView&#x7684;&#x901A;&#x4FE1;&#xFF0C;&#x7531;&#x4E8E;NSWebView&#x5185;&#x90E8;&#x4ECD;&#x7136;&#x4F7F;&#x7528;WebKit&#x6E32;&#x67D3;&#x5F15;&#x64CE;&#xFF0C;&#x82E5;&#x8981;&#x4FA6;&#x542C;&#x6E32;&#x67D3;&#x8FC7;&#x7A0B;&#x4E2D;&#x7684;&#x4E00;&#x7CFB;&#x5217;&#x4E8B;&#x4EF6;&#xFF0C;&#x5219;&#x5FC5;&#x987B;&#x4F7F;&#x7528;WebFrameLoadDelegate&#x5BF9;&#x8C61;&#xFF1A;</p>
+<p>&#x4F46;&#x662F;&#x5728;iOS&#x4E2D;&#x6CA1;&#x6709;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x4F46;&#x662F;&#x6709;Nick Hodapp&#x5BF9;&#x8C61;&#xFF0C;webView&#x5728;&#x52A0;&#x8F7D;&#x7F51;&#x9875;&#x7684;&#x65F6;&#x5019;&#x5982;&#x679C;&#x7F51;&#x9875;&#x6709;js&#x4EE3;&#x7801;(&#x4E5F;&#x5C31;&#x662F;<script></script>&#x4E2D;&#x7684;&#x5185;&#x5BB9;)&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x4F1A;&#x53BB;&#x5224;&#x65AD;&#x662F;&#x5426;&#x5B9E;&#x73B0;&#x4E86;<code>webView:didCreateJavaScriptContext:forFrame:</code>&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x6709;&#x5C31;&#x6267;&#x884C;&#xFF0C;&#x6CA1;&#x6709;&#x5C31;&#x4E0D;&#x6267;&#x884C;&#xFF0C;&#x603B;&#x4E4B;&#x53EA;&#x6709;&#x6709;JS&#x4EE3;&#x7801;&#x8FD0;&#x884C;&#x5C31;&#x4F1A;&#x53BB;&#x5224;&#x65AD;&#x3002;<strong>&#x6CE8;&#x610F;&#xFF1A;&#x5982;&#x679C;&#x6CA1;&#x6709;js&#x4EE3;&#x7801;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x4E0D;&#x4F1A;&#x53BB;&#x5224;&#x65AD;&#x662F;&#x5426;&#x5B9E;&#x73B0;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x3002;</strong>&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x5C31;&#x662F;&#x6211;&#x4EEC;&#x8981;&#x7684;JSContext&#x73AF;&#x5883;&#x5BF9;&#x8C61;&#x3002;&#x6240;&#x4EE5;&#x5B9E;&#x73B0;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x6765;&#x83B7;&#x5F97;&#x6211;&#x4EEC;&#x7684;JSContext&#x73AF;&#x5883;&#x5BF9;&#x8C61;&#xFF0C;&#x56E0;&#x4E3A;&#x6240;&#x6709;&#x7684;&#x7C7B;&#x90FD;&#x662F;&#x7EE7;&#x627F;NSObject&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x7ED9;NSObject&#x7684;category&#x4E2D;&#x91CD;&#x5199;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x3002;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">NSObject</span> (<span class="title">JSTest</span>)</span></span><br><span class="line">- (<span class="keyword">void</span>)webView:(<span class="keyword">id</span>)unuse didCreateJavaScriptContext:(JSContext *)ctx forFrame:(<span class="keyword">id</span>)frame {</span><br><span class="line">    [[<span class="built_in">NSNotificationCenter</span> defaultCenter] postNotificationName:<span class="string">@&quot;DidCreateContextNotification&quot;</span> object:ctx];</span><br><span class="line">}</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<p>&#x8C03;&#x7528;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x7684;&#x65F6;&#x5019;WebKit&#x5C31;&#x5DF2;&#x7ECF;&#x83B7;&#x53D6;&#x5230;&#x4E86;JSContext&#x5BF9;&#x8C61;&#xFF0C;&#x5728;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x4E2D;&#x6211;&#x4EEC;&#x53D1;&#x51FA;&#x4E00;&#x4E2A;&#x901A;&#x77E5;&#xFF0C;&#x8FD9;&#x4E2A;&#x901A;&#x77E5;&#x4F1A;&#x628A;&#x83B7;&#x53D6;&#x5230;&#x7684;JSContext&#x73AF;&#x5883;&#x5BF9;&#x8C61;&#x4F20;&#x9012;&#x51FA;&#x53BB;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x901A;&#x77E5;&#x6DFB;&#x52A0;&#x662F;&#x5728;ViewController&#x7684;<code>viewDidLoad</code>&#x65B9;&#x6CD5;&#x4E2D;&#x6DFB;&#x52A0;&#x7684;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)viewDidLoad {</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">    [[<span class="built_in">NSNotificationCenter</span> defaultCenter] addObserver:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(didCreateJSContext:) name:<span class="string">@&quot;DidCreateContextNotification&quot;</span> object:<span class="literal">nil</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSURL</span> *url = [[<span class="built_in">NSBundle</span> mainBundle] URLForResource:<span class="string">@&quot;test&quot;</span> withExtension:<span class="string">@&quot;html&quot;</span>];</span><br><span class="line">    [<span class="keyword">self</span>.webView loadRequest:[<span class="built_in">NSURLRequest</span> requestWithURL:url]];</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>&#x4F46;&#x662F;&#x6709;&#x65F6;&#x5019;&#x4F1A;&#x6709;&#x5F88;&#x591A;&#x7684;UIWebView&#xFF0C;&#x4E00;&#x4E2A;&#x5C4F;&#x5E55;&#x6253;&#x5F00;&#x5F88;&#x591A;&#x9875;&#x9762;&#xFF0C;&#x6211;&#x4EEC;&#x4E0D;&#x77E5;&#x9053;&#x6211;&#x4EEC;&#x83B7;&#x53D6;&#x7684;&#x8FD9;&#x4E2A;JSContext&#x5BF9;&#x8C61;&#x662F;&#x5C5E;&#x4E8E;&#x54EA;&#x4E00;&#x4E2A;webView&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x8BA9;&#x5148;&#x8BA9;&#x6BCF;&#x4E00;&#x4E2A;webView&#x5BF9;&#x8C61;&#x90FD;&#x6267;&#x884C;&#x4E00;&#x6BB5;JS&#x65B9;&#x6CD5;&#xFF0C;&#x628A;&#x5C5E;&#x4E8E;&#x8FD9;&#x4E2A;webView&#x7684;&#x6807;&#x8BC6;&#x6CE8;&#x5165;&#x8FD9;&#x4E2A;JSContext&#x73AF;&#x5883;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x901A;&#x8FC7;&#x5224;&#x65AD;&#x83B7;&#x53D6;&#x5230;&#x7684;&#x8FD9;&#x4E2A;JSContext&#x73AF;&#x5883;&#x4E2D;&#x6709;&#x6CA1;&#x6709;&#x8FD9;&#x4E2A;&#x6807;&#x8BC6;&#x6765;&#x5224;&#x65AD;&#x662F;&#x5426;&#x5C5E;&#x4E8E;&#x5F53;&#x524D;&#x7684;webView&#x5BF9;&#x8C61;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x5728;<code>- (void)didCreateJSContext:(NSNotification *)notification</code>&#x65B9;&#x6CD5;&#x4E2D;&#x5BF9;&#x8FD9;&#x4E2A;JSContext&#x5BF9;&#x8C61;&#x8FDB;&#x884C;&#x5224;&#x65AD;:</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)didCreateJSContext:(<span class="built_in">NSNotification</span> *)notification {</span><br><span class="line">    <span class="built_in">NSString</span> *indentifier = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@&quot;indentifier%lud&quot;</span>, (<span class="keyword">unsigned</span> <span class="keyword">long</span>)<span class="keyword">self</span>.webView.hash];</span><br><span class="line">    <span class="built_in">NSString</span> *indentifierJS = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@&quot;var %@ = &apos;%@&apos;&quot;</span>, indentifier, indentifier];</span><br><span class="line">    [<span class="keyword">self</span>.webView stringByEvaluatingJavaScriptFromString:indentifierJS];</span><br><span class="line"></span><br><span class="line">    JSContext *context = notification.object;</span><br><span class="line">    <span class="comment">//&#x5224;&#x65AD;&#x8FD9;&#x4E2A;context&#x662F;&#x5426;&#x5C5E;&#x4E8E;&#x5F53;&#x524D;&#x8FD9;&#x4E2A;webView</span></span><br><span class="line">    <span class="keyword">if</span> (![context[indentifier].toString isEqualToString:indentifier]) <span class="keyword">return</span>;</span><br><span class="line">    </span><br><span class="line">    _context = context;		<span class="comment">//&#x5982;&#x679C;&#x5C5E;&#x4E8E;&#x8FD9;&#x4E2A;webView</span></span><br><span class="line">    MyJSObject *jsObject = [MyJSObject new];</span><br><span class="line">    _context[<span class="string">@&quot;ttf&quot;</span>] = jsObject;	<span class="comment">//&#x5C06;&#x5BF9;&#x8C61;&#x6CE8;&#x5165;&#x8FD9;&#x4E2A;context&#x4E2D;</span></span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>&#x8FD9;&#x6837;&#x5B50;&#x6211;&#x4EEC;&#x5C31;&#x62FF;&#x5230;JSContext&#x73AF;&#x5883;&#x5BF9;&#x8C61;&#xFF0C;&#x5E76;&#x4E14;&#x628A;&#x5BF9;&#x8C61;&#x6CE8;&#x5165;&#x5230;&#x4E86;&#x8FD9;&#x4E2A;&#x73AF;&#x5883;&#x4E2D;&#x3002;&#x4E5F;&#x8BB8;&#x4F60;&#x6CE8;&#x610F;&#x5230;&#x4E86;&#xFF0C;&#x6211;&#x6CE8;&#x5165;&#x5BF9;&#x8C61;&#x7684;&#x65F6;&#x5019;&#x952E;&#x4E3A;<code>ttf</code>&#xFF0C;&#x800C;&#x6211;&#x4EEC;&#x7F51;&#x9875;&#x4E2D;&#x7684;&#x8C03;&#x7528;&#x5BF9;&#x8C61;&#x4E5F;&#x662F;<code>ttf</code>&#xFF0C;&#x4F60;&#x662F;&#x5426;&#x731C;&#x5230;&#x4E86;&#x4EC0;&#x4E48;&#xFF1F;  </p>
+<p>&#x662F;&#x7684;&#x5F53;&#x6211;&#x4EEC;&#x70B9;&#x51FB;&#x6309;&#x94AE;&#x7684;&#x65F6;&#x5019;JS&#x7AEF;&#x8C03;&#x7528;<code>ttf.nslog(&apos;JS&#x4E0E;OC&#x4EA4;&#x4E92;&apos;)</code>&#xFF0C;&#x56E0;&#x4E3A;&#x6211;&#x4EEC;&#x628A;ttf&#x8FD9;&#x4E2A;OC&#x5BF9;&#x8C61;&#x6CE8;&#x5165;&#x5230;&#x4E86;JS&#x73AF;&#x5883;&#x4E2D;&#xFF0C;&#x90A3;&#x4E48;JSCore&#x4F1A;&#x53BB;<code>ttf</code>&#x5BF9;&#x5E94;&#x7684;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#xFF08;&#x672C;&#x8D28;&#x4E0A;&#x5C31;&#x662F;MyJSObject&#x5BF9;&#x8C61;&#xFF0C;&#x53EA;&#x662F;&#x540D;&#x5B57;&#x4E00;&#x4E2A;&#x540D;&#x5B57;&#x800C;&#x5DF2;&#xFF09;&#x4E2D;&#x5BFB;&#x627E;<code>nslog</code>&#x65B9;&#x6CD5;&#xFF0C;&#x627E;&#x5230;&#x6211;&#x4EEC;&#x539F;&#x6765;&#x81EA;&#x5B9A;&#x4E49;&#x7C7B;<code>MyJSObject</code>&#x6709;&#x5B9E;&#x73B0;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x53BB;&#x8C03;&#x7528;OC&#x7C7B;&#x4E2D;&#x7684;<code>nslog</code>&#x65B9;&#x6CD5;&#x3002;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x6253;&#x5370;&#x7ED3;&#x679C;&#x3002;<strong>&#x53EF;&#x4EE5;&#x770B;&#x5230;JSCore&#x4F1A;&#x81EA;&#x52A8;&#x5C06;&#x53C2;&#x6570;&#x4F20;&#x9012;&#x8FC7;&#x6765;&#x7684;&#xFF01;</strong></p>
+<p><img src="/2016/04/22/iOS-javascriptcore-call-native/testresult.png" alt=""></p>
+<p>&#x8FD9;&#x5C31;&#x662F;JS&#x65B9;&#x6CD5;&#x8C03;&#x7528;native&#x7AEF;&#x7684;OC&#x65B9;&#x6CD5;&#xFF0C;&#x5173;&#x952E;&#x70B9;&#x5C31;&#x662F;&#x83B7;&#x53D6;&#x8FD9;&#x4E2A;JSContext&#x73AF;&#x5883;&#x3002;&#x62FF;&#x5230;&#x4E86;&#x8FD9;&#x4E2A;&#x73AF;&#x5883;&#x518D;&#x628A;&#x5BF9;&#x8C61;&#x6CE8;&#x5165;&#x8FDB;&#x53BB;&#xFF0C;&#x8C03;&#x7528;JS&#x65B9;&#x6CD5;&#x5C31;&#x4F1A;&#x53BB;&#x8C03;&#x7528;&#x76F8;&#x5E94;&#x5BF9;&#x8C61;&#x7684;OC&#x65B9;&#x6CD5;&#x4E86;&#x3002;</p>
+<h1 id="JSExportAs"><a href="#JSExportAs" class="headerlink" title="JSExportAs"></a>JSExportAs</h1><p>&#x4E0A;&#x9762;&#x6240;&#x8FF0;&#x7684;JS&#x65B9;&#x6CD5;&#x5FC5;&#x987B;&#x548C;&#x81EA;&#x5B9A;&#x4E49;&#x65B9;&#x6CD5;&#x4E00;&#x6A21;&#x4E00;&#x6837;&#xFF0C;JS&#x4E2D;&#x7684;&#x8C03;&#x7528;&#x65B9;&#x6CD5;<code>ttf.nslog(&apos;JS&#x4E0E;OC&#x4EA4;&#x4E92;&apos;)</code>;&#x81EA;&#x5B9A;&#x4E49;&#x7C7B;&#x4E2D;&#x7684;&#x65B9;&#x6CD5;<code>- (void)nslog:(NSString *)str</code>&#xFF0C;&#x4ED6;&#x4EEC;&#x90FD;&#x662F;nslog&#xFF0C;&#x5982;&#x679C;&#x6211;&#x4EEC;JS&#x8C03;&#x7528;&#x7684;&#x65B9;&#x6CD5;&#x548C;OC&#x65B9;&#x6CD5;&#x90FD;&#x8981;&#x4E00;&#x6837;&#x7684;&#x8BDD;&#xFF0C;&#x90A3;&#x6211;&#x4EEC;OC&#x90A3;&#x4E48;&#x591A;&#x90A3;&#x4E48;&#x957F;&#x7684;&#x65B9;&#x6CD5;&#x600E;&#x4E48;&#x529E;&#xFF1F;&#x653E;&#x5FC3;&#x82F9;&#x679C;&#x8003;&#x8651;&#x5230;&#x4E86;&#xFF0C;<code>JavaScriptCore</code>&#x6846;&#x67B6;&#x63D0;&#x4F9B;&#x4E86;<code>JSExportAs</code>&#xFF0C;&#x4ED6;&#x53EF;&#x4EE5;&#x5C06;JS&#x65B9;&#x6CD5;&#x548C;&#x6211;&#x4EEC;&#x7684;OC&#x65B9;&#x6CD5;&#x7ED1;&#x5728;&#x4E00;&#x8D77;&#xFF0C;&#x90A3;&#x4E48;&#x8C03;&#x7528;JS&#x65B9;&#x6CD5;&#x5C31;&#x4F1A;&#x53BB;&#x8C03;&#x7528;&#x6211;&#x4EEC;&#x7ED1;&#x5B9A;&#x7684;&#x90A3;&#x4E2A;OC&#x65B9;&#x6CD5;&#x3002;&#x8FD9;&#x4E2A;&#x64CD;&#x4F5C;&#x9700;&#x8981;&#x5728;&#x81EA;&#x5B9A;&#x4E49;&#x534F;&#x8BAE;&#x4E2D;&#x5B9E;&#x73B0;&#x3002;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@protocol</span> <span class="title">PersonJSExport</span> &lt;<span class="title">JSExport</span>&gt;</span></span><br><span class="line"><span class="comment">//&#x5C06;JS&#x7684;nslog&#x548C;&#x6211;&#x4EEC;OCprintSome&#x65B9;&#x6CD5;&#x7ED1;&#x5B9A;&#x5728;&#x4E00;&#x8D77;</span></span><br><span class="line">JSExportAs(nslog,</span><br><span class="line">           - (<span class="keyword">void</span>)printSome:(<span class="built_in">NSString</span> *)string</span><br><span class="line">           );</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">MyJSObject</span>() &lt;<span class="title">PersonJSExport</span>&gt;</span></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">MyJSObject</span></span></span><br><span class="line">- (<span class="keyword">void</span>)printSome:(<span class="built_in">NSString</span> *)string {</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;%@&quot;</span>, string);</span><br><span class="line">}</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<p>&#x8FD9;&#x65F6;&#x5019;&#x518D;&#x70B9;&#x51FB;&#x6309;&#x94AE;&#x5C31;&#x4F1A;&#x53BB;&#x8C03;&#x7528;<code>printSome</code>&#x51FD;&#x6570;&#xFF0C;&#x5F88;&#x7B80;&#x5355;&#x5427;&#xFF01;</p>
+<h1 id="OC&#x7C7B;&#x4E2D;&#x8C03;&#x7528;JS&#x65B9;&#x6CD5;"><a href="#OC&#x7C7B;&#x4E2D;&#x8C03;&#x7528;JS&#x65B9;&#x6CD5;" class="headerlink" title="OC&#x7C7B;&#x4E2D;&#x8C03;&#x7528;JS&#x65B9;&#x6CD5;"></a>OC&#x7C7B;&#x4E2D;&#x8C03;&#x7528;JS&#x65B9;&#x6CD5;</h1><p>&#x8BF4;&#x597D;&#x7684;JS&#x4E0E;OC&#x4EA4;&#x4E92;&#x5462;&#xFF1F;&#x600E;&#x4E48;&#x4E00;&#x76F4;&#x5728;&#x8BF4;JS&#x8C03;&#x7528;OC&#x65B9;&#x6CD5;&#xFF1F;&#x4E0B;&#x9762;&#x54B1;&#x4EEC;&#x5C31;&#x8BF4;&#x8BF4;JS&#x4E0E;OC&#x4EA4;&#x4E92;-OC&#x65B9;&#x6CD5;&#x8C03;&#x7528;JS&#x65B9;&#x6CD5;&#x3002;</p>
+<p>&#x6211;&#x60F3;&#x5B9E;&#x73B0;&#x7684;&#x662F;&#x70B9;&#x51FB;&#x7F51;&#x9875;&#x4E2D;&#x6309;&#x94AE;&#xFF0C;Xcode&#x6253;&#x5370;&#x5B8C;&#x6D88;&#x606F;&#x8FC7;1&#x79D2;&#x949F;&#x518D;&#x8BA9;&#x7F51;&#x9875;&#x4E2D;alert&#x4E00;&#x4E2A;&#x6846;&#x3002;<br>&#x770B;&#x4E0B;&#x6548;&#x679C;&#x56FE;&#xFF1A;</p>
+<p><img src="/2016/04/22/iOS-javascriptcore-call-native/OC-JS.gif" alt=""></p>
+<p>&#x60F3;&#x8C61;&#x4E00;&#x4E0B;&#x600E;&#x4E48;&#x53BB;&#x5B9E;&#x73B0;&#x5462;&#xFF1F;&#x4E5F;&#x8BB8;&#x4F60;&#x731C;&#x5230;&#x4E86;&#xFF0C;&#x4F7F;&#x7528;&#x56DE;&#x8C03;&#xFF0C;&#x5728;&#x6211;&#x4EEC;&#x6253;&#x5370;&#x5B8C;&#x6D88;&#x606F;&#x4EE5;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x53BB;&#x6267;&#x884C;&#x4E00;&#x4E2A;JS&#x7684;&#x56DE;&#x8C03;&#xFF0C;&#x6CE8;&#x610F;&#x8FD9;&#x4E2A;&#x56DE;&#x8C03;&#x662F;JS&#x7684;&#x56DE;&#x8C03;&#x4E0D;&#x662F;OC&#x7684;&#x56DE;&#x8C03;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x4FEE;&#x6539;&#x4E00;&#x4E0B;&#x6211;&#x4EEC;&#x7684;HTML&#x6587;&#x4EF6;&#xFF0C;&#x589E;&#x52A0;&#x4E00;&#x4E2A;&#x56DE;&#x8C03;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>test javascript<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="undefined"></span><br><span class="line">            function callBack(a) {</span><br><span class="line">                alert(a);</span><br><span class="line">            }</span><br><span class="line">        </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        		<span class="comment">&lt;!--&#x4E3A;&#x4EC0;&#x4E48;&#x4F7F;&#x7528;ttf.&#x8C03;&#x7528;&#xFF0C;&#x4E0B;&#x9762;&#x4F1A;&#x8BB2;&#x5230;--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">&quot;ttf.nslog(&apos;JS&#x4E0E;OC&#x4EA4;&#x4E92;&apos;, &apos;callBack&apos;);&quot;</span>&gt;</span>&#x70B9;&#x51FB;&#x6211;&#x7136;&#x540E;&#x770B;xcode&#x7684;log<span class="tag">&lt;/<span class="name">button</span>&gt;</span> </span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>&#x6211;&#x4EEC;&#x8FD8;&#x9700;&#x8981;&#x66F4;&#x6539;&#x4E00;&#x4E0B;&#x6211;&#x4EEC;&#x7684;&#x81EA;&#x5B9A;&#x4E49;&#x7C7B;&#xFF0C;&#x56E0;&#x4E3A;&#x6211;&#x4EEC;&#x8FD9;&#x4E2A;&#x81EA;&#x5B9A;&#x4E49;&#x7C7B;&#x8981;&#x5728;&#x56DE;&#x8C03;&#x65B9;&#x6CD5;&#x4E2D;&#x8981;&#x64CD;&#x63A7;webView&#x5BF9;&#x8C61;&#x6267;&#x884C;JS&#x7684;&#x56DE;&#x8C03;&#x65B9;&#x6CD5;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x81EA;&#x5B9A;&#x4E49;&#x7C7B;&#x8981;&#x5305;&#x542B;&#x4E00;&#x4E2A;webView&#x5BF9;&#x8C61;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@protocol</span> <span class="title">PersonJSExport</span> &lt;<span class="title">JSExport</span>&gt;</span></span><br><span class="line">JSExportAs(nslog,</span><br><span class="line">           - (<span class="keyword">void</span>)printWithString:(<span class="built_in">NSString</span> *)string callback:(<span class="built_in">NSString</span> *)callback</span><br><span class="line">           );</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">MyJSObject</span>() &lt;<span class="title">PersonJSExport</span>&gt;</span></span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">strong</span>, <span class="keyword">nonatomic</span>) <span class="built_in">UIWebView</span> *webView;<span class="comment">//&#x6211;&#x4EEC;&#x9700;&#x8981;&#x62FF;&#x5230;webView</span></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">MyJSObject</span></span></span><br><span class="line"></span><br><span class="line">- (instancetype)initWithWebView:(<span class="built_in">UIWebView</span> *)webView {</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span> = [<span class="keyword">super</span> init]) {</span><br><span class="line">        _webView = webView;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)printWithString:(<span class="built_in">NSString</span> *)string callback:(<span class="built_in">NSString</span> *)callback {</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;%@&quot;</span>, string);</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSString</span> *callbackJS = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@&quot;%@(&apos;&#x6211;&#x662F;callback&apos;)&quot;</span>, callback];</span><br><span class="line">    <span class="comment">//1&#x79D2;&#x949F;&#x4EE5;&#x540E;&#x6267;&#x884C;JS&#x7684;&#x56DE;&#x8C03;&#x65B9;&#x6CD5;</span></span><br><span class="line">    [<span class="keyword">self</span>.webView performSelector:<span class="keyword">@selector</span>(stringByEvaluatingJavaScriptFromString:) withObject:callbackJS afterDelay:<span class="number">1</span>];</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>&#x6CE8;&#x610F;UIWebView&#x6267;&#x884C;JS&#x4EE3;&#x7801;&#x4F7F;&#x7528;&#x7684;&#x662F;<code>stringByEvaluatingJavaScriptFromString</code>&#x65B9;&#x6CD5;&#xFF0C;&#x800C;JavaScriptCore&#x6267;&#x884C;JS&#x4EE3;&#x7801;&#x4F7F;&#x7528;&#x7684;&#x662F;<code>- (JSValue *)evaluateScript:(NSString *)script;</code>&#x65B9;&#x6CD5;&#x3002;</p>
+<p>&#x8FD9;&#x6837;&#x5B50;&#x6211;&#x4EEC;&#x5C31;&#x5B9E;&#x73B0;&#x4E86;JS&#x548C;OC&#x76F8;&#x4E92;&#x8C03;&#x7528;&#xFF0C;&#x6CA1;&#x4EC0;&#x4E48;&#x96BE;&#x5EA6;&#x7684;&#xFF0C;&#x90FD;&#x8BF4;&#x4E86;&#x4EE5;&#x6700;&#x7B80;&#x5355;&#x7684;&#x4F8B;&#x5B50;&#x8BF4;&#x660E;&#x95EE;&#x9898;&#xFF0C;&#x6211;&#x672C;&#x8EAB;&#x4E5F;&#x5F88;&#x538C;&#x70E6;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x95EE;&#x9898;&#x975E;&#x8981;&#x641E;&#x5F88;&#x590D;&#x6742;&#x7684;&#x4EE3;&#x7801;&#x53BB;&#x8BB2;&#x89E3;&#x3002;&#x1F913;</p>
+<p>&#x901A;&#x8FC7;&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#x7684;&#x4ECB;&#x7ECD;&#x6211;&#x60F3;&#x5927;&#x5BB6;&#x5E94;&#x8BE5;&#x5BF9;<code>Hybrid App</code>&#x6709;&#x6240;&#x4E86;&#x89E3;&#x4E86;&#xFF0C;&#x80FD;&#x638C;&#x63E1;<code>JavaScriptCore</code>&#x7684;&#x4E00;&#x4E9B;&#x5E94;&#x7528;&#x4E86;&#xFF0C;&#x5E0C;&#x671B;&#x6211;&#x8FD9;&#x4E48;&#x591A;&#x5B57;&#x6CA1;&#x6709;&#x767D;&#x6572;&#xFF0C;&#x5EFA;&#x8BAE;&#x5927;&#x5BB6;&#x53C2;&#x8003;Demo&#x7406;&#x89E3;&#x4E00;&#x4E0B;&#x6587;&#x7AE0;&#xFF0C;&#x4E0B;&#x8F7D;demo&#x8BF7;&#x70B9;&#x51FB;<a href="http://7xt9yk.com2.z0.glb.clouddn.com/javascriptcore%E6%B5%8B%E8%AF%95.zip?attname=&amp;e=1461349910&amp;token=r8Cu9SE4ohukkkaqqjPNiOgKcfgiep821jba2HrY:D8IvDZnnsuOFjt378pcTH0EIYTY" target="_blank" rel="external">&#x8FD9;&#x91CC;</a></p>
+<p>demo&#x4E2D;&#x8BF7;&#x4F7F;&#x7528;<code>git reflog</code>&#x67E5;&#x770B;git&#x65E5;&#x5FD7;&#xFF0C;&#x7136;&#x540E;<code>git reset</code>&#x5230;&#x4E0D;&#x540C;&#x7684;&#x63D0;&#x4EA4;&#x70B9;&#x662F;&#x6587;&#x7AE0;&#x4E2D;&#x4E0D;&#x540C;&#x77E5;&#x8BC6;&#x70B9;&#x7684;&#x4EE3;&#x7801;&#x3002;&#x4EE3;&#x7801;&#x53EF;&#x80FD;&#x4E0E;&#x6587;&#x7AE0;&#x4E2D;&#x6709;&#x6240;&#x51FA;&#x5165;&#xFF0C;&#x4E0D;&#x8FC7;&#x5927;&#x81F4;&#x4E00;&#x6837;&#x3002;</p>
+<p>&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#x5C31;&#x5230;&#x8FD9;&#x91CC;&#x4E86;&#xFF0C;&#x611F;&#x8C22;&#x5927;&#x5BB6;&#x8010;&#x5FC3;&#x7684;&#x770B;&#x4E0B;&#x53BB;&#xFF0C;&#x80FD;&#x6709;&#x8FD9;&#x8010;&#x5FC3;&#x6211;&#x76F8;&#x4FE1;&#x4F60;&#x4E00;&#x5B9A;&#x662F;&#x8D85;&#x4EBA;&#xFF0C;&#x8FD8;&#x8BF7;&#x5404;&#x4F4D;&#x8D85;&#x4EBA;&#x591A;&#x591A;&#x5173;&#x6CE8;&#x4E00;&#x4E0B;&#x6211;&#x7684;&#x535A;&#x5BA2;&#x54E6;&#x1F601;</p>
+<p>&#x53C2;&#x8003;&#x6587;&#x7AE0;<a href="https://segmentfault.com/a/1190000004285316" target="_blank" rel="external">iOS&#x5F15;&#x5165;JavaScriptCore&#x5F15;&#x64CE;&#x6846;&#x67B6;</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag">#iOS</a>
+          
+            <a href="/tags/HybridApp/" rel="tag">#HybridApp</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/03/22/about-moco-usage/" rel="next" title="使用moco模拟http(s)请求">
+                <i class="fa fa-chevron-left"></i> 使用moco模拟http(s)请求
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/04/22/iOS-javascriptcore-call-native/"
+           data-title="iOS端网页中js与OC如何交互(JavaScriptCore)" data-url="http://codertian.com/2016/04/22/iOS-javascriptcore-call-native/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="John Doe" />
+          <p class="site-author-name" itemprop="name">John Doe</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScriptCore简述"><span class="nav-number">1.</span> <span class="nav-text">JavaScriptCore简述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#网页"><span class="nav-number">2.</span> <span class="nav-text">网页</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#注入对象"><span class="nav-number">3.</span> <span class="nav-text">注入对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#关于要注入的这个对象"><span class="nav-number">3.0.1.</span> <span class="nav-text">关于要注入的这个对象</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#向UIWebView对象拿JSContext环境对象"><span class="nav-number">4.</span> <span class="nav-text">向UIWebView对象拿JSContext环境对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用KVC"><span class="nav-number">4.0.1.</span> <span class="nav-text">使用KVC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#给NSObject添加分类"><span class="nav-number">4.0.2.</span> <span class="nav-text">给NSObject添加分类</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JSExportAs"><span class="nav-number">5.</span> <span class="nav-text">JSExportAs</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#OC类中调用JS方法"><span class="nav-number">6.</span> <span class="nav-text">OC类中调用JS方法</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"moexcept"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

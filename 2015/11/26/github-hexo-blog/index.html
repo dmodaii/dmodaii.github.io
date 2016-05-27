@@ -1,0 +1,779 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="moexcept" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="&amp;#x6211;&amp;#x76F8;&amp;#x4FE1;&amp;#x5F88;&amp;#x591A;&amp;#x4EBA;&amp;#x90FD;&amp;#x60F3;&amp;#x62E5;&amp;#x6709;&amp;#x4E00;&amp;#x4E2A;&amp;#x81EA;&amp;#x5DF1;&amp;#x7684;&amp;#x535A;&amp;#x5BA2;&amp;#xFF0C;&amp;#x628A;&amp;#x81EA;&amp;#x5DF1;&amp;#x7684;&amp;#x4E00;&amp;#x4E9B;&amp;#x751F">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用github+Hexo人人都能拥有一个博客">
+<meta property="og:url" content="http://codertian.com/2015/11/26/github-hexo-blog/index.html">
+<meta property="og:site_name" content="moexcept">
+<meta property="og:description" content="&amp;#x6211;&amp;#x76F8;&amp;#x4FE1;&amp;#x5F88;&amp;#x591A;&amp;#x4EBA;&amp;#x90FD;&amp;#x60F3;&amp;#x62E5;&amp;#x6709;&amp;#x4E00;&amp;#x4E2A;&amp;#x81EA;&amp;#x5DF1;&amp;#x7684;&amp;#x535A;&amp;#x5BA2;&amp;#xFF0C;&amp;#x628A;&amp;#x81EA;&amp;#x5DF1;&amp;#x7684;&amp;#x4E00;&amp;#x4E9B;&amp;#x751F">
+<meta property="og:image" content="http://codertian.com/2015/11/26/github-hexo-blog/createfloder.png">
+<meta property="og:image" content="http://codertian.com/2015/11/26/github-hexo-blog/firstcommond.png">
+<meta property="og:image" content="http://codertian.com/2015/11/26/github-hexo-blog/wenjianjiajiegou.png">
+<meta property="og:image" content="http://codertian.com/2015/11/26/github-hexo-blog/startserver.png">
+<meta property="og:image" content="http://codertian.com/2015/11/26/github-hexo-blog/success.png">
+<meta property="og:image" content="http://codertian.com/2015/11/26/github-hexo-blog/zhutijiegou.png">
+<meta property="og:image" content="http://codertian.com/2015/11/26/github-hexo-blog/genggaitheme.png">
+<meta property="og:image" content="http://codertian.com/2015/11/26/github-hexo-blog/xinzhuti.png">
+<meta property="og:image" content="http://codertian.com/2015/11/26/github-hexo-blog/chuangjiancangku%2520.png">
+<meta property="og:image" content="http://codertian.com/2015/11/26/github-hexo-blog/cangku.png">
+<meta property="og:image" content="http://codertian.com/2015/11/26/github-hexo-blog/setting.png">
+<meta property="og:image" content="http://codertian.com/2015/11/26/github-hexo-blog/fabusuccess.png">
+<meta property="og:image" content="http://codertian.com/2015/11/26/github-hexo-blog/createnewfile.png">
+<meta property="og:image" content="http://codertian.com/2015/11/26/github-hexo-blog/peizhiCName.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CoderTian/CoderTian.github.io/master/2015/11/26/%E4%BD%BF%E7%94%A8github-Hexo%E4%BA%BA%E4%BA%BA%E9%83%BD%E8%83%BD%E6%8B%A5%E6%9C%89%E4%B8%80%E4%B8%AA%E7%BE%8E%E7%BE%8E%E7%9A%84%E5%8D%9A%E5%AE%A2/CNAME%E7%BB%93%E6%9E%84.png">
+<meta property="og:image" content="http://codertian.com/2015/11/26/github-hexo-blog/yumingjiexi.png">
+<meta property="og:updated_time" content="2016-05-27T11:07:13.978Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用github+Hexo人人都能拥有一个博客">
+<meta name="twitter:description" content="&amp;#x6211;&amp;#x76F8;&amp;#x4FE1;&amp;#x5F88;&amp;#x591A;&amp;#x4EBA;&amp;#x90FD;&amp;#x60F3;&amp;#x62E5;&amp;#x6709;&amp;#x4E00;&amp;#x4E2A;&amp;#x81EA;&amp;#x5DF1;&amp;#x7684;&amp;#x535A;&amp;#x5BA2;&amp;#xFF0C;&amp;#x628A;&amp;#x81EA;&amp;#x5DF1;&amp;#x7684;&amp;#x4E00;&amp;#x4E9B;&amp;#x751F">
+<meta name="twitter:image" content="http://codertian.com/2015/11/26/github-hexo-blog/createfloder.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+  <title> 使用github+Hexo人人都能拥有一个博客 | moexcept </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">moexcept</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">唯有苦，方有甜。唯有累，方有闲</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                使用github+Hexo人人都能拥有一个博客
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-11-26T13:27:40+08:00" content="2015-11-26">
+              2015-11-26
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/实用技能/" itemprop="url" rel="index">
+                    <span itemprop="name">实用技能</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/11/26/github-hexo-blog/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/26/github-hexo-blog/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p> <strong>&#x6211;&#x76F8;&#x4FE1;&#x5F88;&#x591A;&#x4EBA;&#x90FD;&#x60F3;&#x62E5;&#x6709;&#x4E00;&#x4E2A;&#x81EA;&#x5DF1;&#x7684;&#x535A;&#x5BA2;&#xFF0C;&#x628A;&#x81EA;&#x5DF1;&#x7684;&#x4E00;&#x4E9B;&#x751F;&#x6D3B;&#x611F;&#x60F3;&#x6216;&#x8005;&#x5B66;&#x4E60;&#x603B;&#x7ED3;&#x5199;&#x5230;&#x8FD9;&#x4E0A;&#x9762;&#x5206;&#x4EAB;&#x7ED9;&#x5927;&#x5BB6;&#x3002;&#x9996;&#x5148;&#x6211;&#x63A8;&#x8350;&#x4E00;&#x4E2A;&#x7F51;&#x7AD9;<a href="http://www.jianshu.com" target="_blank" rel="external">&#x7B80;&#x4E66;</a>&#xFF0C;&#x65E0;&#x8BBA;&#x4F60;&#x662F;&#x5426;&#x662F;&#x641E;&#x6280;&#x672F;&#x5F00;&#x53D1;&#x5DE5;&#x4F5C;&#x7684;&#x6216;&#x8005;&#x5176;&#x4ED6;&#x6587;&#x827A;&#x5DE5;&#x4F5C;&#x8005;&#xFF0C;&#x53EA;&#x8981;&#x4F60;&#x60F3;&#x5199;&#x6587;&#x7AE0;&#xFF0C;&#x7B80;&#x4E66;&#x65E0;&#x7591;&#x662F;&#x4E00;&#x4E2A;&#x597D;&#x7684;&#x5199;&#x6587;&#x7AE0;&#x7684;&#x5730;&#x65B9;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x641E;&#x6280;&#x672F;&#x7684;&#x5C0F;&#x4F19;&#x4F34;&#x8FD8;&#x6709;&#x63A8;&#x8350;&#x7684;&#x662F;<a href="http://www.cnblogs.com" target="_blank" rel="external">&#x535A;&#x5BA2;&#x56ED;</a>&#xFF0C;<a href="http://blog.csdn.net" target="_blank" rel="external">CSDN&#x535A;&#x5BA2;</a>&#x7B49;&#x7B49;</strong></p>
+<a id="more"></a>
+<p><strong>&#x4F46;&#x662F;&#x5982;&#x679C;&#x4F60;&#x4E0D;&#x6EE1;&#x8DB3;&#x90A3;&#x4E9B;&#x535A;&#x5BA2;&#x5343;&#x7BC7;&#x4E00;&#x5F8B;&#x7684;&#x5916;&#x8868;&#xFF0C;&#x81EA;&#x5DF1;&#x52A8;&#x624B;&#x80FD;&#x529B;&#x4E5F;&#x5F3A;&#xFF0C;&#x60F3;&#x8981;&#x62E5;&#x6709;&#x4E00;&#x4E2A;&#x9AD8;&#x5927;&#x4E0A;&#x7684;&#x5C5E;&#x4E8E;&#x81EA;&#x5DF1;&#x7684;&#x535A;&#x5BA2;&#xFF0C;&#x6709;&#x81EA;&#x5DF1;&#x7684;&#x7F51;&#x5740;&#xFF0C;&#x90A3;&#x4E48;&#x8DDF;&#x6211;&#x4E00;&#x8D77;&#x6765;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5C5E;&#x4E8E;&#x81EA;&#x5DF1;&#x7684;&#x535A;&#x5BA2;&#x5427;</strong></p>
+<p>&#x6211;&#x7684;&#x535A;&#x5BA2;&#x5730;&#x5740;(<a href="http://www.codertian.com" target="_blank" rel="external">http://www.codertian.com</a>)</p>
+<p><strong>&#x5173;&#x4E8E;&#x4F7F;&#x7528;github&#x521B;&#x5EFA;&#x535A;&#x5BA2;&#xFF0C;&#x77E5;&#x4E4E;&#x4E0A;&#x6709;&#x5F88;&#x591A;&#x8BA8;&#x8BBA;&#xFF0C;&#x5927;&#x5BB6;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x81EA;&#x5DF1;&#x7684;&#x7231;&#x597D;&#xFF0C;&#x641C;&#x7D22;&#x4E0D;&#x540C;&#x7684;&#x6559;&#x7A0B;&#x3002;</strong><br><a href="http://www.zhihu.com/question/21169368" target="_blank" rel="external">&#x6709;&#x54EA;&#x4E9B;github pages&#x5F00;&#x6E90;&#x9879;&#x76EE;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x5EFA;&#x535A;&#x5BA2;&#xFF1F;</a></p>
+<p>&#x6211;&#x521B;&#x5EFA;&#x7684;&#x8FD9;&#x4E2A;&#x535A;&#x5BA2;&#x662F;&#x4F7F;&#x7528;&#x7684;github page + Hexo&#x65B9;&#x6CD5;&#x3002;</p>
+<h2 id="&#x5173;&#x4E8E;github-page"><a href="#&#x5173;&#x4E8E;github-page" class="headerlink" title="&#x5173;&#x4E8E;github page"></a>&#x5173;&#x4E8E;github page</h2><p>&#x4F7F;&#x7528;github&#x521B;&#x5EFA;&#x7684;&#x535A;&#x5BA2;&#x662F;&#x5C5E;&#x4E8E;&#x9759;&#x6001;&#x7F51;&#x7AD9;&#x535A;&#x5BA2;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x628A;&#x5199;&#x597D;&#x7684;&#x6587;&#x7AE0;&#x751F;&#x6210;HTML&#x7F51;&#x9875;&#xFF0C;&#x7136;&#x540E;&#x4E0A;&#x4F20;&#x5230;github&#x7F51;&#x7AD9;&#xFF0C;&#x663E;&#x793A;&#x7684;&#x4E5F;&#x5C31;&#x662F;HTML&#x7F51;&#x9875;&#xFF0C;&#x6240;&#x4EE5;&#x52A0;&#x8F7D;&#x901F;&#x5EA6;&#x4F1A;&#x5F88;&#x5FEB;</p>
+<p><em>&#x53CB;&#x60C5;&#x63D0;&#x793A;&#xFF1A;&#x521B;&#x5EFA;&#x81EA;&#x5DF1;&#x7684;&#x535A;&#x5BA2;&#x7528;&#x5230;&#x5F88;&#x591A;&#x547D;&#x4EE4;&#x884C;&#x547D;&#x4EE4;&#xFF0C;&#x4F46;&#x662F;&#x4E0D;&#x8981;&#x6050;&#x60E7;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x590D;&#x5236;&#x7C98;&#x8D34;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x770B;&#x7684;&#x61C2;&#x3002;</em></p>
+<h1 id="&#x5F00;&#x59CB;&#x642D;&#x5EFA;&#x5C5E;&#x4E8E;&#x81EA;&#x5DF1;&#x7684;&#x535A;&#x5BA2;&#x5427;"><a href="#&#x5F00;&#x59CB;&#x642D;&#x5EFA;&#x5C5E;&#x4E8E;&#x81EA;&#x5DF1;&#x7684;&#x535A;&#x5BA2;&#x5427;" class="headerlink" title="&#x5F00;&#x59CB;&#x642D;&#x5EFA;&#x5C5E;&#x4E8E;&#x81EA;&#x5DF1;&#x7684;&#x535A;&#x5BA2;&#x5427;"></a>&#x5F00;&#x59CB;&#x642D;&#x5EFA;&#x5C5E;&#x4E8E;&#x81EA;&#x5DF1;&#x7684;&#x535A;&#x5BA2;&#x5427;</h1><p><strong>&#x5927;&#x6982;&#x5206;&#x4E3A;&#x4E0B;&#x9762;&#x51E0;&#x4E2A;&#x6B65;&#x9AA4;</strong></p>
+<ul>
+<li>&#x73AF;&#x5883;&#x642D;&#x5EFA;</li>
+<li>&#x5B89;&#x88C5;&#x914D;&#x7F6E;Hexo</li>
+<li>&#x914D;&#x7F6E;github&#x4ED3;&#x5E93;</li>
+<li>&#x914D;&#x7F6E;&#x81EA;&#x5DF1;&#x7684;&#x7F51;&#x5740;&#xFF08;&#x4E5F;&#x53EB;&#x57DF;&#x540D;&#xFF09;</li>
+<li>&#x521B;&#x5EFA;&#x548C;&#x53D1;&#x5E03;&#x6587;&#x7AE0;</li>
+</ul>
+<h1 id="&#x2460;&#x73AF;&#x5883;&#x642D;&#x5EFA;"><a href="#&#x2460;&#x73AF;&#x5883;&#x642D;&#x5EFA;" class="headerlink" title="&#x2460;&#x73AF;&#x5883;&#x642D;&#x5EFA;"></a>&#x2460;&#x73AF;&#x5883;&#x642D;&#x5EFA;</h1><ul>
+<li>&#x5B89;&#x88C5;git &#xFF08;&#x56E0;&#x4E3A;&#x8981;&#x7ED9;github&#x4E0A;&#x4F20;&#x6587;&#x7AE0;&#xFF09;</li>
+<li>&#x5B89;&#x88C5;Node.js&#xFF08;&#x56E0;&#x4E3A;Hexo&#x662F;&#x57FA;&#x4E8E;Node.js&#x5F00;&#x53D1;&#x7684;&#xFF09;</li>
+</ul>
+<h3 id="&#x5B89;&#x88C5;git"><a href="#&#x5B89;&#x88C5;git" class="headerlink" title="&#x5B89;&#x88C5;git"></a>&#x5B89;&#x88C5;git</h3><p>git&#x5B98;&#x7F51;(<a href="http://git-scm.com" target="_blank" rel="external">http://git-scm.com</a>)</p>
+<ul>
+<li>Windows: &#x76F4;&#x63A5;&#x4E0B;&#x8F7D;&#x548C;&#x5B89;&#x88C5;</li>
+<li>Mac&#xFF1A;&#x8FDB;&#x5165;git&#x7F51;&#x7AD9;&#x4E0B;&#x8F7D;&#x548C;&#x5B89;&#x88C5;&#xFF0C;&#x6216;&#x8005;&#x8FDB;&#x5165;<a href="http://sourceforge.net/projects/git-osx-installer/" target="_blank" rel="external">&#x8FD9;&#x91CC;</a>&#x4E0B;&#x8F7D;</li>
+<li>Ubuntu&#xFF1A;&#x6253;&#x5F00;&#x7EC8;&#x7AEF;&#x590D;&#x5236;&#x7C98;&#x8D34;&#x547D;&#x4EE4; <code>sudo apt-get install git-core</code></li>
+</ul>
+<h3 id="&#x5B89;&#x88C5;Node-js"><a href="#&#x5B89;&#x88C5;Node-js" class="headerlink" title="&#x5B89;&#x88C5;Node.js"></a>&#x5B89;&#x88C5;Node.js</h3><p>&#x8FDB;&#x5165;&#x5B98;&#x7F51;(<a href="https://nodejs.org/en/" target="_blank" rel="external">https://nodejs.org/en/</a>)<br>&#x4E0B;&#x8F7D;&#x5B89;&#x88C5;&#x5305;&#xFF0C;&#x76F4;&#x63A5;&#x70B9;&#x51FB;&#x5B89;&#x88C5;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;</p>
+<h1 id="&#x2461;&#x5B89;&#x88C5;&#x548C;&#x914D;&#x7F6E;Hexo"><a href="#&#x2461;&#x5B89;&#x88C5;&#x548C;&#x914D;&#x7F6E;Hexo" class="headerlink" title="&#x2461;&#x5B89;&#x88C5;&#x548C;&#x914D;&#x7F6E;Hexo"></a>&#x2461;&#x5B89;&#x88C5;&#x548C;&#x914D;&#x7F6E;Hexo</h1><h3 id="&#x5B89;&#x88C5;Hexo"><a href="#&#x5B89;&#x88C5;Hexo" class="headerlink" title="&#x5B89;&#x88C5;Hexo"></a>&#x5B89;&#x88C5;Hexo</h3><p><strong>&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#x90FD;&#x662F;&#x76F4;&#x63A5;&#x590D;&#x5236;&#x7C98;&#x8D34;&#x5230;&#x7535;&#x8111;&#x7EC8;&#x70B9;&#x8FD0;&#x884C;&#x7684;</strong></p>
+<p>&#x4E0A;&#x9762;&#x7684;&#x73AF;&#x5883;&#x914D;&#x7F6E;&#x6210;&#x529F;&#x4EE5;&#x540E;&#x5C31;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;npm&#x5B89;&#x88C5;Hexo&#x4E86;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<p>&#x7136;&#x540E;&#x5728;&#x672C;&#x5730;&#x76EE;&#x5F55;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x5939;,&#x6BD4;&#x5982;&#x6211;&#x521B;&#x5EFA;&#x7684;&#x662F;&#x4E00;&#x4E2A;Hexo&#x6587;&#x4EF6;&#x5939;</p>
+<p><img src="/2015/11/26/github-hexo-blog/createfloder.png" alt=""></p>
+<p>&#x7136;&#x540E;cd&#x5230;Hexo&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8FDB;&#x53BB;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x5939;</p>
+<p>&#x7136;&#x540E;&#x4F9D;&#x6B21;&#x6267;&#x884C;&#x4E0B;&#x9762;&#x7684;&#x547D;&#x4EE4;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<p><img src="/2015/11/26/github-hexo-blog/firstcommond.png" alt=""></p>
+<p>&#x5982;&#x679C;&#x51FA;&#x73B0;&#x5F88;&#x591A;&#x4E32;&#x4EE3;&#x7801;&#x7684;&#x8BDD;&#xFF0C;&#x6CA1;&#x6709;&#x4EC0;&#x4E48;&#x660E;&#x663E;&#x7684;&#x9519;&#x8BEF;&#x5C31;&#x8868;&#x793A;&#x5B89;&#x88C5;&#x6210;&#x529F;&#x3002;</p>
+<p>&#x7ED3;&#x679C;&#x5C31;&#x662F;Hexo&#x6587;&#x4EF6;&#x5939;&#x4E0B;&#x9762;&#x662F;&#x8FD9;&#x79CD;&#x7ED3;&#x6784;</p>
+<p><img src="/2015/11/26/github-hexo-blog/wenjianjiajiegou.png" alt=""></p>
+<p>&#x7136;&#x540E;&#x542F;&#x52A8;&#x672C;&#x5730;&#x8FD9;&#x4E2A;Hexo&#x670D;&#x52A1;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+<p><img src="/2015/11/26/github-hexo-blog/startserver.png" alt=""></p>
+<p>&#x7136;&#x540E;&#x6253;&#x5F00;&#x6D4F;&#x89C8;&#x5668;&#xFF0C;&#x8F93;&#x5165;<a href="http://0.0.0.0:4000/" target="_blank" rel="external">http://0.0.0.0:4000/</a>   &#x51FA;&#x73B0;&#x4E0B;&#x56FE;&#xFF0C;&#x65E2;&#x8BC1;&#x660E;Hexo&#x5B89;&#x88C5;&#x6210;&#x529F;</p>
+<p><img src="/2015/11/26/github-hexo-blog/success.png" alt=""></p>
+<h3 id="&#x66F4;&#x6539;&#x4E3B;&#x9898;"><a href="#&#x66F4;&#x6539;&#x4E3B;&#x9898;" class="headerlink" title="&#x66F4;&#x6539;&#x4E3B;&#x9898;"></a>&#x66F4;&#x6539;&#x4E3B;&#x9898;</h3><p><strong>&#x597D;&#x7684;&#xFF0C;&#x663E;&#x793A;&#x7684;&#x7F51;&#x7AD9;&#x4F60;&#x53EF;&#x80FD;&#x770B;&#x7740;&#x4E0D;&#x597D;&#x770B;&#xFF0C;&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x66F4;&#x6539;&#x4E00;&#x4E0B;&#x4E3B;&#x9898;</strong></p>
+<p>&#x6309;ctrl+c&#x5173;&#x95ED;server</p>
+<p>&#x6211;&#x535A;&#x5BA2;&#x4F7F;&#x7528;&#x7684;&#x4E3B;&#x9898;&#x662F;(<a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="external">https://github.com/litten/hexo-theme-yilia</a>)</p>
+<p>&#x6253;&#x5F00;&#x7EC8;&#x7AEF;&#x7A97;&#x53E3;&#xFF0C;&#x8F93;&#x5165;&#x4E00;&#x4E0B;&#x547D;&#x4EE4;&#xFF0C;&#x5C06;&#x76EE;&#x5F55;&#x5207;&#x6362;&#x5230;Hexo&#x6587;&#x4EF6;&#x5939;&#x5185;&#x7684;themes&#x6587;&#x4EF6;&#x5939;&#x5185;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd themes</span><br></pre></td></tr></table></figure>
+<p>&#x7136;&#x540E;&#x628A;&#x8FD9;&#x4E2A;&#x4E3B;&#x9898;&#x4ECE;github&#x7F51;&#x7AD9;&#x4E0A;clone&#x4E0B;&#x6765;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/litten/hexo-theme-yilia.git</span><br></pre></td></tr></table></figure>
+<p>&#x7B49;&#x5F85;&#x514B;&#x9686;&#x5B8C;&#x6210;&#xFF0C;&#x4F60;&#x4F1A;&#x5728;themes&#x6587;&#x4EF6;&#x5939;&#x4E0B;&#x770B;&#x5230;&#x65B0;&#x7684;&#x4E3B;&#x9898;&#x5305;&#xFF0C;&#x5982;&#x4E0B;&#x56FE;&#xFF0C;&#x5C06;&#x8FD9;&#x4E2A;&#x4E3B;&#x9898;&#x5305;&#x91CD;&#x547D;&#x540D;&#x4E3A;yilla</p>
+<p><img src="/2015/11/26/github-hexo-blog/zhutijiegou.png" alt=""></p>
+<p>&#x7136;&#x540E;&#x6253;&#x5F00;Hexo&#x6587;&#x4EF6;&#x5939;&#x4E0B;&#x9762;&#x7684;<code>_config.yml</code>&#x6587;&#x4EF6;&#xFF0C;&#x4FEE;&#x6539;&#x91CC;&#x9762;&#x7684;<code>theme</code>&#x4E3A;yilia</p>
+<p><img src="/2015/11/26/github-hexo-blog/genggaitheme.png" alt=""></p>
+<p>&#x91CD;&#x65B0;&#x6253;&#x5F00;server&#xFF0C;&#x6D4F;&#x89C8;&#x5668;&#x8F93;&#x5165;<a href="http://0.0.0.0:4000/" target="_blank" rel="external">http://0.0.0.0:4000/</a>   &#x662F;&#x4E0D;&#x662F;&#x770B;&#x5230;&#x4E3B;&#x9898;&#x5DF2;&#x7ECF;&#x53D8;&#x4E86;&#xFF1F;&#xFF1F;</p>
+<p><img src="/2015/11/26/github-hexo-blog/xinzhuti.png" alt=""></p>
+<p>&#x597D;&#x4E86;&#xFF0C;&#x5230;&#x6B64;&#x4E3A;&#x6B62;&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x5B8C;&#x6210;&#x4E86;&#x672C;&#x5730;Hexo&#x7684;&#x5B89;&#x88C5;&#x548C;&#x914D;&#x7F6E;&#x3002;</p>
+<h1 id="&#x2462;&#x914D;&#x7F6E;github&#x4ED3;&#x5E93;"><a href="#&#x2462;&#x914D;&#x7F6E;github&#x4ED3;&#x5E93;" class="headerlink" title="&#x2462;&#x914D;&#x7F6E;github&#x4ED3;&#x5E93;"></a>&#x2462;&#x914D;&#x7F6E;github&#x4ED3;&#x5E93;</h1><p>github&#x5B98;&#x7F51;(<a href="http://www.github.com" target="_blank" rel="external">http://www.github.com</a>)</p>
+<p>&#x6CE8;&#x518C;&#x8D26;&#x53F7;&#x6211;&#x5C31;&#x4E0D;&#x7528;&#x8BF4;&#x4E86;&#x5427;&#xFF0C;&#x90FD;&#x5F88;&#x7B80;&#x5355;,&#x7136;&#x540E;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x7684;&#x653E;&#x535A;&#x5BA2;&#x6587;&#x7AE0;&#x7684;&#x4ED3;&#x5E93;</p>
+<p>&#x70B9;&#x51FB;Crete a repositor</p>
+<p><img src="/2015/11/26/github-hexo-blog/chuangjiancangku%2520.png" alt=""></p>
+<p>&#x4E0B;&#x56FE;&#x7BAD;&#x5934;&#x6307;&#x7684;&#x65B9;&#x5411;&#x5C31;&#x662F;&#x914D;&#x7F6E;&#x4F60;&#x535A;&#x5BA2;&#x7684;&#x8BBF;&#x95EE;&#x5730;&#x5740;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x4ED3;&#x5E93;&#x540D; <code>&#x7528;&#x6237;&#x540D;.github.io</code>&#x5FC5;&#x987B;&#x662F;&#x8FD9;&#x4E2A;&#x7ED3;&#x6784;&#xFF0C;&#x4E0D;&#x80FD;&#x6709;&#x4E00;&#x70B9;&#x504F;&#x5DEE;&#x3002;&#x5C31;&#x6309;&#x7167;&#x6211;&#x7684;&#x65B9;&#x5F0F;&#x521B;&#x5EFA;&#x5C31;&#x884C;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x628A;&#x7528;&#x6237;&#x540D;&#x6539;&#x4E3A;&#x4F60;&#x7684;<br>&#x7136;&#x540E;&#x70B9;&#x51FB;&#x521B;&#x5EFA;&#xFF0C;&#x4F1A;&#x521D;&#x59CB;&#x5316;&#x4E00;&#x4E2A;&#x7A7A;&#x7684;&#x4ED3;&#x5E93;&#xFF08;&#x56E0;&#x4E3A;&#x6211;&#x5DF2;&#x7ECF;&#x6709;&#x4E00;&#x4E2A;&#x8FD9;&#x6837;&#x7684;&#x4ED3;&#x5E93;&#x4E86;&#xFF0C;&#x6240;&#x4EE5;&#x4F1A;&#x6709;&#x7EA2;&#x8272;&#x8B66;&#x544A;&#xFF09;</p>
+<p><img src="/2015/11/26/github-hexo-blog/cangku.png" alt=""></p>
+<h3 id="&#x914D;&#x7F6E;SSH"><a href="#&#x914D;&#x7F6E;SSH" class="headerlink" title="&#x914D;&#x7F6E;SSH"></a>&#x914D;&#x7F6E;SSH</h3><p><strong>&#x7136;&#x540E;&#x5C31;&#x662F;&#x914D;&#x7F6E;SSH</strong></p>
+<p>&#x6211;&#x6D4B;&#x8BD5;&#x7684;&#x662F;&#xFF1A;</p>
+<ul>
+<li>&#x5982;&#x679C;&#x4F60;&#x7535;&#x8111;&#x4E0A;&#x4EE5;&#x524D;&#x7528;&#x8FC7;git&#x5F80;github&#x4E0A;&#x4F20;&#x8FC7;&#x4EE3;&#x7801;&#xFF0C;&#x5E76;&#x4E14;&#x914D;&#x7F6E;&#x7684;&#x7528;&#x6237;&#x540D;&#x548C;&#x4F60;github&#x8D26;&#x53F7;&#x4E00;&#x81F4;&#xFF0C;&#x90A3;&#x4E48;&#x4F60;&#x7684;github&#x5C31;&#x7B97;&#x6CA1;&#x6709;&#x8BBE;&#x7F6E;SSH&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x4E0A;&#x4F20;&#x6210;&#x529F;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x628A;Hexo&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x914D;&#x7F6E;&#x4E3A;HTTP&#x65B9;&#x5F0F;&#x4E0A;&#x4F20;&#x6587;&#x7AE0;&#x3002;</li>
+<li><p>&#x5982;&#x679C;&#x4F60;&#x914D;&#x7F6E;&#x4E0A;&#x4F20;&#x7684;&#x8D26;&#x53F7;&#x548C;github&#x8D26;&#x53F7;&#x4E0D;&#x540C;&#xFF0C;&#x90A3;&#x4E48;&#x4F60;&#x53EF;&#x4EE5;&#x628A;&#x8FD9;&#x4E2A;&#x8D26;&#x53F7;&#x6DFB;&#x52A0;&#x5230;&#x4F60;&#x535A;&#x5BA2;&#x4ED3;&#x5E93;&#x7684;Collaborators&#x4E0A;&#x9762;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x4E0A;&#x4F20;&#x6587;&#x7AE0;</p>
+<p>&#x5982;&#x679C;&#x4F60;&#x4E0D;&#x61C2;&#x4E0A;&#x9762;&#x8BF4;&#x7684;&#x5565;&#x610F;&#x601D;&#xFF0C;&#x4E0D;&#x7528;&#x7BA1;&#x90A3;&#x4E48;&#x591A;&#xFF0C;&#x90A3;&#x5C31;&#x8001;&#x8001;&#x5B9E;&#x5B9E;&#x914D;&#x7F6E;SSH&#x5427;&#xFF01;&#xFF01;</p>
+</li>
+</ul>
+<p>&#x7B80;&#x5355;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<p>&#x53BB;&#x8FD9;&#x4E2A;&#x7F51;&#x7AD9;&#x4E0B;&#x8F7D;github&#x7684;&#x5BA2;&#x6237;&#x7AEF;(<a href="https://desktop.github.com" target="_blank" rel="external">https://desktop.github.com</a>)  &#x7136;&#x540E;&#x8F93;&#x5165;&#x4F60;&#x7684;&#x7528;&#x6237;&#x540D;&#xFF0C;&#x4F1A;&#x81EA;&#x52A8;&#x914D;&#x7F6E;&#x597D;SSH</p>
+<p>&#x547D;&#x4EE4;&#x884C;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<p>&#x6267;&#x884C;&#x4E0B;&#x9762;&#x547D;&#x4EE4;&#x751F;&#x6210;SSH</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen</span><br></pre></td></tr></table></figure>
+<p>&#x6572;&#x4E09;&#x6B21;&#x56DE;&#x8F66;&#xFF0C;&#x65E2;&#x53EF;&#x4EE5;&#x751F;&#x6210;<code>id_rsa.pub</code>&#x6587;&#x4EF6;&#xFF0C;&#x8FD9;&#x91CC;&#x9762;&#x5C31;&#x662F;SSH key&#x7684;&#x5185;&#x5BB9;</p>
+<p>&#x7136;&#x540E;&#x4F7F;&#x7528;vim&#x7F16;&#x8F91;&#x5668;&#x6253;&#x5F00;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+<p>&#x7136;&#x540E;&#x4F7F;&#x7528;&#x9F20;&#x6807;&#x62F7;&#x8D1D;&#x91CC;&#x9762;&#x7684;&#x5185;&#x5BB9;&#xFF08;&#x9000;&#x51FA;vim&#x7F16;&#x8F91;&#x5668;&#x547D;&#x4EE4;<code>:wq</code>&#xFF09;</p>
+<p>&#x6253;&#x5F00;&#x4F60;&#x7684;github,&#x70B9;&#x51FB;Setting</p>
+<p><img src="/2015/11/26/github-hexo-blog/setting.png" alt=""></p>
+<p>&#x70B9;&#x51FB;&#x5DE6;&#x8FB9;SSH keys</p>
+<p>&#x70B9;&#x51FB;&#x53F3;&#x8FB9;Add SSH</p>
+<p>&#x7136;&#x540E;&#x628A;&#x590D;&#x5236;&#x7684;&#x5185;&#x5BB9;&#x7C98;&#x8D34;&#x5230;&#x4E0B;&#x9762;&#x90A3;&#x4E2A;&#x6846;&#x91CC;&#x9762;&#xFF0C;title&#x968F;&#x4FBF;&#x81EA;&#x5DF1;&#x5199;&#x3002;</p>
+<p>&#x8FC7;&#x7A0B;&#x53EF;&#x80FD;&#x4F1A;&#x8BA9;&#x4F60;&#x8F93;&#x5165;&#x4E00;&#x6B21;&#x5BC6;&#x7801;&#xFF0C;&#x8F93;&#x5165;&#x5373;&#x53EF;&#xFF01;<br>&#x914D;&#x7F6E;&#x597D;&#x5C31;&#x884C;&#x4E86;</p>
+<p>&#x5224;&#x65AD;SSH&#x662F;&#x5426;&#x914D;&#x7F6E;&#x597D;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+<p>&#x51FA;&#x73B0;<code>Hi CoderTian! You&apos;ve successfully authenticated, but GitHub does not provide shell access.</code> &#x5C31;&#x8868;&#x793A;&#x4F60;&#x5DF2;&#x7ECF;&#x914D;&#x7F6E;&#x597D;&#x4E86;SSH</p>
+<h3 id="&#x914D;&#x7F6E;&#x672C;&#x5730;Hexo"><a href="#&#x914D;&#x7F6E;&#x672C;&#x5730;Hexo" class="headerlink" title="&#x914D;&#x7F6E;&#x672C;&#x5730;Hexo"></a>&#x914D;&#x7F6E;&#x672C;&#x5730;Hexo</h3><p><strong>SSH&#x914D;&#x7F6E;&#x597D;&#x4E86;&#xFF0C;&#x4E0B;&#x9762;&#x914D;&#x7F6E;&#x4F60;&#x7684;&#x672C;&#x5730;Hexo</strong></p>
+<p>&#x6253;&#x5F00;Hexo&#x76EE;&#x5F55;&#x4E0B;&#x7684;<code>_config.yml</code>&#xFF0C;&#x62C9;&#x5012;&#x6700;&#x4E0B;&#x9762;<br>&#x914D;&#x7F6E;&#x4E3A;&#x8FD9;&#x6837;&#x5B50;,&#x53EA;&#x9700;&#x8981;&#x628A;codertian&#x6539;&#x4E3A;&#x4F60;&#x81EA;&#x5DF1;&#x7684;github&#x7528;&#x6237;&#x540D;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;&#x3002;<br><em>&#x8FD9;&#x79CD;&#x63D0;&#x4EA4;&#x65B9;&#x5F0F;&#x662F;&#x4F7F;&#x7528;http&#x65B9;&#x5F0F;&#x63D0;&#x4EA4;&#x7684;&#xFF0C;&#x6211;&#x4E2A;&#x4EBA;&#x6D4B;&#x8BD5;&#x7684;&#x662F;&#x4E0D;&#x9700;&#x8981;&#x914D;&#x7F6E;SSH&#x4E5F;&#x53EF;&#x4EE5;&#x63D0;&#x4EA4;</em></p>
+<p><em>&#x4E0B;&#x9762;&#x7684;&#x914D;&#x7F6E;&#x5927;&#x5BB6;&#x8981;&#x6CE8;&#x610F;&#x7A7A;&#x683C;&#xFF0C;&#x590D;&#x5236;&#x6211;&#x7684;&#x66F4;&#x6539;&#x5373;&#x53EF;&#xFF0C;&#x6CE8;&#x610F;&#x8DEF;&#x5F84;&#x4E00;&#x5B9A;&#x8981;&#x662F;https&#x7684;&#xFF0C;http&#x4F1A;&#x62A5;&#x9519;</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: http://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: https://github.com/codertian/codertian.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<p>  &#x4FDD;&#x5B58;&#xFF0C;<code>cd</code>&#x5230;Hexo&#x7684;&#x6839;&#x76EE;&#x5F55;<br>  &#x4F9D;&#x6B21;&#x6267;&#x884C;&#x4E0B;&#x9762;&#x7684;&#x547D;&#x4EE4;</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<p>  &#x5982;&#x679C;&#x51FA;&#x73B0;&#x4E0B;&#x56FE;&#x65E2;&#x8BC1;&#x660E;&#x5DF2;&#x7ECF;&#x6CA1;&#x6709;&#x51FA;&#x73B0;&#x95EE;&#x9898;</p>
+<p>  <img src="/2015/11/26/github-hexo-blog/fabusuccess.png" alt=""></p>
+<p>  &#x5982;&#x679C;&#x51FA;&#x73B0;&#x5931;&#x8D25;&#x7684;&#x63D0;&#x793A;&#x53EF;&#x4EE5;&#x628A;&#x4E0A;&#x9762;&#x7684;&#x914D;&#x7F6E;&#x6539;&#x4E3A;&#x4E0B;&#x9762;&#x8FD9;&#x79CD;&#x4F7F;&#x7528;SSH&#x65B9;&#x5F0F;&#x7684;&#x63D0;&#x4EA4;&#xFF0C;&#x628A;&#x7528;&#x6237;&#x540D;&#x6539;&#x4E3A;&#x4F60;&#x81EA;&#x5DF1;&#x7684;&#x7528;&#x6237;&#x540D;</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: http://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: git@github.com:codertian/codertian.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<p>&#x7B2C;&#x4E00;&#x6B21;&#x4E0A;&#x4F20;&#x53EF;&#x80FD;&#x4F1A;&#x8BA9;&#x4F60;&#x8F93;&#x5165;git&#x7684;&#x7528;&#x6237;&#x540D;&#x548C;&#x5BC6;&#x7801;</p>
+<p>&#x5982;&#x679C;&#x6210;&#x529F;&#x7684;&#x8BDD;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x8F93;&#x5165;(<a href="http://codertian.github.io" target="_blank" rel="external">http://codertian.github.io</a>)  &#x5C31;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;&#x4F60;&#x7684;&#x535A;&#x5BA2;&#x4E86;&#x3002;&#x628A;&#x7528;&#x6237;&#x540D;&#x6362;&#x4E3A;&#x4F60;&#x81EA;&#x5DF1;&#x7684;&#x3002;</p>
+<p><strong>&#x597D;&#x4E86;&#xFF0C;&#x5230;&#x8FD9;&#x91CC;&#x4E3A;&#x6B62;&#xFF0C;&#x4F60;&#x5DF2;&#x7ECF;&#x5B8C;&#x6210;&#x4E86;&#x81EA;&#x5DF1;&#x535A;&#x5BA2;&#x7684;&#x521B;&#x5EFA;&#x4E86;</strong></p>
+<h1 id="&#x2463;&#x914D;&#x7F6E;&#x535A;&#x5BA2;&#x7684;&#x57DF;&#x540D;"><a href="#&#x2463;&#x914D;&#x7F6E;&#x535A;&#x5BA2;&#x7684;&#x57DF;&#x540D;" class="headerlink" title="&#x2463;&#x914D;&#x7F6E;&#x535A;&#x5BA2;&#x7684;&#x57DF;&#x540D;"></a>&#x2463;&#x914D;&#x7F6E;&#x535A;&#x5BA2;&#x7684;&#x57DF;&#x540D;</h1><p>&#x9996;&#x5148;&#x53BB;&#x4E07;&#x7F51;(<a href="http://wanwang.aliyun.com" target="_blank" rel="external">http://wanwang.aliyun.com</a>)  &#x8D2D;&#x4E70;&#x81EA;&#x5DF1;&#x7684;&#x57DF;&#x540D;&#xFF0C;&#x6BD4;&#x5982;&#x6211;&#x8D2D;&#x4E70;&#x7684;&#x662F;&#xFF08;codertian.com&#xFF09;</p>
+<p>&#x7136;&#x540E;&#x53BB;github&#xFF0C;&#x70B9;&#x51FB;&#x8FDB;&#x53BB;&#x4F60;&#x521B;&#x5EFA;&#x7684;&#x90A3;&#x4E2A;&#x535A;&#x5BA2;&#x4ED3;&#x5E93;&#x70B9;&#x51FB;<code>create a new file here</code></p>
+<p><img src="/2015/11/26/github-hexo-blog/createnewfile.png" alt=""></p>
+<p>&#x540D;&#x5B57;&#x4E3A;<code>CNAME</code><br>&#x5185;&#x5BB9;&#x4E3A;<code>www.codertian.com</code>&#x8BB0;&#x4F4F;&#x586B;&#x5199;&#x4F60;&#x81EA;&#x5DF1;&#x7533;&#x8BF7;&#x7684;&#x57DF;&#x540D;</p>
+<p><img src="/2015/11/26/github-hexo-blog/peizhiCName.png" alt=""></p>
+<p>&#x7136;&#x540E;&#x63D0;&#x4EA4;</p>
+<p>&#x6765;&#x5230;&#x4ED3;&#x5E93;&#x7684;&#x53F3;&#x8FB9;&#x70B9;&#x51FB;<code>Download zip</code>&#x6309;&#x94AE;&#xFF0C;&#x4E0B;&#x8F7D;&#x4E0B;&#x6765;&#x8FD9;&#x4E2A;&#x4ED3;&#x5E93;&#xFF0C;&#x628A;&#x91CC;&#x9762;&#x7684;<code>CNAME</code>&#x6587;&#x4EF6;&#x62D6;&#x5230;<code>Hexo</code>&#x6587;&#x4EF6;&#x7684;<code>Source</code>&#x76EE;&#x5F55;&#x4E0B;</p>
+<p><img src="https://raw.githubusercontent.com/CoderTian/CoderTian.github.io/master/2015/11/26/%E4%BD%BF%E7%94%A8github-Hexo%E4%BA%BA%E4%BA%BA%E9%83%BD%E8%83%BD%E6%8B%A5%E6%9C%89%E4%B8%80%E4%B8%AA%E7%BE%8E%E7%BE%8E%E7%9A%84%E5%8D%9A%E5%AE%A2/CNAME%E7%BB%93%E6%9E%84.png" alt=""></p>
+<p>&#x8FD9;&#x8FB9;&#x914D;&#x7F6E;&#x597D;&#x4E86;&#x4EE5;&#x540E;&#xFF0C;&#x6765;&#x5230;&#x4E07;&#x7F51;&#x89E3;&#x6790;&#x4F60;&#x7684;&#x57DF;&#x540D;<br>&#x914D;&#x7F6E;&#x4E3A;&#x8FD9;&#x6837;&#x5B50;</p>
+<p><img src="/2015/11/26/github-hexo-blog/yumingjiexi.png" alt=""></p>
+<p>github&#x63D0;&#x4F9B;&#x4E86;&#x4E24;&#x4E2A;&#x4E3B;&#x673A;&#x5730;&#x5740;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">192.30.252.153</span><br><span class="line">192.30.252.154</span><br></pre></td></tr></table></figure>
+<p>&#x597D;&#x4E86;&#x7B49;&#x5F85;&#x4F60;&#x7684;&#x57DF;&#x540D;&#x89E3;&#x6790;&#x751F;&#x6548;&#x5427;&#x3002;&#x5C31;&#x53EF;&#x4EE5;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x91CC;&#x9762;&#x8F93;&#x5165;&#x4F60;&#x81EA;&#x5DF1;&#x7684;&#x57DF;&#x540D;&#x8BBF;&#x95EE;&#x7684;&#x535A;&#x5BA2;&#x4E86;&#x3002;</p>
+<h1 id="&#x2464;&#x521B;&#x5EFA;&#x548C;&#x53D1;&#x5E03;&#x6587;&#x7AE0;"><a href="#&#x2464;&#x521B;&#x5EFA;&#x548C;&#x53D1;&#x5E03;&#x6587;&#x7AE0;" class="headerlink" title="&#x2464;&#x521B;&#x5EFA;&#x548C;&#x53D1;&#x5E03;&#x6587;&#x7AE0;"></a>&#x2464;&#x521B;&#x5EFA;&#x548C;&#x53D1;&#x5E03;&#x6587;&#x7AE0;</h1><p>&#x60F3;&#x8981;&#x53D1;&#x5E03;&#x65B0;&#x7684;&#x6587;&#x7AE0;&#xFF0C;&#x9996;&#x5148;&#x521B;&#x5EFA;<br>cd&#x5230;Hexo&#x6587;&#x4EF6;&#x5939;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;&#x6587;&#x7AE0;&#x6807;&#x9898;&quot;</span><br></pre></td></tr></table></figure>
+<p>&#x4F60;&#x53EF;&#x4EE5;&#x5728;Hexo-&gt;Source-&gt;_post&#x76EE;&#x5F55;&#x4E0B;&#x770B;&#x5230;&#x4F60;&#x65B0;&#x521B;&#x5EFA;&#x7684;&#x90A3;&#x4E2A;&#x6587;&#x7AE0;&#xFF0C;&#x8FD8;&#x6709;&#x4E00;&#x4E2A;&#x914D;&#x5957;&#x7684;&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x91CC;&#x9762;&#x653E;&#x8FD9;&#x8FB9;&#x535A;&#x6587;&#x7684;&#x56FE;&#x7247;&#x8D44;&#x6E90;</p>
+<p>&#x4F7F;&#x7528;&#x652F;&#x6301;MarkDown&#x7F16;&#x8F91;&#x5668;&#x7F16;&#x5199;&#x7684;&#x6253;&#x5F00;&#x65B0;&#x521B;&#x5EFA;&#x7684;&#x6587;&#x4EF6;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x5199;&#x6587;&#x7AE0;&#x4E86;&#xFF0C;&#x8981;&#x6839;&#x636E;MarkDown&#x8BED;&#x6CD5;&#x5199;&#x51FA;&#x6765;&#x7684;&#x6587;&#x7AE0;&#x624D;&#x4F1A;&#x597D;&#x770B;</p>
+<p><strong>&#x521B;&#x5EFA;&#x8349;&#x7A3F;</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new draft &#x201D;file name&quot;</span><br></pre></td></tr></table></figure>
+<p><strong>&#x53D1;&#x5E03;&#x8349;&#x7A3F;</strong>&#x3001;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo publish &quot;file name&quot;</span><br></pre></td></tr></table></figure></p>
+<p><strong>Mac&#x7684;markdown&#x7F16;&#x8F91;&#x5668;&#xFF0C;&#x6211;&#x63A8;&#x8350;mou</strong><br><strong>window&#x4E0B;&#x9762;&#x7684;&#x5927;&#x5BB6;&#x53EF;&#x4EE5;&#x81EA;&#x884C;&#x641C;&#x7D22;&#x4E00;&#x4E0B;</strong></p>
+<p>markdown&#x5177;&#x4F53;&#x8BED;&#x6CD5;&#x53C2;&#x8003;(<a href="http://www.appinn.com/markdown/#code" target="_blank" rel="external">http://www.appinn.com/markdown/#code</a>)</p>
+<p><strong>&#x6587;&#x7AE0;&#x6807;&#x9898;&#xFF0C;&#x65E5;&#x671F;&#xFF0C;&#x6807;&#x7B7E;&#xFF0C;&#x5206;&#x7C7B;</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">title: MVVM&#x6A21;&#x5F0F;&#x5FEB;&#x901F;&#x5165;&#x95E8;</span><br><span class="line">date: 2015-11-13 15:40:25</span><br><span class="line">toc: true</span><br><span class="line">tags: MVVM</span><br><span class="line">categories: IOS&#x5F00;&#x53D1;</span><br></pre></td></tr></table></figure>
+<p>&#x5982;&#x679C;&#x6BCF;&#x6B21;&#x6DFB;&#x52A0;&#x5206;&#x7C7B;&#x592A;&#x9EBB;&#x70E6;&#xFF0C;&#x53EF;&#x4EE5;&#x4FEE;&#x6539;&#x4E00;&#x4E0B;&#x6A21;&#x677F;&#xFF0C;&#x5728;<code>/Hexo/scaffolds</code>&#x4E0B;&#x9762;&#x7684;<code>post.md</code>&#x6587;&#x4EF6;</p>
+<p>&#x6587;&#x7AE0;&#x5199;&#x597D;&#x76F4;&#x63A5;&#x6267;&#x884C;&#x4E0B;&#x9762;&#x547D;&#x4EE4;&#x5373;&#x53EF;&#x76F4;&#x63A5;&#x53D1;&#x5E03;&#x6587;&#x7AE0;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>
+<h3 id="&#x5173;&#x4E8E;&#x6587;&#x7AE0;&#x56FE;&#x7247;&#x7684;&#x63D2;&#x5165;"><a href="#&#x5173;&#x4E8E;&#x6587;&#x7AE0;&#x56FE;&#x7247;&#x7684;&#x63D2;&#x5165;" class="headerlink" title="&#x5173;&#x4E8E;&#x6587;&#x7AE0;&#x56FE;&#x7247;&#x7684;&#x63D2;&#x5165;"></a>&#x5173;&#x4E8E;&#x6587;&#x7AE0;&#x56FE;&#x7247;&#x7684;&#x63D2;&#x5165;</h3><p>&#x8FD9;&#x4E2A;&#x6709;&#x5FC5;&#x8981;&#x8BF4;&#x4E00;&#x4E0B;&#x600E;&#x4E48;&#x505A;<br>&#x6587;&#x7AE0;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x9700;&#x8981;&#x7528;&#x5230;Hexo&#x7684;&#x4E00;&#x4E2A;&#x63D2;&#x4EF6;&#xFF0C;&#x9996;&#x5148;cd&#x5230;hexo&#x7684;&#x6839;&#x76EE;&#x5F55;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install https://github.com/CodeFalling/hexo-asset-image --save</span><br></pre></td></tr></table></figure>
+<p>&#x7136;&#x540E;&#x628A;&#x56FE;&#x7247;&#x653E;&#x5165;&#x5BF9;&#x5E94;&#x6587;&#x7AE0;&#x7684;&#x914D;&#x5957;&#x6587;&#x4EF6;&#x5939;&#x4E0B;&#xFF0C;&#x6BD4;&#x5982;1.png</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![logo](github-hexo-blog/1.png)</span><br></pre></td></tr></table></figure>
+<p><strong>&#x5982;&#x679C;&#x4F60;&#x662F;&#x5199;&#x4EE3;&#x7801;&#x7684;&#xFF0C;&#x611F;&#x89C9;&#x4EE3;&#x7801;&#x6837;&#x5F0F;&#x4E0D;&#x597D;&#x770B;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x4E0B;&#x8F7D;&#x522B;&#x7684;&#x4E3B;&#x9898;&#xFF0C;&#x66FF;&#x6362;&#x4EE3;&#x7801;&#x663E;&#x793A;&#x6837;&#x5F0F;&#x6587;&#x4EF6;</strong></p>
+<p>&#x6587;&#x4EF6;&#x5730;&#x5740;<code>/source/css/_partial/highlight.styl</code></p>
+<p>&#x53E6;&#x5916;&#x5982;&#x679C;&#x8981;&#x7ED9;&#x535A;&#x5BA2;&#x6DFB;&#x52A0;&#x8BA1;&#x6570;&#x529F;&#x80FD;&#x53C2;&#x8003;(<a href="http://ibruce.info/" target="_blank" rel="external">http://ibruce.info/</a>)</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Hexo/" rel="tag">#Hexo</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/11/18/my-life-feeling/" rel="next" title="自我人生感悟">
+                <i class="fa fa-chevron-left"></i> 自我人生感悟
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/11/26/use-autolayout-dynamic-cell/" rel="prev" title="使用Autolayout创建动态cell">
+                使用Autolayout创建动态cell <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/11/26/github-hexo-blog/"
+           data-title="使用github+Hexo人人都能拥有一个博客" data-url="http://codertian.com/2015/11/26/github-hexo-blog/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="John Doe" />
+          <p class="site-author-name" itemprop="name">John Doe</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#关于github-page"><span class="nav-number">1.</span> <span class="nav-text">关于github page</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开始搭建属于自己的博客吧"><span class="nav-number"></span> <span class="nav-text">开始搭建属于自己的博客吧</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#①环境搭建"><span class="nav-number"></span> <span class="nav-text">①环境搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装git"><span class="nav-number">0.1.</span> <span class="nav-text">安装git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Node-js"><span class="nav-number">0.2.</span> <span class="nav-text">安装Node.js</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#②安装和配置Hexo"><span class="nav-number"></span> <span class="nav-text">②安装和配置Hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Hexo"><span class="nav-number">0.1.</span> <span class="nav-text">安装Hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更改主题"><span class="nav-number">0.2.</span> <span class="nav-text">更改主题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#③配置github仓库"><span class="nav-number"></span> <span class="nav-text">③配置github仓库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置SSH"><span class="nav-number">0.1.</span> <span class="nav-text">配置SSH</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置本地Hexo"><span class="nav-number">0.2.</span> <span class="nav-text">配置本地Hexo</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#④配置博客的域名"><span class="nav-number"></span> <span class="nav-text">④配置博客的域名</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#⑤创建和发布文章"><span class="nav-number"></span> <span class="nav-text">⑤创建和发布文章</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#关于文章图片的插入"><span class="nav-number">0.1.</span> <span class="nav-text">关于文章图片的插入</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"moexcept"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
