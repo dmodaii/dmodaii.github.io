@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://codertian.com/2016/05/30/clear/</loc>
+    <loc>http://codertian.com/2016/05/27/ReactCSSTransitionGroup/</loc>
     
-    <lastmod>2016-05-30T02:33:17.597Z</lastmod>
+    <lastmod>2016-06-14T07:34:12.963Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://codertian.com/2016/05/27/ReactCSSTransitionGroup/</loc>
+    <loc>http://codertian.com/2016/06/14/browserJudge/</loc>
     
-    <lastmod>2016-05-27T12:08:03.874Z</lastmod>
+    <lastmod>2016-06-14T07:04:12.482Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://codertian.com/2016/05/30/clear/</loc>
+    
+    <lastmod>2016-05-30T02:33:17.597Z</lastmod>
     
   </url>
   
@@ -37,51 +44,9 @@
   </url>
   
   <url>
-    <loc>http://codertian.com/2015/12/01/zhaopinmaimorencai/</loc>
-    
-    <lastmod>2016-05-27T11:07:14.014Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://codertian.com/2015/11/29/what-let-me-abandon-Java-turn-to-iOS/</loc>
-    
-    <lastmod>2016-05-27T11:07:14.013Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://codertian.com/2015/11/26/use-autolayout-dynamic-cell/</loc>
-    
-    <lastmod>2016-05-27T11:07:14.004Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://codertian.com/2015/11/18/my-life-feeling/</loc>
-    
-    <lastmod>2016-05-27T11:07:14.003Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://codertian.com/2016/03/02/recommend-coding-tools/</loc>
     
     <lastmod>2016-05-27T11:07:14.003Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://codertian.com/2016/03/02/iOS-security-rsa-aes/</loc>
-    
-    <lastmod>2016-05-27T11:07:14.001Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://codertian.com/2016/04/22/iOS-javascriptcore-call-native/</loc>
-    
-    <lastmod>2016-05-27T11:07:13.996Z</lastmod>
     
   </url>
   
@@ -103,20 +68,6 @@
     <loc>http://codertian.com/2016/03/14/change-landscape-theme-by-yourself/</loc>
     
     <lastmod>2016-05-27T11:07:13.976Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://codertian.com/2016/03/22/about-moco-usage/</loc>
-    
-    <lastmod>2016-05-27T11:07:13.976Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://codertian.com/2015/11/13/MVVM-patterns-introduce/</loc>
-    
-    <lastmod>2016-05-27T11:07:13.975Z</lastmod>
     
   </url>
   
