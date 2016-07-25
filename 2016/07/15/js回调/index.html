@@ -92,10 +92,12 @@
 <meta property="og:url" content="http://codertian.com/2016/07/15/js回调/index.html">
 <meta property="og:site_name" content="moexcept">
 <meta property="og:description" content="&amp;#x56DE;&amp;#x8C03;">
-<meta property="og:updated_time" content="2016-07-15T09:43:28.210Z">
+<meta property="og:image" content="http://codertian.com/2016/07/15/js回调/callback-filter.jpg">
+<meta property="og:updated_time" content="2016-07-25T08:38:24.563Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js回调">
 <meta name="twitter:description" content="&amp;#x56DE;&amp;#x8C03;">
+<meta name="twitter:image" content="http://codertian.com/2016/07/15/js回调/callback-filter.jpg">
 
 
 
@@ -340,12 +342,13 @@
 
       
         <p>&#x56DE;&#x8C03;<br><a id="more"></a></p>
-<h1 id="&#x57FA;&#x7840;"><a href="#&#x57FA;&#x7840;" class="headerlink" title="&#x57FA;&#x7840;"></a>&#x57FA;&#x7840;</h1><p>&#x5B9A;&#x4E49;&#x4E2D;&#xFF1A; &#x56DE;&#x8C03;&#x51FD;&#x6570;&#x7684;&#x53C2;&#x6570;&#x56FA;&#x5B9A;&#xFF08;&#x9650;&#x5236;&#x5728;&#x5916;&#x5C42;&#x51FD;&#x6570;&#x53D8;&#x91CF;&#x4E2D;&#xFF09;&#xFF0C; &#x5177;&#x4F53;&#x5B9E;&#x73B0;&#x5185;&#x5BB9;&#x7531;&#x7528;&#x6237;&#x81EA;&#x5B9A;&#x4E49;<br>function test(index, callback){<br>  callback(index + &#x2018;aaa&#x2019;, &#x2018;2&#x2019;)<br>}<br>function testcall (value1, value2) {<br>  console.log(value1, value2)<br>}</p>
-<p>test(&#x2018;test1111111&#x2019;, testcall)</p>
-<p>&#x5B9A;&#x4E49;&#x4E2D;&#xFF1A;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x4F20;&#x53C2;&#x7684;&#x56DE;&#x8C03;&#x65B9;&#x6CD5;testcall&#xFF08;&#x53C2;&#x6570;&#x7531;&#x7528;&#x6237;&#x81EA;&#x5B9A;&#x4E49;&#xFF0C; &#x5177;&#x4F53;&#x5B9E;&#x73B0;&#x5185;&#x5BB9;&#x5DF2;&#x7ECF;&#x56FA;&#x5B9A;&#xFF0C; &#xFF09;<br>function test(index, testcall){</p>
-<p>}<br>function testcall (value1, value2) {<br>  console.log(value1, value2)<br>}</p>
-<p>test(&#x2018;test1111111&#x2019;, testcall(1, 333))</p>
-<h1 id="&#x9AD8;&#x7EA7;"><a href="#&#x9AD8;&#x7EA7;" class="headerlink" title="&#x9AD8;&#x7EA7;"></a>&#x9AD8;&#x7EA7;</h1>
+<h1 id="&#x57FA;&#x7840;"><a href="#&#x57FA;&#x7840;" class="headerlink" title="&#x57FA;&#x7840;"></a>&#x57FA;&#x7840;</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// &#x5B9A;&#x4E49;&#x4E2D;&#xFF1A; &#x56DE;&#x8C03;&#x51FD;&#x6570;&#x7684;&#x53C2;&#x6570;&#x56FA;&#x5B9A;&#xFF08;&#x9650;&#x5236;&#x5728;&#x5916;&#x5C42;&#x51FD;&#x6570;&#x53D8;&#x91CF;&#x4E2D;&#xFF09;&#xFF0C; &#x5177;&#x4F53;&#x5B9E;&#x73B0;&#x5185;&#x5BB9;&#x7531;&#x7528;&#x6237;&#x81EA;&#x5B9A;&#x4E49;</span></span><br><span class="line"><span class="keyword">const</span> test = (param, callback) =&gt; callback(param + <span class="string">&apos;test&apos;</span>, <span class="string">&apos;22&apos;</span>)</span><br><span class="line"><span class="comment">// &#x81EA;&#x5B9A;&#x4E49;&#x56DE;&#x8C03;&#x64CD;&#x4F5C;</span></span><br><span class="line"><span class="keyword">const</span> callback = (param1, param2) =&gt; <span class="built_in">console</span>.log(param1, param2)</span><br><span class="line">test(<span class="string">&apos;test1&apos;</span>, callback)</span><br></pre></td></tr></table></figure>
+<h1 id="filter&#x4E2D;&#x7684;&#x56DE;&#x8C03;"><a href="#filter&#x4E2D;&#x7684;&#x56DE;&#x8C03;" class="headerlink" title="filter&#x4E2D;&#x7684;&#x56DE;&#x8C03;"></a>filter&#x4E2D;&#x7684;&#x56DE;&#x8C03;</h1><p>&#x7B80;&#x5355;&#x4F8B;&#x5B50;&#xFF1A;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">items = [{<span class="string">&quot;name&quot;</span>:<span class="string">&quot;test1&quot;</span>, <span class="string">&quot;value&quot;</span>:<span class="number">222</span>}, {<span class="string">&quot;name&quot;</span>:<span class="string">&quot;tttt&quot;</span>, <span class="string">&quot;value&quot;</span>:<span class="string">&quot;333&quot;</span>}]</span><br><span class="line"></span><br><span class="line">items.filter(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{<span class="built_in">console</span>.log(<span class="built_in">arguments</span>)})</span><br></pre></td></tr></table></figure>
+<p>filter&#x9ED8;&#x8BA4;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x4E2D;&#x6709;&#x53C2;&#x6570; item, index, items</p>
+<p><img src="/2016/07/15/js&#x56DE;&#x8C03;/callback-filter.jpg" alt=""></p>
+<h2 id="&#x81EA;&#x5B9A;&#x4E49;&#x91CD;&#x65B0;&#x8FC7;&#x6EE4;"><a href="#&#x81EA;&#x5B9A;&#x4E49;&#x91CD;&#x65B0;&#x8FC7;&#x6EE4;" class="headerlink" title="&#x81EA;&#x5B9A;&#x4E49;&#x91CD;&#x65B0;&#x8FC7;&#x6EE4;"></a>&#x81EA;&#x5B9A;&#x4E49;&#x91CD;&#x65B0;&#x8FC7;&#x6EE4;</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> filterByName = a =&gt; b =&gt; {</span><br><span class="line">  <span class="keyword">return</span> b.name.indexOf(a) &gt; <span class="number">-1</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// &#x8BE5;&#x65B9;&#x6CD5;&#x662F;&#x8FC7;&#x6EE4;&#x952E;&#x4E3A;name&#x7684;&#x503C;&#x662F;&#x5426;&#x542B;&#x6709;&#x5B57;&#x7B26;&#x4E32;&apos;te&apos;&#x7684;item</span></span><br><span class="line">items = items.filter(filterByName(<span class="string">&apos;te&apos;</span>))</span><br></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -506,7 +509,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基础"><span class="nav-number">1.</span> <span class="nav-text">基础</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#高级"><span class="nav-number">2.</span> <span class="nav-text">高级</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基础"><span class="nav-number">1.</span> <span class="nav-text">基础</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#filter中的回调"><span class="nav-number">2.</span> <span class="nav-text">filter中的回调</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义重新过滤"><span class="nav-number">2.1.</span> <span class="nav-text">自定义重新过滤</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
