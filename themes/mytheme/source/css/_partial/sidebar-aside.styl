@@ -1,0 +1,33 @@
+#sidebar
+  @media mq-normal
+    column(sidebar-column)
+
+.widget-wrap
+  margin: block-margin 0
+  background: color-widget-background
+  padding: 8px
+
+.widget-title
+  @extend $block-caption
+  color: color-sidebar-text
+
+.widget
+  color: color-sidebar-text
+  /*text-shadow: 0 1px #fff*/
+  background: color-widget-background
+  /*box-shadow: 0 -1px 4px color-widget-border inset*/
+  border-top: 1px solid #dddddd
+  padding: 4px
+  /*border-radius: 3px*/
+  a
+    color: color-default
+    text-decoration: none
+    &:hover
+      text-decoration: underline
+  ul, ol, dl
+    ul, ol, dl
+      margin-left: 5px
+      list-style: disc
+      
+ #search-input
+    width: 150px

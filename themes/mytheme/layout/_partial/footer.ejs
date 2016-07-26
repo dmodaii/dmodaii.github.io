@@ -1,0 +1,25 @@
+<footer id="footer">
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <% if (theme.sidebar === 'bottom'){ %>
+    <%- partial('_partial/sidebar') %>
+  <% } %>
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; <%= date(new Date(), 'YYYY') %> <%= config.author || config.title %><br>
+      <%= __('powered_by') %> <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+    
+    <div style="margin: auto; text-align: center"">
+        
+        <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256868325'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/stat.php%3Fid%3D1256868325' type='text/javascript'%3E%3C/script%3E"));</script>
+              
+        本站访客数<span id="busuanzi_value_site_uv"></span>人次
+
+        本页阅读量<span id="busuanzi_value_page_pv"></span>次
+     </div>
+    
+  </div>
+</footer>

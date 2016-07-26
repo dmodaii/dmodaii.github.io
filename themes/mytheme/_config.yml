@@ -1,0 +1,40 @@
+# Header
+menu:
+  首页: /
+  归档: /archives
+  关于我: /aboutme
+rss: /atom.xml
+
+# Content
+# excerpt_link: 继续阅读
+fancybox: true
+
+# Sidebar
+sidebar: left
+widgets:
+- search
+- category
+#- tag
+- tagcloud
+- recent_posts
+- links
+
+# display widgets at the bottom of index pages (pagination == 2)
+index_widgets:
+# - category
+# - tagcloud
+# - archive
+
+# widget behavior
+archive_type: 'monthly'
+show_count: true
+
+# Miscellaneous
+google_analytics:
+favicon: https://avatars0.githubusercontent.com/u/16190100?v=3&s=460
+twitter:
+google_plus:
+fb_admins:
+fb_app_id:
+
+duoshuo_shortname: moexcept
