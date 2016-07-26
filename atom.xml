@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://codertian.com/"/>
-  <updated>2016-07-25T08:38:24.563Z</updated>
+  <updated>2016-07-26T02:27:43.556Z</updated>
   <id>http://codertian.com/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>js回调</title>
+    <title>js回调测试</title>
     <link href="http://codertian.com/2016/07/15/js%E5%9B%9E%E8%B0%83/"/>
     <id>http://codertian.com/2016/07/15/js回调/</id>
     <published>2016-07-15T09:35:50.000Z</published>
-    <updated>2016-07-25T08:38:24.563Z</updated>
+    <updated>2016-07-26T02:27:43.556Z</updated>
     
     <content type="html">&lt;p&gt;&amp;#x56DE;&amp;#x8C03;&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&quot;&amp;#x57FA;&amp;#x7840;&quot;&gt;&lt;a href=&quot;#&amp;#x57FA;&amp;#x7840;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x57FA;&amp;#x7840;&quot;&gt;&lt;/a&gt;&amp;#x57FA;&amp;#x7840;&lt;/h1&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// &amp;#x5B9A;&amp;#x4E49;&amp;#x4E2D;&amp;#xFF1A; &amp;#x56DE;&amp;#x8C03;&amp;#x51FD;&amp;#x6570;&amp;#x7684;&amp;#x53C2;&amp;#x6570;&amp;#x56FA;&amp;#x5B9A;&amp;#xFF08;&amp;#x9650;&amp;#x5236;&amp;#x5728;&amp;#x5916;&amp;#x5C42;&amp;#x51FD;&amp;#x6570;&amp;#x53D8;&amp;#x91CF;&amp;#x4E2D;&amp;#xFF09;&amp;#xFF0C; &amp;#x5177;&amp;#x4F53;&amp;#x5B9E;&amp;#x73B0;&amp;#x5185;&amp;#x5BB9;&amp;#x7531;&amp;#x7528;&amp;#x6237;&amp;#x81EA;&amp;#x5B9A;&amp;#x4E49;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; test = (param, callback) =&amp;gt; callback(param + &lt;span class=&quot;string&quot;&gt;&amp;apos;test&amp;apos;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&amp;apos;22&amp;apos;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// &amp;#x81EA;&amp;#x5B9A;&amp;#x4E49;&amp;#x56DE;&amp;#x8C03;&amp;#x64CD;&amp;#x4F5C;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; callback = (param1, param2) =&amp;gt; &lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(param1, param2)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;test(&lt;span class=&quot;string&quot;&gt;&amp;apos;test1&amp;apos;&lt;/span&gt;, callback)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;

@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://codertian.com/2016/07/15/js%E5%9B%9E%E8%B0%83/</loc>
+    
+    <lastmod>2016-07-26T02:27:43.556Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://codertian.com/2016/06/22/flexbox/</loc>
     
     <lastmod>2016-07-25T09:26:04.301Z</lastmod>
@@ -19,13 +26,6 @@
     <loc>http://codertian.com/2016/07/04/json2csv/</loc>
     
     <lastmod>2016-07-25T08:39:31.907Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://codertian.com/2016/07/15/js%E5%9B%9E%E8%B0%83/</loc>
-    
-    <lastmod>2016-07-25T08:38:24.563Z</lastmod>
     
   </url>
   
