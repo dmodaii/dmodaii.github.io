@@ -3,7 +3,8 @@ toc: false
 date: 2016-05-27 19:28:43
 tags:
   - react
-categories: 前端开发
+categories:
+  - 前端开发
 -
 ---
 
