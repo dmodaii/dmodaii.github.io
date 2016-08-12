@@ -26,7 +26,7 @@ JWT（JSON Web Token） 一个JWT实际上就是一个字符串，它由三部�
 }
 ```
 
-这里面的前6个字段都是由JWT的(标准)[https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32]所定义的。
+这里面的前6个字段都是由JWT的[标准](https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32)所定义的。
 
 sub: 该JWT所面向的用户
 iss: 该JWT的签发者
