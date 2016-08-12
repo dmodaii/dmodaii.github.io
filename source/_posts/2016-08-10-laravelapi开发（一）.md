@@ -3,7 +3,7 @@ title: api开发（一）
 date: 2016-08-10 09:53:57
 tags:
   -- api
-  categories:
+categories:
   -- laravel
 ---
 
