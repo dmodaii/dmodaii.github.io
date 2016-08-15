@@ -2,9 +2,9 @@ layout: laravel
 title: api开发（一）
 date: 2016-08-10 09:53:57
 tags:
-  -- api
+  - api
 categories:
-  -- laravel
+  - laravel
 ---
 
 laravel5.1 api开发准备

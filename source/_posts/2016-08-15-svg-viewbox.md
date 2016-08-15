@@ -17,7 +17,7 @@ svg-viewbox 视野
 - viewbox
 “视区盒子”， 更形象的解释就是：SVG就像是我们的显示器屏幕，viewBox就是截屏工具选中的那个框框，最终的呈现就是把框框中的截屏内容再次在显示器中全屏显示！
 - preserveAspectRatio
-实际应用viewBox不可能一直跟viewport穿同一条开裆裤。此时，就需要preserveAspectRatio出马了，此属性也是应用在<svg>元素上，且作用的对象都是viewBox
+实际应用viewBox不可能一直跟viewport穿同一条开裆裤。此时，就需要preserveAspectRatio出马了，此属性也是应用在svg元素上，且作用的对象都是viewBox
 
 # preserveAspectRatio 具体计算
 ***无论是meet还是slice，你是不可能在一种状态下同时看到x, y方向上的位移的。因为总会有一个方向是充满viewport的。***
