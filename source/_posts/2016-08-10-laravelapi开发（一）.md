@@ -13,13 +13,13 @@ laravel5.1 api开发准备
 
 # composer update or cpmposer require "特定pakage" （推荐）
 
-api搭建：
+- api搭建：
 https://github.com/dingo/api
 
-JWT认证：
+- JWT认证：
 https://github.com/tymondesigns/jwt-auth
 
-oauth:
+- oauth:
 https://github.com/lucadegasperi/oauth2-server-laravel
 
 # 允许跨域和option请求
@@ -132,5 +132,26 @@ public function add(Payload $payload)
     $this->storage->add($payload['jti'], [], $cacheLifetime);
 
     return true;
+}
+```
+
+# 用户认证
+
+- $user = JWTAuth::parseToken()->authenticate()
+根据token识别用户信息
+- $user = \Auth::user();  
+登录后获取登录用户
+- \Auth::loginUsingId($user->id);
+以uid的为 的登录
+
+# 返回信息
+
+## 错误信息
+
+自定义：
+```
+return $this->respond('tymon.jwt.absent', 'must be amdin', 400);
+{
+  "error": "must be amdin"
 }
 ```
