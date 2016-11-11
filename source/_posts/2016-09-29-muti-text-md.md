@@ -1,4 +1,4 @@
-title: muti-text.md
+title: muti-text
 toc: false
 date: 2016-09-29 15:38:28
 tags:
