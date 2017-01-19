@@ -99,7 +99,7 @@ sitemap:
 
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
-
+## https://github.com/dmodaii/dmodaii.github.io.git
 deploy:
   type: git
   repository: git@github.com:dmodaii/dmodaii.github.io.git
