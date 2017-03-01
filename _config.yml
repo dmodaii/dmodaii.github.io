@@ -99,9 +99,10 @@ sitemap:
 
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
+## git@github.com:dmodaii/dmodaii.github.io.git
 ## https://github.com/dmodaii/dmodaii.github.io.git
 deploy:
   type: git
-  repository: git@github.com:dmodaii/dmodaii.github.io.git
+  repository: https://github.com/dmodaii/dmodaii.github.io.git
   branch: master
    #gitcafe: https://git.coding.netmoexceptimoexcepti.git,coding-pages
