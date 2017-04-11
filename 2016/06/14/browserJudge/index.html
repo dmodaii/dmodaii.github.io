@@ -1,0 +1,659 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="移动开发," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="mocept" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="js&amp;#x5224;&amp;#x65AD;&amp;#x662F;&amp;#x624B;&amp;#x673A;&amp;#x8BBF;&amp;#x95EE;&amp;#x8FD8;&amp;#x662F;&amp;#x7535;&amp;#x8111;&amp;#x8BBF;&amp;#x95EE;&amp;#xFF0C; &amp;#x4EE5;&amp;#x53CA;&amp;#x624B;&amp;#x673A;&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x7684;&amp;#x7C7B;&amp;#x578B;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="browserJudge">
+<meta property="og:url" content="http://dmodaii.github.io/2016/06/14/browserJudge/index.html">
+<meta property="og:site_name" content="mocept">
+<meta property="og:description" content="js&amp;#x5224;&amp;#x65AD;&amp;#x662F;&amp;#x624B;&amp;#x673A;&amp;#x8BBF;&amp;#x95EE;&amp;#x8FD8;&amp;#x662F;&amp;#x7535;&amp;#x8111;&amp;#x8BBF;&amp;#x95EE;&amp;#xFF0C; &amp;#x4EE5;&amp;#x53CA;&amp;#x624B;&amp;#x673A;&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x7684;&amp;#x7C7B;&amp;#x578B;">
+<meta property="og:updated_time" content="2017-04-11T09:53:46.935Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="browserJudge">
+<meta name="twitter:description" content="js&amp;#x5224;&amp;#x65AD;&amp;#x662F;&amp;#x624B;&amp;#x673A;&amp;#x8BBF;&amp;#x95EE;&amp;#x8FD8;&amp;#x662F;&amp;#x7535;&amp;#x8111;&amp;#x8BBF;&amp;#x95EE;&amp;#xFF0C; &amp;#x4EE5;&amp;#x53CA;&amp;#x624B;&amp;#x673A;&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x7684;&amp;#x7C7B;&amp;#x578B;">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+  <title> browserJudge | mocept </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">mocept</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">唯有苦，方有甜。唯有累，方有</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'wKEgAWUGf_Q1p5ydLLMg','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                browserJudge
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-06-14T14:57:43+08:00" content="2016-06-14">
+              2016-06-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端开发/" itemprop="url" rel="index">
+                    <span itemprop="name">前端开发</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/14/browserJudge/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/14/browserJudge/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>js&#x5224;&#x65AD;&#x662F;&#x624B;&#x673A;&#x8BBF;&#x95EE;&#x8FD8;&#x662F;&#x7535;&#x8111;&#x8BBF;&#x95EE;&#xFF0C; &#x4EE5;&#x53CA;&#x624B;&#x673A;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x7C7B;&#x578B;</p>
+<a id="more"></a>
+<h1 id="&#x7535;&#x8111;&#x548C;&#x624B;&#x673A;&#x5224;&#x65AD;"><a href="#&#x7535;&#x8111;&#x548C;&#x624B;&#x673A;&#x5224;&#x65AD;" class="headerlink" title="&#x7535;&#x8111;&#x548C;&#x624B;&#x673A;&#x5224;&#x65AD;"></a>&#x7535;&#x8111;&#x548C;&#x624B;&#x673A;&#x5224;&#x65AD;</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> system = {  </span><br><span class="line">win : <span class="literal">false</span>,  </span><br><span class="line">mac : <span class="literal">false</span>,  </span><br><span class="line">xll : <span class="literal">false</span>  </span><br><span class="line">};  </span><br><span class="line"><span class="comment">//&#x68C0;&#x6D4B;&#x5E73;&#x53F0;  </span></span><br><span class="line"><span class="keyword">var</span> p = navigator.platform;  </span><br><span class="line">alert(p);  </span><br><span class="line">system.win = p.indexOf(<span class="string">&quot;Win&quot;</span>) == <span class="number">0</span>;  </span><br><span class="line">system.mac = p.indexOf(<span class="string">&quot;Mac&quot;</span>) == <span class="number">0</span>;  </span><br><span class="line">system.x11 = (p == <span class="string">&quot;X11&quot;</span>) || (p.indexOf(<span class="string">&quot;Linux&quot;</span>) == <span class="number">0</span>);  </span><br><span class="line"><span class="comment">//&#x8DF3;&#x8F6C;&#x8BED;&#x53E5;  </span></span><br><span class="line"><span class="keyword">if</span> (system.win||system.mac||system.xll) { <span class="comment">//&#x8F6C;&#x5411;&#x7535;&#x8111;&#x7AEF;</span></span><br><span class="line"><span class="built_in">window</span>.location.href=<span class="string">&quot;www.111cn.net&quot;</span>;  </span><br><span class="line">}<span class="keyword">else</span>{  </span><br><span class="line"><span class="built_in">window</span>.location.href=<span class="string">&quot;m.111cn.net&quot;</span>;  <span class="comment">//&#x8F6C;&#x5411;&#x624B;&#x673A;&#x7AEF;</span></span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<h1 id="&#x624B;&#x673A;&#x6D4F;&#x89C8;&#x5668;&#x5224;&#x65AD;"><a href="#&#x624B;&#x673A;&#x6D4F;&#x89C8;&#x5668;&#x5224;&#x65AD;" class="headerlink" title="&#x624B;&#x673A;&#x6D4F;&#x89C8;&#x5668;&#x5224;&#x65AD;"></a>&#x624B;&#x673A;&#x6D4F;&#x89C8;&#x5668;&#x5224;&#x65AD;</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span><br><span class="line"> * &#x667A;&#x80FD;&#x673A;&#x6D4F;&#x89C8;&#x5668;&#x7248;&#x672C;&#x4FE1;&#x606F;:</span><br><span class="line"> *</span><br><span class="line"> */</span></span><br><span class="line">  <span class="keyword">var</span> browser={</span><br><span class="line">    versions:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">           <span class="keyword">var</span> u = navigator.userAgent, app = navigator.appVersion;</span><br><span class="line">           <span class="keyword">return</span> {<span class="comment">//&#x79FB;&#x52A8;&#x7EC8;&#x7AEF;&#x6D4F;&#x89C8;&#x5668;&#x7248;&#x672C;&#x4FE1;&#x606F;</span></span><br><span class="line">                trident: u.indexOf(<span class="string">&apos;Trident&apos;</span>) &gt; <span class="number">-1</span>, <span class="comment">//IE&#x5185;&#x6838;</span></span><br><span class="line">                presto: u.indexOf(<span class="string">&apos;Presto&apos;</span>) &gt; <span class="number">-1</span>, <span class="comment">//opera&#x5185;&#x6838;</span></span><br><span class="line">                webKit: u.indexOf(<span class="string">&apos;AppleWebKit&apos;</span>) &gt; <span class="number">-1</span>, <span class="comment">//&#x82F9;&#x679C;&#x3001;&#x8C37;&#x6B4C;&#x5185;&#x6838;</span></span><br><span class="line">                gecko: u.indexOf(<span class="string">&apos;Gecko&apos;</span>) &gt; <span class="number">-1</span> &amp;&amp; u.indexOf(<span class="string">&apos;KHTML&apos;</span>) == <span class="number">-1</span>, <span class="comment">//&#x706B;&#x72D0;&#x5185;&#x6838;</span></span><br><span class="line">                mobile: !!u.match(<span class="regexp">/AppleWebKit.*Mobile.*/</span>)||!!u.match(<span class="regexp">/AppleWebKit/</span>), <span class="comment">//&#x662F;&#x5426;&#x4E3A;&#x79FB;&#x52A8;&#x7EC8;&#x7AEF;</span></span><br><span class="line">                ios: !!u.match(<span class="regexp">/\(i[^;]+;( U;)? CPU.+Mac OS X/</span>), <span class="comment">//ios&#x7EC8;&#x7AEF;</span></span><br><span class="line">                android: u.indexOf(<span class="string">&apos;Android&apos;</span>) &gt; <span class="number">-1</span> || u.indexOf(<span class="string">&apos;Linux&apos;</span>) &gt; <span class="number">-1</span>, <span class="comment">//android&#x7EC8;&#x7AEF;&#x6216;&#x8005;uc&#x6D4F;&#x89C8;&#x5668;</span></span><br><span class="line">                iPhone: u.indexOf(<span class="string">&apos;iPhone&apos;</span>) &gt; <span class="number">-1</span> || u.indexOf(<span class="string">&apos;Mac&apos;</span>) &gt; <span class="number">-1</span>, <span class="comment">//&#x662F;&#x5426;&#x4E3A;iPhone&#x6216;&#x8005;QQHD&#x6D4F;&#x89C8;&#x5668;</span></span><br><span class="line">                iPad: u.indexOf(<span class="string">&apos;iPad&apos;</span>) &gt; <span class="number">-1</span>, <span class="comment">//&#x662F;&#x5426;iPad</span></span><br><span class="line">                webApp: u.indexOf(<span class="string">&apos;Safari&apos;</span>) == <span class="number">-1</span> <span class="comment">//&#x662F;&#x5426;web&#x5E94;&#x8BE5;&#x7A0B;&#x5E8F;&#xFF0C;&#x6CA1;&#x6709;&#x5934;&#x90E8;&#x4E0E;&#x5E95;&#x90E8;</span></span><br><span class="line">            };</span><br><span class="line">         }(),</span><br><span class="line">         language:(navigator.browserLanguage || navigator.language).toLowerCase()</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.onload=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">  <span class="keyword">var</span> ua = navigator.userAgent;</span><br><span class="line">  <span class="keyword">var</span> iphone = ua.indexOf(<span class="string">&quot;iPhone&quot;</span>) &gt; <span class="number">-1</span>;</span><br><span class="line">  <span class="keyword">var</span> ipod = ua.indexOf(<span class="string">&quot;iPod&quot;</span>) &gt; <span class="number">-1</span>;</span><br><span class="line">  <span class="keyword">var</span> ipad = ua.indexOf(<span class="string">&quot;iPad&quot;</span>) &gt; <span class="number">-1</span>;</span><br><span class="line">  <span class="keyword">var</span> android = ua.indexOf(<span class="string">&quot;Android&quot;</span>) &gt; <span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (android){</span><br><span class="line">          <span class="built_in">document</span>.getElementById(<span class="string">&apos;android&apos;</span>).style.display=<span class="string">&quot;block&quot;</span>;</span><br><span class="line">          <span class="built_in">document</span>.getElementById(<span class="string">&apos;android2&apos;</span>).style.display=<span class="string">&quot;block&quot;</span>;</span><br><span class="line">      }<span class="keyword">else</span> <span class="keyword">if</span> (iphone || ipod || ipad){</span><br><span class="line">          (<span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>) </span>{</span><br><span class="line">              <span class="keyword">var</span> button = <span class="built_in">document</span>.getElementById(<span class="string">&apos;button&apos;</span>);</span><br><span class="line">              <span class="keyword">var</span> guide = <span class="built_in">document</span>.getElementById(<span class="string">&apos;guide&apos;</span>);</span><br><span class="line">              <span class="keyword">if</span>(navigator.userAgent.indexOf(<span class="string">&apos;MicroMessenger&apos;</span>) != <span class="number">-1</span>) {</span><br><span class="line">                  guide.style.display = <span class="string">&apos;block&apos;</span>;</span><br><span class="line">              }</span><br><span class="line">              button.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">                  guide.style.display = <span class="string">&apos;none&apos;</span>;</span><br><span class="line">              };</span><br><span class="line">          })();</span><br><span class="line"></span><br><span class="line">          <span class="comment">//dosomething</span></span><br><span class="line">      }</span><br><span class="line">};</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/移动开发/" rel="tag">#移动开发</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/30/clear/" rel="next" title="clear">
+                <i class="fa fa-chevron-left"></i> clear
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/06/21/rem-flexible/" rel="prev" title="rem-flexible">
+                rem-flexible <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/06/14/browserJudge/"
+           data-title="browserJudge" data-url="http://dmodaii.github.io/2016/06/14/browserJudge/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="mocept" />
+          <p class="site-author-name" itemprop="name">mocept</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">27</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#电脑和手机判断"><span class="nav-number">1.</span> <span class="nav-text">电脑和手机判断</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#手机浏览器判断"><span class="nav-number">2.</span> <span class="nav-text">手机浏览器判断</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">mocept</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"moexcept"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

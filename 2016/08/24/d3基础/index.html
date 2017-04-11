@@ -1,0 +1,693 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="数据可视化," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="mocept" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="&amp;#x6570;&amp;#x636E;&amp;#x53EF;&amp;#x89C6;&amp;#x5316;&amp;#x7684;&amp;#x76EE;&amp;#x7684;&amp;#xFF0C;&amp;#x662F;&amp;#x8981;&amp;#x5BF9;&amp;#x6570;&amp;#x636E;&amp;#x8FDB;&amp;#x884C;&amp;#x53EF;&amp;#x89C6;&amp;#x5316;&amp;#x5904;&amp;#x7406;&amp;#xFF0C;&amp;#x4EE5;&amp;#x4F7F;&amp;#x5F97;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="d3基础">
+<meta property="og:url" content="http://dmodaii.github.io/2016/08/24/d3基础/index.html">
+<meta property="og:site_name" content="mocept">
+<meta property="og:description" content="&amp;#x6570;&amp;#x636E;&amp;#x53EF;&amp;#x89C6;&amp;#x5316;&amp;#x7684;&amp;#x76EE;&amp;#x7684;&amp;#xFF0C;&amp;#x662F;&amp;#x8981;&amp;#x5BF9;&amp;#x6570;&amp;#x636E;&amp;#x8FDB;&amp;#x884C;&amp;#x53EF;&amp;#x89C6;&amp;#x5316;&amp;#x5904;&amp;#x7406;&amp;#xFF0C;&amp;#x4EE5;&amp;#x4F7F;&amp;#x5F97;">
+<meta property="og:image" content="http://dmodaii.github.io/2016/08/24/d3基础/pow.jpg">
+<meta property="og:updated_time" content="2017-04-11T09:53:46.965Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="d3基础">
+<meta name="twitter:description" content="&amp;#x6570;&amp;#x636E;&amp;#x53EF;&amp;#x89C6;&amp;#x5316;&amp;#x7684;&amp;#x76EE;&amp;#x7684;&amp;#xFF0C;&amp;#x662F;&amp;#x8981;&amp;#x5BF9;&amp;#x6570;&amp;#x636E;&amp;#x8FDB;&amp;#x884C;&amp;#x53EF;&amp;#x89C6;&amp;#x5316;&amp;#x5904;&amp;#x7406;&amp;#xFF0C;&amp;#x4EE5;&amp;#x4F7F;&amp;#x5F97;">
+<meta name="twitter:image" content="http://dmodaii.github.io/2016/08/24/d3基础/pow.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+  <title> d3基础 | mocept </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">mocept</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">唯有苦，方有甜。唯有累，方有</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'wKEgAWUGf_Q1p5ydLLMg','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                d3基础
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-08-24T10:58:56+08:00" content="2016-08-24">
+              2016-08-24
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/D3-js/" itemprop="url" rel="index">
+                    <span itemprop="name">D3.js</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/24/d3基础/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/24/d3基础/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>&#x6570;&#x636E;&#x53EF;&#x89C6;&#x5316;&#x7684;&#x76EE;&#x7684;&#xFF0C;&#x662F;&#x8981;&#x5BF9;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x53EF;&#x89C6;&#x5316;&#x5904;&#x7406;&#xFF0C;&#x4EE5;&#x4F7F;&#x5F97;&#x80FD;&#x591F;&#x660E;&#x786E;&#x5730;&#x3001;&#x6709;&#x6548;&#x5730;&#x4F20;&#x9012;&#x4FE1;&#x606F;&#x3002;</p>
+<a id="more"></a>
+<p><a href="">https://github.com/d3/d3/wiki</a><br><a href="">https://github.com/d3/d3/wiki/API&#x2013;%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C</a></p>
+<h1 id="&#x6570;&#x636E;&#x53EF;&#x89C6;&#x5316;&#x7684;&#x6784;&#x6210;&#x8981;&#x7D20;"><a href="#&#x6570;&#x636E;&#x53EF;&#x89C6;&#x5316;&#x7684;&#x6784;&#x6210;&#x8981;&#x7D20;" class="headerlink" title="&#x6570;&#x636E;&#x53EF;&#x89C6;&#x5316;&#x7684;&#x6784;&#x6210;&#x8981;&#x7D20;"></a>&#x6570;&#x636E;&#x53EF;&#x89C6;&#x5316;&#x7684;&#x6784;&#x6210;&#x8981;&#x7D20;</h1><p>&#x6570;&#x636E;&#x53EF;&#x89C6;&#x5316;&#x7684;&#x624B;&#x6CD5;&#x5F88;&#x591A;&#xFF0C;&#x5176;&#x4E2D;&#x6709;&#x4E00;&#x4E9B;&#x5171;&#x901A;&#x7684;&#x89C6;&#x89C9;&#x8981;&#x7D20;&#xFF0C;&#x6574;&#x7406;&#x5982;&#x4E0B;&#x3002;</p>
+<ul>
+<li>&#x5750;&#x6807;&#x3002;&#x6570;&#x503C;&#x7684;&#x4F4D;&#x7F6E;&#x88AB;&#x5BF9;&#x5E94;&#x5230;&#x76F4;&#x89D2;&#x5750;&#x6807;&#x7CFB;&#x6216;&#x6781;&#x5750;&#x6807;&#x7CFB;&#x4E0A;&#x3002;</li>
+<li>&#x5927;&#x5C0F;&#x3002;&#x6570;&#x636E;&#x7684;&#x5927;&#x5C0F;&#x88AB;&#x5BF9;&#x5E94;&#x5230;&#x56FE;&#x5F62;&#x7684;&#x5927;&#x5C0F;&#x3002;</li>
+<li>&#x8272;&#x5F69;&#x3002;&#x6570;&#x503C;&#x7684;&#x5206;&#x7C7B;&#x548C;&#x754C;&#x9650;&#x7B49;&#x5BF9;&#x5E94;&#x5230;&#x989C;&#x8272;&#x7684;&#x4E0D;&#x540C;&#x3002;</li>
+<li>&#x6807;&#x7B7E;&#x3002;&#x6570;&#x503C;&#x7684;&#x7279;&#x5F81;&#x7528;&#x6807;&#x7B7E;&#x6765;&#x6807;&#x8BB0;&#x3002;</li>
+<li>&#x5173;&#x8054;&#x3002;&#x6570;&#x503C;&#x4E4B;&#x95F4;&#x7684;&#x8054;&#x7CFB;&#xFF0C;&#x7528;&#x5173;&#x8054;&#x7EBF;&#x6761;&#x7B49;&#x8FDE;&#x63A5;&#x8D77;&#x6765;&#x3002;</li>
+</ul>
+<h1 id="&#x9009;&#x62E9;&#x96C6;&#x4E0E;&#x6570;&#x636E;"><a href="#&#x9009;&#x62E9;&#x96C6;&#x4E0E;&#x6570;&#x636E;" class="headerlink" title="&#x9009;&#x62E9;&#x96C6;&#x4E0E;&#x6570;&#x636E;"></a>&#x9009;&#x62E9;&#x96C6;&#x4E0E;&#x6570;&#x636E;</h1><p>d3.select &#x548C; d3.selectAll &#x8FD4;&#x56DE;&#x7684;&#x5BF9;&#x8C61;&#x79F0;&#x4E3A; &#x9009;&#x62E9;&#x96C6;&#xFF08;selection&#xFF09;&#xFF0C; &#x6DFB;&#x52A0;&#x3001;&#x5220;&#x9664;&#x3001;&#x8BBE;&#x5B9A;&#x7F51;&#x9875;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x90FD;&#x5F97;&#x4F7F;&#x7528;&#x9009;&#x62E9;&#x96C6;</p>
+<h2 id="&#x9009;&#x62E9;&#x96C6;"><a href="#&#x9009;&#x62E9;&#x96C6;" class="headerlink" title="&#x9009;&#x62E9;&#x96C6;"></a>&#x9009;&#x62E9;&#x96C6;</h2><h3 id="selection-classed-names-value"><a href="#selection-classed-names-value" class="headerlink" title="selection.classed(names[, value])"></a>selection.classed(names[, value])</h3><p>selection.classed(&#x201C;foo bar&#x201D;, true)<br>selection.classed({&#x201C;foo&#x201D;: true,  &#x201C;bar&#x201D;: true})<br>&#x6DFB;&#x52A0;&#x6216;&#x53BB;&#x9664;&#x67D0;&#x7C7B;</p>
+<p>If the value is a function, then the function is evaluated for each selected element<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">selection.classed(&quot;foo&quot;, function() { return Math.random() &gt; 0.5; });</span><br></pre></td></tr></table></figure></p>
+<h3 id="selection-property-name-value"><a href="#selection-property-name-value" class="headerlink" title="selection.property(name[, value])"></a>selection.property(name[, value])</h3><p>Some HTML elements have special properties that are not addressable using attributes or styles, such as a form field&#x2019;s text value and a checkbox&#x2019;s checked boolean</p>
+<h2 id="&#x6570;&#x636E;"><a href="#&#x6570;&#x636E;" class="headerlink" title="&#x6570;&#x636E;"></a>&#x6570;&#x636E;</h2><h3 id="selection-datum-value"><a href="#selection-datum-value" class="headerlink" title="selection.datum([value])"></a>selection.datum([value])</h3><p>&#x83B7;&#x53D6;&#x6216;&#x8BBE;&#x7F6E;&#x6BCF;&#x4E2A;&#x9009;&#x5B9A;&#x7684;&#x5143;&#x7D20;&#x7ED1;&#x5B9A;&#x7684;&#x6570;&#x636E;&#x3002;&#x4E0D;&#x50CF;selection.data&#x65B9;&#x6CD5;&#xFF0C;&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#x4E0D;&#x8BA1;&#x7B97;&#x4E00;&#x4E2A;&#x8FDE;&#x63A5;&#xFF08;&#x5E76;&#x56E0;&#x6B64;&#x4E0D;&#x8BA1;&#x7B97;enter&#x548C;exit&#x7684;&#x9009;&#x62E9;&#xFF09;&#x3002;&#x6B64;&#x65B9;&#x6CD5;&#x5728;selection.property&#x4E4B;&#x4E0A;&#x5B9E;&#x73B0;&#xFF1A;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">d3.selection.prototype.datum = <span class="function"><span class="keyword">function</span>(<span class="params">value</span>) </span>{</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">arguments</span>.length &lt; <span class="number">1</span></span><br><span class="line">      ? <span class="keyword">this</span>.property(<span class="string">&quot;__data__&quot;</span>)</span><br><span class="line">      : <span class="keyword">this</span>.property(<span class="string">&quot;__data__&quot;</span>, value);</span><br><span class="line">};</span><br></pre></td></tr></table></figure></p>
+<p><strong>&#x5728;&#x88AB;&#x7ED1;&#x5B9A;&#x6570;&#x636E;&#x7684;&#x9009;&#x62E9;&#x96C6;&#x4E2D;&#x6DFB;&#x52A0;&#x5143;&#x7D20;&#x540E;&#xFF0C; &#x65B0;&#x5143;&#x7D20;&#x4F1A;&#x7EE7;&#x627F;&#x8BE5;&#x6570;&#x636E;</strong></p>
+<h3 id="selection-data-values-key"><a href="#selection-data-values-key" class="headerlink" title="selection.data([values[, key]])"></a>selection.data([values[, key]])</h3><ul>
+<li>data join &#x6570;&#x636E;&#x8FDE;&#x63A5;</li>
+</ul>
+<p><a href="https://bost.ocks.org/mike/join/" target="_blank" rel="external">Thinking with Joins</a></p>
+<p>update: &#x6570;&#x7EC4;&#x957F;&#x5EA6; = &#x5143;&#x7D20;&#x6570;&#x91CF;<br>enter:  &#x6570;&#x7EC4;&#x957F;&#x5EA6; &gt; &#x5143;&#x7D20;&#x6570;&#x91CF;,  &#x5219;&#x90E8;&#x5206;&#x4E0D;&#x5B58;&#x5728;&#x7684;&#x5143;&#x7D20;&#x201C;&#x5373;&#x5C06;&#x8FDB;&#x5165;&#x53EF;&#x89C6;&#x5316;&#x201D;<br>exit:   &#x6570;&#x7EC4;&#x957F;&#x5EA6; &lt; &#x5143;&#x7D20;&#x6570;&#x91CF;&#xFF0C; &#x5219;&#x591A;&#x4F59;&#x7684;&#x5143;&#x7D20;&#x201C;&#x5373;&#x5C06;&#x63A8;&#x51FA;&#x53EF;&#x89C6;&#x5316;&#x201D;</p>
+<p>The data is specified for each group in the selection. If the selection has multiple groups (such as d3.selectAll followed by selection.selectAll), then data should typically be specified as a function. <strong><em>This function will be evaluated for each group in order, being passed the group&#x2019;s parent datum (d, which may be undefined), the group index (i), and the selection&#x2019;s parent nodes (nodes), with this as the group&#x2019;s parent element.</em></strong> For example, to create an HTML table from a matrix of numbers:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> matrix = [</span><br><span class="line">  [<span class="number">11975</span>,  <span class="number">5871</span>, <span class="number">8916</span>, <span class="number">2868</span>],</span><br><span class="line">  [ <span class="number">1951</span>, <span class="number">10048</span>, <span class="number">2060</span>, <span class="number">6171</span>],</span><br><span class="line">  [ <span class="number">8010</span>, <span class="number">16145</span>, <span class="number">8090</span>, <span class="number">8045</span>],</span><br><span class="line">  [ <span class="number">1013</span>,   <span class="number">990</span>,  <span class="number">940</span>, <span class="number">6907</span>]</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> tr = d3.select(<span class="string">&quot;body&quot;</span>)</span><br><span class="line">  .append(<span class="string">&quot;table&quot;</span>)</span><br><span class="line">  .selectAll(<span class="string">&quot;tr&quot;</span>)</span><br><span class="line">  .data(matrix)</span><br><span class="line">  .enter().append(<span class="string">&quot;tr&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 4&#x6B21;data&#x540E;&#x6700;&#x540E;&#x8FDB;&#x884C;16&#x6B21;text</span></span><br><span class="line"><span class="keyword">var</span> td = tr.selectAll(<span class="string">&quot;td&quot;</span>)</span><br><span class="line">  .data(<span class="function"><span class="keyword">function</span>(<span class="params">d</span>) </span>{ <span class="keyword">return</span> d; })</span><br><span class="line">  .enter().append(<span class="string">&quot;td&quot;</span>)</span><br><span class="line">    .text(<span class="function"><span class="keyword">function</span>(<span class="params">d</span>) </span>{ <span class="keyword">return</span> d; });</span><br></pre></td></tr></table></figure>
+<p>Whenever this code is run, it recomputes the data join and maintains the desired correspondence between elements and data<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> circle = svg.selectAll(<span class="string">&quot;circle&quot;</span>)</span><br><span class="line">  .data(data);</span><br><span class="line"></span><br><span class="line">circle.exit().remove();</span><br><span class="line"></span><br><span class="line">circle.enter().append(<span class="string">&quot;circle&quot;</span>)</span><br><span class="line">    .attr(<span class="string">&quot;r&quot;</span>, <span class="number">2.5</span>)</span><br><span class="line">  .merge(circle)</span><br><span class="line">    .attr(<span class="string">&quot;cx&quot;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">d</span>) </span>{ <span class="keyword">return</span> d.x; })</span><br><span class="line">    .attr(<span class="string">&quot;cy&quot;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">d</span>) </span>{ <span class="keyword">return</span> d.y; });</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>&#x7ED1;&#x5B9A;&#x987A;&#x5E8F;</li>
+</ul>
+<p>todo</p>
+<h1 id="&#x6BD4;&#x4F8B;&#x5C3A;&#x548C;&#x5750;&#x6807;&#x8F74;"><a href="#&#x6BD4;&#x4F8B;&#x5C3A;&#x548C;&#x5750;&#x6807;&#x8F74;" class="headerlink" title="&#x6BD4;&#x4F8B;&#x5C3A;&#x548C;&#x5750;&#x6807;&#x8F74;"></a>&#x6BD4;&#x4F8B;&#x5C3A;&#x548C;&#x5750;&#x6807;&#x8F74;</h1><h2 id="&#x6BD4;&#x4F8B;&#x5C3A;-scale"><a href="#&#x6BD4;&#x4F8B;&#x5C3A;-scale" class="headerlink" title="&#x6BD4;&#x4F8B;&#x5C3A; scale"></a>&#x6BD4;&#x4F8B;&#x5C3A; scale</h2><ul>
+<li>d3.scale.linear() &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x7EBF;&#x6027;&#x6BD4;&#x4F8B;&#x5C3A;</li>
+<li>linear.domain([numbers])  &#x8BBE;&#x5B9A;&#x6216;&#x83B7;&#x53D6;&#x5B9A;&#x4E49;&#x57DF;</li>
+<li>linear.range([values])   &#x8BBE;&#x5B9A;&#x6216;&#x83B7;&#x53D6;&#x503C;&#x57DF;</li>
+<li>linear.ticks([count])</li>
+</ul>
+<p><img src="/2016/08/24/d3&#x57FA;&#x7840;/pow.jpg" alt=""></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据可视化/" rel="tag">#数据可视化</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/19/php-algorithm/" rel="next" title="php-algorithm">
+                <i class="fa fa-chevron-left"></i> php-algorithm
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/29/muti-text-md/" rel="prev" title="muti-text">
+                muti-text <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/08/24/d3基础/"
+           data-title="d3基础" data-url="http://dmodaii.github.io/2016/08/24/d3基础/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="mocept" />
+          <p class="site-author-name" itemprop="name">mocept</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">27</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数据可视化的构成要素"><span class="nav-number">1.</span> <span class="nav-text">数据可视化的构成要素</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#选择集与数据"><span class="nav-number">2.</span> <span class="nav-text">选择集与数据</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#选择集"><span class="nav-number">2.1.</span> <span class="nav-text">选择集</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#selection-classed-names-value"><span class="nav-number">2.1.1.</span> <span class="nav-text">selection.classed(names[, value])</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#selection-property-name-value"><span class="nav-number">2.1.2.</span> <span class="nav-text">selection.property(name[, value])</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据"><span class="nav-number">2.2.</span> <span class="nav-text">数据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#selection-datum-value"><span class="nav-number">2.2.1.</span> <span class="nav-text">selection.datum([value])</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#selection-data-values-key"><span class="nav-number">2.2.2.</span> <span class="nav-text">selection.data([values[, key]])</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#比例尺和坐标轴"><span class="nav-number">3.</span> <span class="nav-text">比例尺和坐标轴</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#比例尺-scale"><span class="nav-number">3.1.</span> <span class="nav-text">比例尺 scale</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">mocept</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"moexcept"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

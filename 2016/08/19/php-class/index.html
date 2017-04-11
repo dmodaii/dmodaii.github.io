@@ -1,0 +1,658 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="class," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="mocept" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="static parent selfstatic &amp;#x5173;&amp;#x952E;&amp;#x5B57;&amp;#xFF0C;&amp;#x8FD9;&amp;#x91CC;&amp;#x4F5C;&amp;#x4E3A;&amp;#x4F5C;&amp;#x7528;&amp;#x57DF;&amp;#x5F15;&amp;#x7528;&amp;#x3002;&amp;#x7C7B;&amp;#x4F3C;&amp;#x4E8E;parent, self&amp;#x7B49;&amp;#x5173;&amp;#x952E;&amp;#x">
+<meta property="og:type" content="article">
+<meta property="og:title" content="php-class">
+<meta property="og:url" content="http://dmodaii.github.io/2016/08/19/php-class/index.html">
+<meta property="og:site_name" content="mocept">
+<meta property="og:description" content="static parent selfstatic &amp;#x5173;&amp;#x952E;&amp;#x5B57;&amp;#xFF0C;&amp;#x8FD9;&amp;#x91CC;&amp;#x4F5C;&amp;#x4E3A;&amp;#x4F5C;&amp;#x7528;&amp;#x57DF;&amp;#x5F15;&amp;#x7528;&amp;#x3002;&amp;#x7C7B;&amp;#x4F3C;&amp;#x4E8E;parent, self&amp;#x7B49;&amp;#x5173;&amp;#x952E;&amp;#x">
+<meta property="og:updated_time" content="2017-04-11T09:53:46.964Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="php-class">
+<meta name="twitter:description" content="static parent selfstatic &amp;#x5173;&amp;#x952E;&amp;#x5B57;&amp;#xFF0C;&amp;#x8FD9;&amp;#x91CC;&amp;#x4F5C;&amp;#x4E3A;&amp;#x4F5C;&amp;#x7528;&amp;#x57DF;&amp;#x5F15;&amp;#x7528;&amp;#x3002;&amp;#x7C7B;&amp;#x4F3C;&amp;#x4E8E;parent, self&amp;#x7B49;&amp;#x5173;&amp;#x952E;&amp;#x">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+  <title> php-class | mocept </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">mocept</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">唯有苦，方有甜。唯有累，方有</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'wKEgAWUGf_Q1p5ydLLMg','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                php-class
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-08-19T11:34:10+08:00" content="2016-08-19">
+              2016-08-19
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/PHP基础/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP基础</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/19/php-class/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/19/php-class/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="static-parent-self"><a href="#static-parent-self" class="headerlink" title="static parent self"></a>static parent self</h1><p>static &#x5173;&#x952E;&#x5B57;&#xFF0C;&#x8FD9;&#x91CC;&#x4F5C;&#x4E3A;&#x4F5C;&#x7528;&#x57DF;&#x5F15;&#x7528;&#x3002;&#x7C7B;&#x4F3C;&#x4E8E;parent, self&#x7B49;&#x5173;&#x952E;&#x5B57;&#x3002;&#x4E0E;parent&#x548C;self&#x4E0D;&#x540C;&#x7684;&#x662F;&#xFF0C;parent &#x5F15;&#x7528;&#x7684;&#x662F;&#x7236;&#x7C7B;&#x4F5C;&#x7528;&#x57DF;&#xFF0C;self&#x5F15;&#x7528;&#x7684;&#x662F;&#x5F53;&#x524D;&#x7C7B;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#xFF0C;&#x800C;static&#x5F15;&#x7528;&#x7684;&#x662F;&#x5168;&#x90E8;&#x9759;&#x6001;&#x4F5C;&#x7528;&#x57DF;&#xFF0C;&#x5B50;&#x7C7B;&#x4F1A;&#x8986;&#x76D6;&#x7236;&#x7C7B;&#xFF0C;<br><a id="more"></a><br>&#x8003;&#x8651;&#x4E0B;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#xFF1A;</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>{</span><br><span class="line">    <span class="keyword">const</span> A = <span class="string">&apos;const A: A&apos;</span>;</span><br><span class="line">    <span class="keyword">const</span> B = <span class="string">&apos;const A: B&apos;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">m</span> <span class="params">()</span></span><br><span class="line">    </span>{</span><br><span class="line">        <span class="keyword">echo</span> <span class="keyword">static</span>::A;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">n</span> <span class="params">()</span></span><br><span class="line">    </span>{</span><br><span class="line">        <span class="keyword">echo</span> <span class="keyword">self</span>::A;</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span> </span>{</span><br><span class="line">    <span class="keyword">const</span> A = <span class="string">&apos;const B: A&apos;</span>;</span><br><span class="line">    <span class="keyword">const</span> B = <span class="string">&apos;const B: B&apos;</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">f</span> <span class="params">()</span></span><br><span class="line">    </span>{</span><br><span class="line">        <span class="keyword">echo</span> <span class="keyword">parent</span>::A;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">e</span> <span class="params">()</span></span><br><span class="line">    </span>{</span><br><span class="line">        <span class="keyword">echo</span> <span class="keyword">self</span>::A;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*public function n ()</span><br><span class="line">    {</span><br><span class="line">        echo self::A;</span><br><span class="line">    }*/</span></span><br><span class="line"></span><br><span class="line">}</span><br><span class="line">$b = <span class="keyword">new</span> B();</span><br><span class="line">$b-&gt;m(); <span class="comment">// const B: A</span></span><br><span class="line">$b-&gt;n(); <span class="comment">// const A: A</span></span><br><span class="line">$b-&gt;f(); <span class="comment">// const A: A</span></span><br><span class="line">$b-&gt;e(); <span class="comment">// const B: A</span></span><br></pre></td></tr></table></figure>
+<h1 id="&#x7C7B;&#x5E38;&#x91CF;-&#x7C7B;&#x9759;&#x6001;&#x53D8;&#x91CF;"><a href="#&#x7C7B;&#x5E38;&#x91CF;-&#x7C7B;&#x9759;&#x6001;&#x53D8;&#x91CF;" class="headerlink" title="&#x7C7B;&#x5E38;&#x91CF;  &#x7C7B;&#x9759;&#x6001;&#x53D8;&#x91CF;"></a>&#x7C7B;&#x5E38;&#x91CF;  &#x7C7B;&#x9759;&#x6001;&#x53D8;&#x91CF;</h1><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">test</span>  </span><br><span class="line"></span>{  </span><br><span class="line">  <span class="keyword">const</span> constvar=<span class="string">&apos;hello world&apos;</span>;  </span><br><span class="line">  <span class="keyword">static</span> $staticvar=<span class="string">&apos;hello world&apos;</span>;  </span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">getStaticvar</span><span class="params">()</span></span>{  </span><br><span class="line">     <span class="keyword">return</span> <span class="keyword">self</span>::$staticvar;  </span><br><span class="line">  }  </span><br><span class="line">}  </span><br><span class="line"></span><br><span class="line">$obj=<span class="keyword">new</span> test();  </span><br><span class="line"><span class="keyword">echo</span> test::constvar <span class="comment">//&#x8F93;&#x51FA;&apos;hello world&apos;  </span></span><br><span class="line"><span class="keyword">echo</span> test::staticvar <span class="comment">//&#x51FA;&#x9519;,staticvar &#x524D;&#x5FC5;&#x987B;&#x52A0;$&#x624D;&#x80FD;&#x8BBF;&#x95EE;&#xFF0C;&#x8FD9;&#x662F;&#x5BB9;&#x6613;&#x548C;&#x7C7B;&#x5E38;&#x91CF;(per-class&#x5E38;&#x91CF;)&#x5BB9;&#x6613;&#x6DF7;&#x6DC6;&#x7684;&#x5730;&#x65B9;&#x4E4B;&#x4E00;  </span></span><br><span class="line"><span class="keyword">echo</span> test::$staticvar <span class="comment">//&#x8F93;&#x51FA;&apos;hello world&apos;  </span></span><br><span class="line">$str=<span class="string">&apos;test&apos;</span>;  </span><br><span class="line"><span class="keyword">echo</span> $str::$staticvar <span class="comment">//&#x51FA;&#x9519;&#xFF0C;&#x7C7B;&#x540D;&#x5728;&#x8FD9;&#x4E0D;&#x80FD;&#x7528;&#x53D8;&#x91CF;&#x52A8;&#x6001;&#x5316;  </span></span><br><span class="line"><span class="keyword">echo</span> $str::constvar <span class="comment">//&#x51FA;&#x9519;&#x539F;&#x56E0;&#x540C;&#x4E0A;  </span></span><br><span class="line"></span><br><span class="line"><span class="comment">//&#x5728;&#x7C7B;&#x540D;&#x79F0;&#x5B58;&#x5728;&#x4E00;&#x4E2A;&#x53D8;&#x91CF;&#x4E2D;&#x5904;&#x4E8E;&#x4E0D;&#x786E;&#x5B9A;&#xFF08;&#x52A8;&#x6001;&#xFF09;&#x72B6;&#x6001;&#x65F6;&#xFF0C;&#x53EA;&#x80FD;&#x4EE5;&#x4EE5;&#x4E0B;&#x65B9;&#x5F0F;&#x8BBF;&#x95EE;&#x7C7B;&#x53D8;&#x91CF;  </span></span><br><span class="line">$obj2=<span class="keyword">new</span> $str();  </span><br><span class="line"><span class="keyword">echo</span> $obj2-&gt;getStaticvar();</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/class/" rel="tag">#class</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/17/js单元测试/" rel="next" title="js单元测试">
+                <i class="fa fa-chevron-left"></i> js单元测试
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/19/js-algorithm/" rel="prev" title="js-algorithm">
+                js-algorithm <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/08/19/php-class/"
+           data-title="php-class" data-url="http://dmodaii.github.io/2016/08/19/php-class/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="mocept" />
+          <p class="site-author-name" itemprop="name">mocept</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">27</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#static-parent-self"><span class="nav-number">1.</span> <span class="nav-text">static parent self</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#类常量-类静态变量"><span class="nav-number">2.</span> <span class="nav-text">类常量  类静态变量</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">mocept</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"moexcept"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
