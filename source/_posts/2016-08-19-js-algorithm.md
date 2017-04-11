@@ -8,6 +8,8 @@ categories:
 ---
 
 js算法
+<!--more-->
+
 # 数组
 ### 重复数组
 ```javascript

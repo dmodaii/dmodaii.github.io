@@ -1,8 +1,9 @@
-title: rem
+title: rem-flexible
 toc: false
 date: 2016-06-21 15:17:52
 tags:
   - 移动开发
+  - flexible
 categories:
   - 前端开发
 ---
