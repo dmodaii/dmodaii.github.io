@@ -52,7 +52,7 @@ Thus the element takes the width of the layout viewport initially, and your CSS 
 How wide is the layout viewport? That differs per browser. Safari iPhone uses 980px, Opera 850px, Android WebKit 800px, and IE 974px.
 
 # 实战应用
-- 动态更改viewport的content
+### 动态更改viewport的content
 
 ```JavaScript
     // postcss-flexible is required
@@ -102,12 +102,15 @@ How wide is the layout viewport? That differs per browser. Safari iPhone uses 98
       }
     }(window, window.lib || (window.lib = {}));
 
-``` 
+``````
 
-- 使用postcss-flexible处理css
+
+### 使用postcss-flexible处理css
 [require('postcss-flexible')({remUnit: 75} 75和dpr2为参照点
 
-```
+
+```css
+
 .selector {
   font-size: dpr(32px);
   width: rem(75px);
@@ -115,8 +118,6 @@ How wide is the layout viewport? That differs per browser. Safari iPhone uses 98
   /* replace all @[1-3]x in urls: `/a/@2x/x.png`, `/a@2x/x.png` or `/a/x@2x.png` */
   background-image: url(/images/qr@2x.png);
 }
-
-
 After processing:
 
 .selector {

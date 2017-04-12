@@ -103,6 +103,6 @@ sitemap:
 ## https://github.com/dmodaii/dmodaii.github.io.git
 deploy:
   type: git
-  repository: https://github.com/dmodaii/dmodaii.github.io.git
+  repository: git@github.com:dmodaii/dmodaii.github.io.git
   branch: master
    #gitcafe: https://git.coding.netmoexceptimoexcepti.git,coding-pages
