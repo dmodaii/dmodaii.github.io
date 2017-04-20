@@ -2,9 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://dmodaii.github.io/2017/04/19/flux/</loc>
+    
+    <lastmod>2017-04-20T08:13:53.251Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://dmodaii.github.io/2016/09/29/muti-text-md/</loc>
+    
+    <lastmod>2017-04-19T09:15:02.376Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://dmodaii.github.io/2016/06/22/flexbox/</loc>
+    
+    <lastmod>2017-04-14T03:10:02.741Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://dmodaii.github.io/2016/06/21/dpr-flexible/</loc>
     
-    <lastmod>2017-04-12T05:40:13.120Z</lastmod>
+    <lastmod>2017-04-14T03:08:36.435Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://dmodaii.github.io/2016/06/21/rem-flexible/</loc>
+    
+    <lastmod>2017-04-14T02:44:13.510Z</lastmod>
     
   </url>
   
@@ -12,13 +40,6 @@
     <loc>http://dmodaii.github.io/2016/08/19/js-algorithm/</loc>
     
     <lastmod>2017-04-11T11:42:41.119Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://dmodaii.github.io/2016/06/21/rem-flexible/</loc>
-    
-    <lastmod>2017-04-11T11:07:05.627Z</lastmod>
     
   </url>
   
@@ -82,13 +103,6 @@
     <loc>http://dmodaii.github.io/2016/11/11/event/</loc>
     
     <lastmod>2017-04-11T09:53:46.971Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://dmodaii.github.io/2016/09/29/muti-text-md/</loc>
-    
-    <lastmod>2017-04-11T09:53:46.970Z</lastmod>
     
   </url>
   
@@ -180,13 +194,6 @@
     <loc>http://dmodaii.github.io/2016/07/04/json2csv/</loc>
     
     <lastmod>2017-04-11T09:53:46.942Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://dmodaii.github.io/2016/06/22/flexbox/</loc>
-    
-    <lastmod>2017-04-11T09:53:46.940Z</lastmod>
     
   </url>
   
