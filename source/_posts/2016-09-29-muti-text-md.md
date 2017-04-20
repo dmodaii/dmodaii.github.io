@@ -13,7 +13,8 @@ categories:
 # 超出隐藏
 
 ## 超出换行
-```css
+
+``` css
 display:block;/*内联对象需加*/
 width:31em;
 word-break:keep-all;/* 不换行 */
@@ -23,7 +24,8 @@ text-overflow:ellipsis;/* 当对象内文本溢出时显示省略标记(...) ；
 ```
 
 ## 限制N行
-```css
+
+``` css
 max-height: 115px;
 display: -webkit-box;
 -webkit-line-clamp: 3;//行数
@@ -32,3 +34,7 @@ text-overflow: -o-ellipsis-lastline;
 overflow: hidden;
 text-overflow: ellipsis;
 ```
+
+## white-space
+pre-wrap	保留空白符序列，但是正常地进行换行。
+pre-line	合并空白符序列，但是保留换行符。

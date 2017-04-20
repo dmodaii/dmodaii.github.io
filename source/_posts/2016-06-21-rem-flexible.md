@@ -58,7 +58,7 @@ window.addEventListener("onorientationchange" in window ? "orientationchange" : 
 # rem
 
 首先假设我上面的页面设计稿给我时候是按照640的标准尺寸给我的前提下，（当然这个尺寸肯定不一定是640，可以是320，或者480，又或是375）来看一组表格。
-![](rem/rem.jpeg)
+![](rem-flexible/rem.jpeg)
 
 ## 使用css适应主流屏幕
 

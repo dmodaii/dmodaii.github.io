@@ -12,8 +12,8 @@ categories:
 <!--more-->
 
 # 概念
-### 设备像素(device independent pixels)
-设备屏幕的物理像素，任何设备的物理像素的数量都是固定的
+### 设备像素(device pixels)
+设备屏幕的物理像素，任何设备的物理像素的数量都是固定的（与密度无关的像素)。设备像素也被称为物理像素,他是显示设备中一个最微小的物理部件。一种基于屏幕密度的抽象单位。在每英寸160点的显示器上，1dp = 1px。
 
 ### CSS像素(CSS pixels): 
 又称为逻辑像素，是为web开发者创造的，在CSS和javascript中使用的一个抽象的层
@@ -26,6 +26,7 @@ meta里面设置width=device-width，这个device-width就是设备独立像素
 ### 设备像素比DPR(devicePixelRatio)
 是默认缩放为100%的情况下，设备像素和CSS像素的比值
 DPR = 设备像素 / CSS像素 (某一方向上)
+>iphon4 iPhone6的设备宽度和高度为375pt * 667pt,可以理解为设备的独立像素；而其dpr为2，根据上面公式，物理像素为750pt * 1334pt
 
 ### ppi  像素密度（pixel density）
 要计算显示器的每英寸像素值，首先要确定屏幕的尺寸和分辨率
@@ -39,8 +40,11 @@ DPR = 设备像素 / CSS像素 (某一方向上)
 
 ![](dpr-flexible/dpr1.gif)
 ![](dpr-flexible/dpr2.gif)
-不论我们进行缩小或放大操作，元素设置的CSS像素(如width:300px)是始终不变的，而一个CSS像素对应多少个设备像素是根据当前的缩放比例来决定的
+不论我们进行缩小或放大操作，*** 元素设置的CSS像素(如width:300px)是始终不变的，而一个CSS像素对应多少个设备像素是根据当前的缩放比例来决定的 ***
 （iphone4的分辨率提高了一倍，但屏幕尺寸却没有变化，这意味着同样大小的屏幕上，像素多了一倍，于是DPR = 2）
+
+ppi(pixels per inch)：图像的采样率（在图像中，每英寸所包含的像素数目）
+dpi(dots per inch)：打印分辨率（每英寸所能打印的点数，即打印精度）等。
 
 ### Visual viewport, Layout viewport
 - Visual viewport
@@ -51,8 +55,11 @@ However, the CSS layout, especially percentual widths, are calculated relative t
 Thus the element takes the width of the layout viewport initially, and your CSS is interpreted as if the screen were significantly wider than the phone screen. This makes sure that your site’s layout behaves as it does on a desktop browser.
 How wide is the layout viewport? That differs per browser. Safari iPhone uses 980px, Opera 850px, Android WebKit 800px, and IE 974px.
 
+
 # 实战应用
 ### 动态更改viewport的content
+
+> 安卓的dpr1， ios看情况，然后在头部加上对应的 <html data-dpr="2" style="font-size: 75px;" dir="ltr">  <meta name="viewport" content="initial-scale=0.5, maximum-scale=0.5, minimum-scale=0.5, user-scalable=no"> 缩放比例为 1/dpr (以dpr1为标准的理想尺寸，当我们在dpr上显示时候，css宽度已经为原来的2倍，整个Layout viewport都扩大为原来的2倍，所以缩放到1/2)
 
 ```JavaScript
     // postcss-flexible is required
@@ -159,3 +166,8 @@ After processing:
   https://github.com/amfe/lib-flexible
     - flexible.js下载
   http://www.w3cplus.com/sites/default/files/blogs/2016/1601/flexible.js
+
+  - 设备参数
+  https://material.io/devices/
+  https://www.paintcodeapp.com/news/ultimate-guide-to-iphone-resolutions
+  ![](dpr-flexible/Android-Design-Cheat-Sheet-highres.png)
