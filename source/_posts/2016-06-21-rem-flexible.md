@@ -101,7 +101,12 @@ html {
         recalc = function () {
           var clientWidth = docEl.clientWidth;
           if (!clientWidth) return;
-          docEl.style.fontSize =  10 * (clientWidth / 320) + 'px';
+          /** 
+          if (clientWidth > 640) clientWidth = 640;
+          if (clientWidth < 320) clientWidth = 320;
+          */
+          docEl.style.fontSize =  20 * (clientWidth / 320) + 'px';
+          docEl.style.fontSize =  100 * (clientWidth / 750) + 'px';
         };
 
       if (!doc.addEventListener) return;
