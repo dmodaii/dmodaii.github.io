@@ -37,7 +37,7 @@ DPR = 设备像素 / CSS像素 (某一方向上)
 设备像素(深蓝色背景)、CSS像素(半透明背景)
 (上图)当用户进行缩小操作时，一个设备像素覆盖了多个CSS像素
 (下图)当用户进行放大操作时，一个CSS像素覆盖了多个设备像素
-
+![](dpr-flexible/dpr.jpg)
 ![](dpr-flexible/dpr1.gif)
 ![](dpr-flexible/dpr2.gif)
 不论我们进行缩小或放大操作，*** 元素设置的CSS像素(如width:300px)是始终不变的，而一个CSS像素对应多少个设备像素是根据当前的缩放比例来决定的 ***
@@ -114,7 +114,12 @@ How wide is the layout viewport? That differs per browser. Safari iPhone uses 98
 
 ### 使用postcss-flexible处理css
 [require('postcss-flexible')({remUnit: 75} 75和dpr2为参照点
-
+>首先，目前视觉稿大小分为640，750以及，1125这三种。
+当前方案会把这3类视觉稿分成100份来看待（为了以后兼容vh，vw单位）。每一份被称为一个单位a。同时，1rem单位认定为10a。
+拿750的视觉稿举例：
+1a = 7.5px
+1rem = 75px
+因此，对于视觉稿上的元素的尺寸换算，只需要原始px值除以rem基准px值即可。例如240px * 120px的元素，最后转换为3.2rem * 1.6rem。
 
 ```css
 
@@ -161,6 +166,7 @@ After processing:
   - flexible
     - 统筹知识
   http://www.w3cplus.com/mobile/lib-flexible-for-html5-layout.html
+  https://segmentfault.com/a/1190000003690140
     - flexible工具
   https://github.com/crossjs/postcss-flexible
   https://github.com/amfe/lib-flexible

@@ -27,7 +27,7 @@ categories:
 
 5)、如果页面是经过缩小适应屏幕宽度的，会出现一个问题，当文本框被激活（获取焦点）时，页面会放大至原来尺寸。
 
-# CSS判断横屏竖屏
+### CSS判断横屏竖屏
 
 ```css
 @media screen and (orientation: portrait) {
@@ -40,7 +40,7 @@ categories:
 <link rel="stylesheet" media="all and (orientation:portrait)" href="portrait.css">
 <link rel="stylesheet" media="all and (orientation:landscape)" href="landscape.css">
 ```
-# js判断横屏竖屏
+### js判断横屏竖屏
 
 ```js
 //判断手机横竖屏状态：
@@ -100,8 +100,7 @@ window.addEventListener("onorientationchange" in window ? "orientationchange" : 
           if (clientWidth > 640) clientWidth = 640;
           if (clientWidth < 320) clientWidth = 320;
           */
-          docEl.style.fontSize =  20 * (clientWidth / 320) + 'px';
-          docEl.style.fontSize =  100 * (clientWidth / 750) + 'px';
+          docEl.style.fontSize =  (clientWidth / 7.5) + 'px';
         };
 
       if (!doc.addEventListener) return;
@@ -111,23 +110,31 @@ window.addEventListener("onorientationchange" in window ? "orientationchange" : 
 ```
 
 ###  通过设计图计算rem方法
-
-最佳设计：如果设计图是640的，则html页面  html {
-      font-size: 10px;
-  }
-根据这个为最基本的进行rem设计(css中的rem计算：设计图中像素/2然后再/10(设计最开始font-size),也就是直接除以20, 同样你可以font-size：64px;rem = 设计像素/2/64,js中则用64 * (clientWidth / 320) + 'px')
-
-## 利用js+less适配
-```javascript
-(function (win) {
-    function setUnitA() {
-        document.documentElement.style.fontSize = document.documentElement.clientWidth / 10 + "px";
-    }
-    var h = null;
-    window.addEventListener("resize", function () { clearTimeout(h); h = setTimeout(setUnitA, 300); }, false);
-    setUnitA();
-})(window);
+上面的750的设计稿， 只需要被除的7.5 和 换算的 100 乘积是当前设计稿即可
 ```
-less:文件顶部定义@unit: 750/10rem，然后css全文件的单位直接用@unit。
+如果设计稿基于iphone6，横向分辨率为750，body的width为750 / 100 = 7.5rem
+如果设计稿基于iphone4/5，横向分辨率为640，body的width为640 / 100 = 6.4rem
+```
 
-例如：100px=100/@unit;10px=10/@unit;1px=1/@unit;
+## 利用js+sass适配
+如果是7.5， 则$browser-default-font-size = 100
+```javascript
+sass
+@function px2rem($px){
+    //$px为需要转换的字号 
+    @return $px / $browser-default-font-size * 1rem; 
+    }
+
+SCSS
+html { font-size: $browser-default-font-size; } 
+.header { font-size: pxTorem(12px); } 
+
+CSS html { font-size: 16px; } 
+.header { font-size: 0.75rem; }
+```
+
+
+# 参考资料
+
+- http://isux.tencent.com/web-app-rem.html
+
