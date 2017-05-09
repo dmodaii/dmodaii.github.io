@@ -63,33 +63,28 @@ window.addEventListener("onorientationchange" in window ? "orientationchange" : 
 ## 使用css适应主流屏幕
 
 ```css
-html {
-    font-size : 20px;
+@media screen and (min-width: 320px) {
+    html {font-size: 14px;}
 }
-@media only screen and (min-width: 401px){
-    html {
-        font-size: 25px !important;
-    }
+ 
+@media screen and (min-width: 360px) {
+    html {font-size: 16px;}
 }
-@media only screen and (min-width: 428px){
-    html {
-        font-size: 26.75px !important;
-    }
+ 
+@media screen and (min-width: 400px) {
+    html {font-size: 18px;}
 }
-@media only screen and (min-width: 481px){
-    html {
-        font-size: 30px !important;
-    }
+ 
+@media screen and (min-width: 440px) {
+    html {font-size: 20px;}
 }
-@media only screen and (min-width: 569px){
-    html {
-        font-size: 35px !important;
-    }
+ 
+@media screen and (min-width: 480px) {
+    html {font-size: 22px;}
 }
-@media only screen and (min-width: 641px){
-    html {
-        font-size: 40px !important;
-    }
+ 
+@media screen and (min-width: 640px) {
+    html {font-size: 28px;}
 }
 ```
 ## 使用js适应所有屏幕
