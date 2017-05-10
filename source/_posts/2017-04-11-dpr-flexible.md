@@ -24,9 +24,11 @@ meta里面设置width=device-width，这个device-width就是设备独立像素
 在chrome里  看到的375*667  320*480等等都是设备独立像素，它们在数值上与css数值是相等的
 
 ### 设备像素比DPR(devicePixelRatio)
-是默认缩放为100%的情况下，设备像素和CSS像素的比值
-DPR = 设备像素 / CSS像素 (某一方向上)
->iphon4 iPhone6的设备宽度和高度为375pt * 667pt,可以理解为设备的独立像素；而其dpr为2，根据上面公式，物理像素为750pt * 1334pt
+DPR = 设备像素 / dpi(视口大小) 
+
+<!--是默认缩放为100%的情况下，设备像素和CSS像素的比值
+DPR = 设备像素 / CSS像素 (某一方向上)-->
+>iphon4 iPhone6的设备宽度和高度为320 * 480 dp,可以理解为设备的独立像素；而其dpr为2，根据上面公式，物理像素为640 * 960 px
 
 ### ppi  像素密度（pixel density）
 要计算显示器的每英寸像素值，首先要确定屏幕的尺寸和分辨率
@@ -113,6 +115,17 @@ How wide is the layout viewport? That differs per browser. Safari iPhone uses 98
 
 
 ### 使用postcss-flexible处理css
+
+- dpr
+dpr1到dpr2： px * 2 算出大小那么 屏幕dpi比如320x568，px*2 = 设计图大小，就相当把设计图原稿放在手机上了（设计图的一个点是由2个物理像素组成的，所以就是高清了），
+然后将viewport缩小为1/2 使适应屏幕实际宽度， 屏幕宽度没变，像素变成原来2倍， 所以是dpr2了
+
+> 关于px为1的问题， 设计稿如果有1px对应在dpr1中设计时候 为0.5px ，但是有些android设备不支持小数会出现问题
+
+320 * 480 dp  |  dpr 2 | 640 * 960 px
+
+
+- rem
 [require('postcss-flexible')({remUnit: 75} 75和dpr2为参照点
 >首先，目前视觉稿大小分为640，750以及，1125这三种。
 当前方案会把这3类视觉稿分成100份来看待（为了以后兼容vh，vw单位）。每一份被称为一个单位a。同时，1rem单位认定为10a。
@@ -172,7 +185,10 @@ After processing:
   https://github.com/amfe/lib-flexible
     - flexible.js下载
   http://www.w3cplus.com/sites/default/files/blogs/2016/1601/flexible.js
-
+ 
+    - px为1处理
+  http://www.jianshu.com/p/d62d22b44ce4
+  http://www.ghugo.com/css-retina-hairline/
   - 设备参数
   https://material.io/devices/
   https://www.paintcodeapp.com/news/ultimate-guide-to-iphone-resolutions
