@@ -87,6 +87,17 @@ window.addEventListener("onorientationchange" in window ? "orientationchange" : 
     html {font-size: 28px;}
 }
 ```
+- css和dpr
+```
+@media only screen and (-Webkit-min-device-pixel-ratio: 1.5),
+only screen and (-moz-min-device-pixel-ratio: 1.5),
+only screen and (-o-min-device-pixel-ratio: 1.5),
+only screen and (min-device-pixel-ratio: 1.5) {
+  .icon {
+    background-image: url(example@2x.png); /* 2倍尺寸图片 */
+  }
+}
+```
 ## 使用js适应所有屏幕
 
 ```js
