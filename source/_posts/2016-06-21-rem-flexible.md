@@ -66,23 +66,23 @@ window.addEventListener("onorientationchange" in window ? "orientationchange" : 
 @media screen and (min-width: 320px) {
     html {font-size: 14px;}
 }
- 
+
 @media screen and (min-width: 360px) {
     html {font-size: 16px;}
 }
- 
+
 @media screen and (min-width: 400px) {
     html {font-size: 18px;}
 }
- 
+
 @media screen and (min-width: 440px) {
     html {font-size: 20px;}
 }
- 
+
 @media screen and (min-width: 480px) {
     html {font-size: 22px;}
 }
- 
+
 @media screen and (min-width: 640px) {
     html {font-size: 28px;}
 }
@@ -107,7 +107,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
         recalc = function () {
           var clientWidth = docEl.clientWidth;
           if (!clientWidth) return;
-          /** 
+          /**
           if (clientWidth > 640) clientWidth = 640;
           if (clientWidth < 320) clientWidth = 320;
           */
@@ -131,21 +131,68 @@ only screen and (min-device-pixel-ratio: 1.5) {
 如果是7.5， 则$browser-default-font-size = 100
 ```javascript
 sass
+$browser-default-font-size = 100
 @function px2rem($px){
-    //$px为需要转换的字号 
-    @return $px / $browser-default-font-size * 1rem; 
+    //$px为需要转换的字号
+    @return $px / $browser-default-font-size * 1rem;
     }
 
 SCSS
-html { font-size: $browser-default-font-size; } 
-.header { font-size: pxTorem(12px); } 
+html { font-size: $browser-default-font-size; }
+.header { font-size: pxTorem(12px); }
 
-CSS html { font-size: 16px; } 
+CSS html { font-size: 16px; }
 .header { font-size: 0.75rem; }
 ```
+
+```
+@mixin dpr($property, $value) {
+    & {
+        #{$property}: $value / 2; /* no */
+    }
+
+    [data-dpr="2"] & {
+        #{$property}: $value; /* no */
+    }
+
+    [data-dpr="3"] & {
+        #{$property}: $value * 1.5; /* no */
+    }
+}
+
+@mixin font-size($fontSize) {
+    @include dpr(font-size, $fontSize);
+}
+// retina屏幕需要高清图片，然而普通屏幕加载高清图片却浪费资源耗带宽，因此根据不同手机dpr加载不同的图片可以解决这问题。
+@mixin img-dpr(){
+    background-image: url(image.jpg);//默认
+      [data-dpr="2"] & {
+        background-image: url(image@2x.jpg);//两倍高清
+      }
+      [data-dpr="3"] & {
+        background-image: url(image@3x.jpg);//三倍高清
+      }
+}
+.content{
+    @include img-dpr();
+}
+// 使用了rem之后，页面元素会随着屏幕的增大而等比例放大，但是某些内容我们不愿意被放大，例如正文段落，而是为显示更多的文字，这时文字则不使用rem作为单位，而是用px。但由于在解决border：1px问题的时候对页面进行了缩放scale，因此设置字体需要乘上dpr，否则字体会变得很小。
+@mixin font-dpr($font-size){
+      font-size: $font-size;
+      [data-dpr="2"] & {
+        font-size: $font-size * 2;
+      }
+      [data-dpr="3"] & {
+        font-size: $font-size * 3;
+      }
+}
+.content{
+    @include font-dpr(12px);    
+}
+```
+postcss sass http://www.w3cplus.com/preprocessor/getting-started-with-postcss-a-quick-guide-for-sass-users.html
 
 
 # 参考资料
 
 - http://isux.tencent.com/web-app-rem.html
-
