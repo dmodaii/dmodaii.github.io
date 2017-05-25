@@ -111,7 +111,33 @@ How wide is the layout viewport? That differs per browser. Safari iPhone uses 98
       }
     }(window, window.lib || (window.lib = {}));
 
-``````
+```
+
+```
+(function(designWidth) {
+        'use strict';
+        var docEl = document.documentElement;
+        var dpr = Math.min(Math.floor(window.devicePixelRatio), 3);
+        var scale = 1 / dpr;
+        var $viewport = document.querySelector('meta[name="viewport"]');
+        var content = 'initial-scale=' + scale + ',maximum-scale=' + scale + ',minimum-scale=' + scale + ',user-scalable=no,width=device-width';
+        if ($viewport) {
+            $viewport.setAttribute('content', content);
+        } else {
+            var metaViewport = '<meta name="viewport" content="' + content + '"/>';
+            document.write(metaViewport);
+        }
+        var setFontSize = function() {
+            docEl.setAttribute("data-dpr",dpr);
+            var width = docEl.clientWidth;
+            if (width / dpr > 450) width = dpr * 450;
+            var fontSize = width / designWidth * 100;
+            docEl.style.fontSize = fontSize + 'px';
+        };
+        setFontSize();
+        window.addEventListener('resize', setFontSize);
+    })(750);
+```
 
 
 ### 使用postcss-flexible处理css
@@ -133,6 +159,7 @@ dpr1到dpr2： px * 2 算出大小那么 屏幕dpi比如320x568，px*2 = 设计�
 1a = 7.5px
 1rem = 75px
 因此，对于视觉稿上的元素的尺寸换算，只需要原始px值除以rem基准px值即可。例如240px * 120px的元素，最后转换为3.2rem * 1.6rem。
+
 
 ```css
 
@@ -165,6 +192,60 @@ After processing:
   background-image: url(/images/qr@3x.png);
 }
 ```
+### 使用postcss的precss
+- 字体和1px
+```
+@define-mixin dpr-font $font-size{
+      [data-dpr="1"] & {
+          font-size: calc($font-size / 2);
+      }
+      [data-dpr="2"] & {
+        font-size: $font-size;
+      }
+      [data-dpr="3"] & {
+        font-size: calc($font-size * 3 / 2);
+      }
+}
+@define-mixin dpr-line-height $line-height{
+      [data-dpr="1"] & {
+        line-height: calc($line-height / 2);
+      }
+      [data-dpr="2"] & {
+        line-height: $line-height;
+      }
+      [data-dpr="3"] & {
+        line-height: calc($line-height * 3 / 2);
+      }
+}
+@define-mixin dpr-border-width $top:0, $right:0, $bottom:0, $left:0 {  
+      [data-dpr="1"] & {
+        border-width: calc($top / 2) calc($right / 2) calc($bottom / 2) calc($left / 2) ;
+      }
+      [data-dpr="2"] & {
+        border-width: $top $right $bottom $left;
+      }
+      [data-dpr="3"] & {
+        border-width: calc($top * 3 / 2) calc($right * 3 / 2) calc($bottom * 3 / 2) calc($left * 3 / 2) ;
+      }
+}
+```
+- 图片
+```css
+
+@define-mixin dpr-img $image, $size: 100% 100%{
+    background-size: $size;
+    [data-dpr="1"] & {
+      background-image: url(../../images/mobile/$(image)@2x.png);
+    }
+    [data-dpr="2"] & {
+      background-image: url(../../images/mobile/$(image)@2x.png);
+    }
+    [data-dpr="3"] & {
+      background-image: url(../../images/mobile/$(image)@3x.png);
+    }
+}
+```
+
 
 # 参考资料
 
