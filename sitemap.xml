@@ -2,37 +2,51 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://dmodaii.github.io/2016/06/22/flexbox/</loc>
+    <loc>http://dmodaii.github.io/2017/04/19/flux/</loc>
     
-    <lastmod>2017-05-09T08:59:37.899Z</lastmod>
+    <lastmod>2017-05-25T13:06:19.250Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://dmodaii.github.io/2016/06/21/rem-flexible/</loc>
+    <loc>http://dmodaii.github.io/2016/06/22/flexbox/</loc>
     
-    <lastmod>2017-05-09T08:56:41.561Z</lastmod>
+    <lastmod>2017-05-25T12:11:53.826Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://dmodaii.github.io/2016/06/21/dpr-flexible/</loc>
     
-    <lastmod>2017-05-09T08:09:08.168Z</lastmod>
+    <lastmod>2017-05-25T12:07:49.788Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://dmodaii.github.io/2017/05/08/webpack/</loc>
     
-    <lastmod>2017-05-08T11:29:41.482Z</lastmod>
+    <lastmod>2017-05-25T11:57:42.830Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://dmodaii.github.io/2017/04/19/flux/</loc>
+    <loc>http://dmodaii.github.io/2017/05/18/vue%E5%9F%BA%E7%A1%80/</loc>
     
-    <lastmod>2017-04-20T08:13:53.251Z</lastmod>
+    <lastmod>2017-05-25T11:57:29.184Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://dmodaii.github.io/2017/05/19/anmiate/</loc>
+    
+    <lastmod>2017-05-25T11:54:18.355Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://dmodaii.github.io/2016/06/21/rem-flexible/</loc>
+    
+    <lastmod>2017-05-22T01:29:23.831Z</lastmod>
     
   </url>
   
