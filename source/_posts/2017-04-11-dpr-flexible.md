@@ -120,23 +120,27 @@ How wide is the layout viewport? That differs per browser. Safari iPhone uses 98
         var dpr = Math.min(Math.floor(window.devicePixelRatio), 3);
         var scale = 1 / dpr;
         var $viewport = document.querySelector('meta[name="viewport"]');
-        var content = 'initial-scale=' + scale + ',maximum-scale=' + scale + ',minimum-scale=' + scale + ',user-scalable=no,width=device-width';
-        if ($viewport) {
-            $viewport.setAttribute('content', content);
-        } else {
-            var metaViewport = '<meta name="viewport" content="' + content + '"/>';
-            document.write(metaViewport);
-        }
-        var setFontSize = function() {
+        var setDpr = function() {
+          debugger
+            // viewport
+            var content = 'initial-scale=' + scale + ',maximum-scale=' + scale + ',minimum-scale=' + scale + ',user-scalable=no,width=device-width';
+            if ($viewport) {
+                $viewport.setAttribute('content', content);
+            } else {
+                var metaViewport = '<meta name="viewport" content="' + content + '"/>';
+                document.write(metaViewport);
+            }
+            // font
             docEl.setAttribute("data-dpr",dpr);
             var width = docEl.clientWidth;
             if (width / dpr > 450) width = dpr * 450;
             var fontSize = width / designWidth * 100;
             docEl.style.fontSize = fontSize + 'px';
-        };
-        setFontSize();
-        window.addEventListener('resize', setFontSize);
-    })(750);
+        }
+
+        setDpr();
+        window.addEventListener('resize', setDpr);
+    })(640);
 ```
 
 
