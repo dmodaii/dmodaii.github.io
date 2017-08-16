@@ -24,11 +24,11 @@ meta里面设置width=device-width，这个device-width就是设备独立像素
 在chrome里  看到的375*667  320*480等等都是设备独立像素，它们在数值上与css数值是相等的
 
 ### 设备像素比DPR(devicePixelRatio)
-DPR = 设备像素 / dpi(视口大小) 
 
-<!--是默认缩放为100%的情况下，设备像素和CSS像素的比值
-DPR = 设备像素 / CSS像素 (某一方向上)-->
->iphon4 iPhone6的设备宽度和高度为320 * 480 dp,可以理解为设备的独立像素；而其dpr为2，根据上面公式，物理像素为640 * 960 px
+DPR = 设备像素 / 逻辑像素（在某一方向上）
+或者是 DPR = 设备像素 / dpi(视口大小)  
+
+> 所以dpr为2的设备上的逻辑1px代表了物理上的2px, iphon4 的设备宽度和高度为320 * 480 dp， 逻辑像素数值上就是 320 * 480px,可以理解为设备的独立像素；而其dpr为2，根据上面公式，物理上的对应的物理像素值为640 * 960 px （这里都转化为px来比较）
 
 ### ppi  像素密度（pixel density）
 要计算显示器的每英寸像素值，首先要确定屏幕的尺寸和分辨率
@@ -113,7 +113,7 @@ How wide is the layout viewport? That differs per browser. Safari iPhone uses 98
 
 ```
 
-```
+```JavaScript
 (function(designWidth) {
         'use strict';
         var docEl = document.documentElement;
@@ -121,7 +121,6 @@ How wide is the layout viewport? That differs per browser. Safari iPhone uses 98
         var scale = 1 / dpr;
         var $viewport = document.querySelector('meta[name="viewport"]');
         var setDpr = function() {
-          debugger
             // viewport
             var content = 'initial-scale=' + scale + ',maximum-scale=' + scale + ',minimum-scale=' + scale + ',user-scalable=no,width=device-width';
             if ($viewport) {
@@ -198,7 +197,7 @@ After processing:
 ```
 ### 使用postcss的precss
 - 字体和1px
-```
+```css
 @define-mixin dpr-font $font-size{
       [data-dpr="1"] & {
           font-size: calc($font-size / 2);
@@ -233,7 +232,9 @@ After processing:
       }
 }
 ```
+
 - 图片
+
 ```css
 
 @define-mixin dpr-img $image, $size: 100% 100%{
